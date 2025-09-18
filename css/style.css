@@ -1,0 +1,23 @@
+:root {
+  --primary-color: #3aafed; /* Vivid Azure */
+  --secondary-color: #8CC63F; /* Leaf Green */
+  --accent-magenta: #b15d9b; /* Vivid Magenta */
+  --accent-red: #DC3545; /* Urgent Red */
+  --neutral-dark: #343a40; /* Dark Grey */
+  --neutral-light: #f8f9fa; /* Light Grey */
+  --background-base: #FFFFFF; /* White */
+  --text-body: #343a40;
+  --text-headings: #343a40;  
+  --trustworthy-sky: linear-gradient(to right, #3aafed, #3a7bd5);
+  --fresh-growth: linear-gradient(to right, #8CC63F, #a8e063);
+  --vibrant-impact: linear-gradient(to right, #b15d9b, #614385);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-body: #E0E0E0; /* Off-White */
+    --text-headings: #FFFFFF; /* White */
+    --background-base: #121212; /* Near Black */
+    --background-section: #1E1E1E; /* Dark Grey */
+  }
+}
