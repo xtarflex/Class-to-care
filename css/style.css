@@ -1,23 +1,542 @@
+/* =================================== */
+/* 1. GLOBAL STYLES & SETUP            */
+/* =================================== */
+
+/* --- Root Variables --- */
 :root {
-  --primary-color: #3aafed; /* Vivid Azure */
-  --secondary-color: #8CC63F; /* Leaf Green */
-  --accent-magenta: #b15d9b; /* Vivid Magenta */
-  --accent-red: #DC3545; /* Urgent Red */
-  --neutral-dark: #343a40; /* Dark Grey */
-  --neutral-light: #f8f9fa; /* Light Grey */
-  --background-base: #FFFFFF; /* White */
-  --text-body: #343a40;
-  --text-headings: #343a40;  
-  --trustworthy-sky: linear-gradient(to right, #3aafed, #3a7bd5);
-  --fresh-growth: linear-gradient(to right, #8CC63F, #a8e063);
-  --vibrant-impact: linear-gradient(to right, #b15d9b, #614385);
+  /* Brand Colors */
+  --primary-vivid-azure: #3aafed;
+  --secondary-leaf-green: #8CC63F;
+  --accent-vivid-magenta: #b15d9b;
+  --accent-urgent-red: #DC3545;
+  
+  /* Neutral & Base Colors */
+  --neutral-dark: #343a40;
+  --neutral-light: #f8f9fa;
+  --background-base: #FFFFFF;
+  --border-color: #dee2e6; /* Updated for subtle separation */
+
+  /* Typography */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+
+  /* Layout & Spacing */
+  --header-height: 80px;
+  --container-width: 1200px;
+  --container-padding: 15px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-body: #E0E0E0; /* Off-White */
-    --text-headings: #FFFFFF; /* White */
-    --background-base: #121212; /* Near Black */
-    --background-section: #1E1E1E; /* Dark Grey */
+/* --- Basic Resets & Body Styles --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Makes rem unit calculation predictable (1rem = 10px). */
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.6rem; /* Default font size (16px) */
+  line-height: 1.6;
+  color: var(--neutral-dark);
+  background-color: var(--neutral-light);
+}
+
+/* --- Global Utility Classes --- */
+
+/* Prevents scrolling on the body when a modal or overlay is active. */
+body.menu-is-open {
+  overflow: hidden;
+}
+
+/* A standard container for centering content within the layout. */
+.container {
+  max-width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* =================================== */
+/* 2. TYPOGRAPHY & HEADINGS            */
+/* =================================== */
+
+/* 
+  Developer Note: This is where you would define base styles for all your
+  common text elements to ensure site-wide consistency.
+*/
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--neutral-dark);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--primary-vivid-azure);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =================================== */
+/* 3. REUSABLE COMPONENTS              */
+/* =================================== */
+
+/* --- Buttons --- */
+/* Base button styles can be extended by modifiers like .btn-primary */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-primary {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  background-color: var(--primary-vivid-azure);
+  color: var(--background-base);
+  position: relative; /* Required for the glare effect pseudo-element */
+  overflow: hidden;   /* Keeps the glare effect within the button bounds */
+}
+
+/* A subtle 3D lift effect on hover for primary actions. */
+.btn-primary:hover {
+  text-decoration: none;
+  transform: translateY(-2px) rotateX(4deg) rotateY(-7deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Glare effect to make the button more visually engaging. */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  /* Start the glare effect off-screen to the left */
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+  /* Links to the @keyframes rule at the end of the file */
+  animation: glare 7s infinite;
+}
+
+.btn-icon {
+  display: grid;
+  place-items: center;
+  padding: 0.5rem;
+  color: var(--background-base);
+  background-color: var(--primary-vivid-azure);
+  border-radius: 10%;
+}
+
+.btn-icon svg {
+  stroke: var(--background-base);
+}
+
+/* =================================== */
+/* 4. SITE HEADER & NAVIGATION         */
+/* =================================== */
+
+/* --- Mobile-First Styles (Default) --- */
+
+.site-header {
+  background-color: var(--background-base);
+  border-bottom: 1px solid var(--border-color);
+  /* Use 'fixed' to keep the header visible during scroll. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* z-index ensures the header stays above all other page content. */
+  z-index: 1000;
+  transition: all 0.4s ease-out;
+}
+
+/* Detached/scrolled state for the header, adding a modern floating effect. */
+.site-header.is-scrolled {
+  top: 10px;
+  width: 95%;
+  left: 2.5%;
+  border-radius: 50px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  border-bottom-color: transparent; /* Hide border when detached */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+}
+
+.site-logo img {
+  max-height: 80px;
+}
+
+/* Hide desktop navigation elements on mobile by default. */
+.main-nav,
+.desktop-donate-btn {
+  display: none;
+}
+
+.mobile-nav-triggers {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  /* z-index needed to place it above the mobile overlay's header. */
+  position: relative;
+  z-index: 1001;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: var(--neutral-dark);
+  margin: 5px 0;
+  border-radius: 2px;
+  /* A "springy" transition for a playful open/close effect. */
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Transforms the hamburger icon into an "X" when the menu is open. */
+body.menu-is-open .hamburger-btn span:nth-child(1) {
+  transform: translateY(8px) rotate(405deg);
+}
+body.menu-is-open .hamburger-btn span:nth-child(2) {
+  opacity: 0;
+}
+body.menu-is-open .hamburger-btn span:nth-child(3) {
+  transform: translateY(-8px) rotate(-405deg);
+}
+
+/* Full-screen menu overlay for mobile devices. */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-base);
+  z-index: 999;
+  /* Initially hidden off-screen. */
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Slides the mobile menu into view when the body has the .menu-is-open class. */
+body.menu-is-open .mobile-nav-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile-nav-header {
+  display: flex;
+  justify-content: flex-end; /* Aligns close button to the right */
+  align-items: center;
+  height: var(--header-height);
+  padding: 0 var(--container-padding);
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0; /* Prevents this header from shrinking */
+}
+
+.mobile-nav {
+  padding: 2rem 1.5rem;
+  /* flex-grow allows this container to fill the remaining vertical space. */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Allows scrolling if content exceeds screen height */
+}
+
+.mobile-nav li {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.mobile-nav li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0;
+  color: var(--neutral-dark);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Accordion indicator arrow. */
+.mobile-nav .accordion-toggle::after {
+  content: '›';
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #ccc;
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+.mobile-nav .has-submenu.is-open .accordion-toggle::after {
+  transform: rotate(-90deg);
+}
+
+.mobile-submenu {
+  /* This is the core of the accordion animation: transitioning max-height. */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  padding-left: 1.5rem;
+}
+
+.mobile-submenu a {
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 0.75rem 0;
+  opacity: 0.8;
+}
+
+/* This is a specific instance of a button, not a reusable component. */
+.mobile-donate-btn {
+  /* Inherit from the base .btn class and add modifications */
+  display: block;
+  width: 100%;
+  margin-top: auto; /* Pushes the button to the bottom of the flex container */
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  background-color: var(--primary-vivid-azure);
+  color: var(--background-base);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  flex-shrink: 0; /* Prevents the button from shrinking */
+}
+
+
+/* --- Desktop Styles (@media query) --- */
+
+@media (min-width: 992px) {
+  /* Hide mobile-specific elements on larger screens. */
+  .mobile-nav-triggers,
+  .mobile-nav-overlay {
+    display: none;
+  }
+
+  /* Show desktop-specific elements. */
+  .main-nav,
+  .desktop-donate-btn {
+    display: block;
+  }
+  
+  /* Autohide header on scroll down for more screen real estate. */
+  .site-header.header--hidden {
+    transform: translateY(-100%);
+  }
+  
+  /* Disable the "detached" scrolled state on desktop. */
+  .site-header.is-scrolled {
+    top: 0;
+    width: 100%;
+    left: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom-color: var(--border-color);
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .main-nav a {
+    font-weight: 700;
+    color: var(--neutral-dark);
+    padding: 1rem 0.75rem;
+    position: relative; /* Required for the pseudo-element hover effect. */
+    overflow: hidden;
+    z-index: 1; /* Ensures text is above the pseudo-element */
+    text-decoration: none;
+  }
+  
+  /* "Liquid Fill" hover effect: A pseudo-element scales up from the bottom. */
+  .main-nav .nav-list > li > a:not(.active)::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: var(--primary-vivid-azure);
+    z-index: -1; /* Places the fill effect behind the link text */
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+
+  .main-nav .nav-list > li > a:hover {
+    color: var(--background-base);
+  }
+
+  .main-nav .nav-list > li > a:hover::before {
+    transform: scaleY(1); /* Grow to full height on hover. */
+  }
+  
+  /* Active state for the current page link. */
+  .main-nav .nav-list > li > a.active {
+    color: var(--neutral-dark);
+    border-bottom: 2px solid var(--primary-vivid-azure);
+    /* Adjust padding to account for border thickness, preventing layout shift. */
+    padding-bottom: calc(0.7rem - 2px);
+  }
+
+  .main-nav .nav-list > li > a.active:hover {
+    color: var(--primary-vivid-azure);
+  }
+
+  /* Dropdown Menu Logic */
+  .has-submenu {
+    /* 'static' is crucial for the mega-menu, allowing it to be positioned 
+       relative to the viewport (.fixed) instead of this list item. */
+    position: static;
+  }
+
+  .submenu {
+    background-color: var(--neutral-light);
+    border-radius: 4px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    min-width: 220px;
+    
+    /* Hide submenu by default and prepare for transition. */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    transition-delay: 0.2s; /* Slight delay before appearing. */
+  }
+  
+  /* Show dropdown on hover/focus of the parent. */
+  .has-submenu:hover .submenu,
+  .has-submenu.is-active .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .submenu a {
+    display: block;
+    padding: 0.8rem 1.2rem;
+    border-bottom: none !important; /* Override mobile styles if necessary. */
+  }
+
+  .main-nav .submenu a:hover {
+    color: var(--primary-vivid-azure);
+    background-color: var(--neutral-light); /* Override liquid fill */
+  }
+
+  .main-nav .submenu a:hover::before {
+    transform: none; /* Disable liquid fill effect inside dropdowns. */
+  }
+
+  /* Mega Menu Specifics */
+  .submenu--mega {
+    position: fixed; /* Position relative to the viewport. */
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    min-width: initial;
+    border-radius: 0;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .submenu--mega .submenu-wrapper {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 2.5rem var(--container-padding);
+  }
+
+  .submenu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem 2rem;
+  }
+}
+
+/* =================================== */
+/* 5. SITE FOOTER                      */
+/* =================================== */
+
+/* 
+  Developer Note: All styles related to the <footer> element, including
+  its columns, links, and forms, would be placed here.
+*/
+
+
+/* =================================== */
+/* 6. HOMEPAGE SECTIONS                */
+/* =================================== */
+
+/* 
+  Developer Note: Each distinct section of the homepage (Hero, Testimonials,
+  etc.) should have its own clearly marked sub-section here.
+*/
+
+/* --- 6.1 Hero Section --- */
+/* .hero { ... } */
+
+/* --- 6.2 Our Work Section --- */
+/* .our-work { ... } */
+
+
+/* =================================== */
+/* 7. KEYFRAME ANIMATIONS              */
+/* =================================== */
+
+/* Used for the glare effect on .btn-primary */
+@keyframes glare {
+  0% {
+    left: -100%;
+  }
+  5% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
   }
 }

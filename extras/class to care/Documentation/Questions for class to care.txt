@@ -1,0 +1,38 @@
+﻿Website Project Discovery Questions for Class to Care
+I. Understanding Class to Care's Mission & Goals
+1. What is the core mission and vision of Class to Care?
+2. What specific problems or needs does Class to Care address in the community?
+3. What are the primary goals you hope to achieve with this new website? (e.g., increase donations, recruit volunteers, raise awareness, provide resources, showcase impact, improve communication?)
+4. How will you measure the success of the website? (e.g., number of donations, volunteer sign-ups, website traffic, engagement metrics?)
+II. Target Audience & User Experience
+5. Who is the primary audience for this website? (e.g., potential donors, current volunteers, prospective beneficiaries, community partners, media, general public?)
+6. Are there any secondary audiences we should consider?
+7. What do you want visitors to feel or experience when they visit the website? (e.g., inspired, informed, empowered, trusting, urgent?)
+8. What are the top 2-3 most important actions you want visitors to take when they land on the site?
+III. Content & Branding
+9. Who will be responsible for providing all the text content for the website pages?
+10. Do you have existing photos, videos, or graphics that we can use? If so, in what format are they available, and are they high-resolution?
+11. Do you have a specific logo, brand guidelines, preferred color palette, or specific fonts that need to be used on the website?
+12. Will there be a need for a "News" section, "Blog," or "Events Calendar" that requires regular updates? If so, who will be responsible for posting this content?
+13. Is there any existing content (e.g., annual reports, program descriptions, testimonials) that needs to be migrated to the new site?
+IV. Functionality & Features
+14. Beyond basic informational pages (Home, About Us, Contact), what specific features are essential for the website?
+   * Donation functionality? (If yes, do you have a preferred payment gateway like Paystack, Flutterwave, or PayPal you already use or want to integrate?)
+   * Volunteer application forms?
+   * Newsletter signup form?
+   * Contact form? Where should inquiries from this form be sent?
+   * Photo/Video galleries?
+   * Social media integration (links, feeds)?
+   * Interactive elements (e.g., impact counter, interactive map)?
+   * Any password-protected areas or member logins? (Likely not for a first site, but good to ask).
+15. Do you have any specific examples of other NGO websites or general websites whose design or functionality you admire?
+V. Technical & Logistics
+16. Do you currently have a domain name registered (e.g., classtocare.org)? If so, what is it, and who manages it?
+17. Do you have existing web hosting, or will I be responsible for setting that up?
+18. Are there any existing online services or tools (e.g., CRM, email marketing platform) that the website needs to integrate with?
+19. What are your expectations regarding website security and data privacy?
+VI. Project Management & Timeline
+20. What is your desired launch date or general timeframe for having the website live?
+21. What is the best way and frequency for us to communicate throughout the project? (e.g., weekly emails, bi-weekly calls?)
+22. Who will be my primary point of contact for content, approvals, and decisions?
+23. What are your expectations for post-launch maintenance, updates, or future enhancements?

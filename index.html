@@ -1,13 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class to Care</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <script src="js/script.js"></script>
-</body>
-</html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Class to Care</title>
+
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=700&family=Nunito:wght=400;700&display=swap" rel="stylesheet">
+
+     <link rel="stylesheet" href="css/style.css">
+ </head>
+ <body>
+
+     <header class="site-header">
+         <div class="container header-container">
+             <!-- Logo -->
+             <a href="/" class="site-logo">
+                 <img src="Assets/icons/c2c image logo2.png" alt="Class to Care Logo">
+             </a>
+
+             <!-- Desktop Navigation (Hidden on Mobile) -->
+             <nav class="main-nav" aria-label="Main Navigation">
+                 <ul class="nav-list">
+
+                     <li><a href="#" class="active">Home</a></li>
+
+                     <li class="has-submenu">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">About Us ▼</a>
+                      <div class="submenu submenu--mega">
+                          <div class="submenu-wrapper">
+                            <div class="submenu-grid">
+                            <div class="submenu-column">
+                              <a href="#">Our Mission </a>
+                            </div>
+                            <div class="submenu-column">
+                              <a href="#">Our Vision</a>
+                            </div>
+                            <div class="submenu-column">
+                              <a href="#">Our History</a>
+                            </div>
+                          </div>
+                        </div>
+                     </li>
+
+                     <li class="has-submenu">
+                      <a href="#" aria-haspopup="true" aria-expanded="false">Our Work ▼</a>
+                      <div class="submenu submenu--mega">
+                        <div class="submenu-wrapper">
+                          <div class="submenu-grid">
+                            <div class="submenu-column">
+                              <a href="#">Our Project</a>
+                              <a href="#">Our Project</a>
+                            </div>
+                            <div class="submenu-column">
+                              <a href="#">Our Program</a>
+                              <a href="#">Our Project</a>
+                            </div>
+                            <div class="submenu-column">
+                              <a href="#">Our Project</a>
+                              <a href="#">Our Project</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                     </li>
+
+                     <li class="has-submenu">
+                      <a href="#" aria-haspopup="true" aria-expanded="false">Get Involved ▼</a>
+                      <div class="submenu submenu--mega">
+                        <div class="submenu-wrapper">
+                          <div class="submenu-grid">
+                             <div class="submenu-column">
+                              <a href="/volunteer">Partner With Us</a>
+                            </div>
+                            <div class="submenu-column">
+                              <a href="/donate"> Donate to our Cause</a>
+                            </div>
+                            <div class="submenu-column">
+                              <a href="#">Our Project</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                     </li>  
+
+                     <li><a href="#">Contact</a></li>
+
+                 </ul>
+             </nav>
+
+             <!-- Mobile Navigation Triggers (Hidden on Desktop) -->
+             <div class="mobile-nav-triggers">
+                  <a href="/donate" class="btn-icon" aria-label="Donate"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                  <button class="hamburger-btn" aria-label="Open Menu" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span><span></span></button>
+             </div>
+
+             <!-- Desktop Donate Button (Hidden on Mobile) -->
+             <a href="/donate" class="btn btn-primary desktop-donate-btn">DONATE</a>
+         </div>
+     </header>
+
+     <!-- Full Screen Mobile Menu (Hidden by default) -->
+     <div class="mobile-nav-overlay" id="mobile-nav" role="dialog" aria-modal="true">
+         <div class="mobile-nav-header">
+              <!-- <a href="/" class="site-logo"><img src="" alt="Class to Care Logo"></a> -->
+             <button class="close-btn" aria-label="Close Menu"></button>
+         </div>
+         <nav class="mobile-nav">
+             <ul>
+                 <li><a href="#">Home</a></li>
+                 <li class="has-submenu"><a href="#" class="accordion-toggle" aria-expanded="false">About Us</a><div class="mobile-submenu"><a href="#">Our Mission</a><a href="#">Our Vision</a><a href="#">Our History</a></div></li>
+                 <li class="has-submenu"><a href="#" class="accordion-toggle" aria-expanded="false">Our Work</a><div class="mobile-submenu"><a href="#">Projects</a><a href="#">Programs</a></div></li>
+                 <li class="has-submenu"><a href="#" class="accordion-toggle" aria-expanded="false">Get Involved</a><div class="mobile-submenu"><a href="#">Volunteer</a><a href="#">Partner with Us</a></div></li>
+                 <li><a href="#">Contact</a></li>
+             </ul>
+             <a href="/donate" class="btn btn-primary mobile-donate-btn">DONATE</a>
+         </nav>
+     </div>
+     <!-- Main Content Section -->
+     <main style="padding-top: 100px; height: 2000px; background: #f0f0f0;">
+         <div class="container">
+             <h1>Mobile-First Header Test</h1>
+             <p>Scroll down to see the dynamic sticky header effect on mobile.</p>
+         </div>
+     </main>
+
+     <script src="js/script.js"></script>
+ </body>
+ </html>
