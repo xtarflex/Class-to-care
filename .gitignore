@@ -1,0 +1,321 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Production build
+dist/
+build/
+.next/
+out/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.rej
+
+# Application specific files
+# Class to Care specific ignores
+gemini.md
+*.tmp
+*.temp
+.cache/
+.sass-cache/
+
+# Development documentation
+docs/_build/
+docs/build/
+
+# Testing
+.nyc_output/
+coverage/
+
+# Local development
+.local/
+.dev/
+
+# Database
+*.sqlite
+*.db
+
+# Certificates
+*.pem
+*.key
+*.crt
+
+# Compressed files
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# Media files (if not needed in version control)
+# *.jpg
+# *.jpeg
+# *.png
+# *.gif
+# *.svg
+# *.ico
+# *.webp
+
+# Video files
+# *.mp4
+# *.avi
+# *.mov
+# *.wmv
+
+# Audio files
+# *.mp3
+# *.wav
+# *.flac
+
+# Font files
+# *.woff
+# *.woff2
+# *.ttf
+# *.eot
+
+# Package manager lockfiles (uncomment if you want to ignore)
+# package-lock.json
+# yarn.lock
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*.swp
+*.swo
+Session.vim
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PHP
+/vendor/
+
+# Ruby
+.bundle/
+.bundler/
+.gemfile.lock
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# C/C++
+*.o
+*.obj
+*.lib
+*.a
+*.la
+*.lo
+*.slo
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Rust
+/target/
+Cargo.lock
+
+# Swift
+.build/
+.swiftpm/
+
+# .NET
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# LaTeX
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+
+# Documentation
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+
+# Backup and auto-save files
+*~
+*.bak
+*.backup
+*.orig
+*.rej
+*.swp
+*.tmp
+*.temp
+
+# Application specific
+# Add any project-specific files or directories that should be ignored
+# extras/class to care/Blueprint/doc/*.txt
+# extras/class to care/design/mockups/*.png
