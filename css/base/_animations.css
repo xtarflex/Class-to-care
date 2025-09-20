@@ -1,0 +1,12 @@
+/* Used for the glare effect on .btn-primary */
+@keyframes glare {
+  0% {
+    left: -100%;
+  }
+  5% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
