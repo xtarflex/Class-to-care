@@ -1,0 +1,112 @@
+/* --- 6.1 Hero Section (Mobile-First) --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    background-image: linear-gradient(to right, rgba(58, 123, 213, 0.7), rgba(58, 123, 213, 0.7)), url('../../Assets/images/hero-bg.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 var(--container-padding);
+}
+
+.hero__container {
+    width: 100%;
+}
+
+.hero__title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    animation: fade-and-slide-up 0.8s 0.2s ease-out forwards;
+    opacity: 0;
+}
+
+.hero__subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 2.5rem;
+    animation: fade-and-slide-up 0.8s 0.4s ease-out forwards;
+    opacity: 0;
+}
+
+.hero__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    animation: fade-and-slide-up 0.8s 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.hero__buttons .btn {
+    width: 100%;
+    padding: 1.2rem;
+}
+
+.hero__buttons .btn-secondary {
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+}
+
+.hero__photostrip {
+    display: none; /* Hidden on mobile */
+}
+
+.hero__scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: shooting-arrows 2s infinite ease-out;
+}
+
+.hero__scroll-indicator svg {
+    stroke: #fff;
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 992px) {
+    .hero {
+        text-align: left;
+    }
+
+    .hero__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .hero__content {
+        max-width: 60%;
+    }
+
+    .hero__title {
+        font-size: 5rem;
+    }
+
+    .hero__buttons {
+        flex-direction: row;
+    }
+
+    .hero__buttons .btn {
+        width: auto;
+    }
+
+    .hero__photostrip {
+        display: block;
+        position: absolute;
+        bottom: 5%;
+        right: -5%;
+        transform: rotate(-30deg);
+        animation: fade-and-slide-up 1s 0.8s ease-out forwards;
+        opacity: 0;
+    }
+
+    .hero__photostrip img {
+        width: 350px;
+        border: 2px solid white;
+        filter: grayscale(1);
+    }
+}

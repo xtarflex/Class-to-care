@@ -1,12 +1,40 @@
-/* Used for the glare effect on .btn-primary */
-@keyframes glare {
-  0% {
-    left: -100%;
-  }
-  5% {
-    left: 100%;
-  }
-  100% {
-    left: 100%;
-  }
+/* =================================== */
+/* 7. KEYFRAME ANIMATIONS              */
+/* =================================== */
+
+/* --- Hero Section Entrance --- */
+@keyframes fade-and-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Scroll Down Indicator --- */
+@keyframes shooting-arrows {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-15px, -15px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(15px, 15px);
+    }
+}
+
+/* --- Button Effects --- */
+@keyframes glass-wipe {
+    0% {
+        transform: translateX(-150%);
+    }
+    100% {
+        transform: translateX(150%);
+    }
 }
