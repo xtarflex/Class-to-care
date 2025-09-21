@@ -2,7 +2,7 @@
 .hero {
     position: relative;
     height: 100vh;
-    background-image: linear-gradient(to right, rgba(58, 123, 213, 0.7), rgba(58, 123, 213, 0.7)), url('../../Assets/images/hero-bg.webp');
+    background-image: linear-gradient(to right, rgba(58, 123, 213, 0.8), rgba(58, 123, 213, 0.8)), url('../../Assets/images/hero-bg.webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -11,6 +11,7 @@
     text-align: center;
     color: #fff;
     padding: 0 var(--container-padding);
+    overflow: hidden; /* Prevents photostrip from showing scrollbars */
 }
 
 .hero__container {
@@ -26,6 +27,7 @@
 
 .hero__subtitle {
     font-size: 1.6rem;
+    line-height: 1.7;
     margin-bottom: 2.5rem;
     animation: fade-and-slide-up 0.8s 0.4s ease-out forwards;
     opacity: 0;
@@ -64,22 +66,23 @@
 
 .hero__scroll-indicator svg {
     stroke: #fff;
+    width: 48px;
+    height: 48px;
 }
 
 /* --- Desktop Styles --- */
 @media (min-width: 992px) {
     .hero {
+        justify-content: flex-start;
         text-align: left;
     }
 
     .hero__container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        display: flex; /* This is not needed here, but on the parent */
     }
 
     .hero__content {
-        max-width: 60%;
+        max-width: 600px; /* Set a max-width for the content */
     }
 
     .hero__title {
@@ -88,6 +91,7 @@
 
     .hero__buttons {
         flex-direction: row;
+        gap: 2rem;
     }
 
     .hero__buttons .btn {
@@ -95,18 +99,33 @@
     }
 
     .hero__photostrip {
-        display: block;
+        display: flex; /* Use flexbox for the strip */
         position: absolute;
-        bottom: 5%;
-        right: -5%;
-        transform: rotate(-30deg);
-        animation: fade-and-slide-up 1s 0.8s ease-out forwards;
+        bottom: 40px;
+        right: -100px;
+        transform: rotate(-25deg);
+        transform-origin: bottom left;
+        animation: fade-and-slide-up 1.2s 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         opacity: 0;
     }
 
     .hero__photostrip img {
-        width: 350px;
-        border: 2px solid white;
+        width: 220px;
+        height: auto;
+        border: 4px solid white;
+        border-radius: 8px;
         filter: grayscale(1);
+        margin-left: -60px; /* Overlap the images */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease;
+    }
+
+    .hero__photostrip img:first-child {
+        margin-left: 0;
+    }
+
+    .hero__photostrip img:hover {
+        transform: scale(1.1) rotate(0deg); /* Bring image to front on hover */
+        z-index: 10;
     }
 }
