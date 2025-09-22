@@ -1,96 +1,120 @@
-/* --- 6.1 Hero Section (Mobile-First) --- */
+/* --- 6.1 Hero Section (Mobile-First Rebuild) --- */
+
+/* 1. Base Container & Background */
 .hero {
     position: relative;
-    height: 100vh;
-    background-image: linear-gradient(to right, rgba(58, 123, 213, 0.8), rgba(58, 123, 213, 0.8)), url('../../Assets/images/hero-bg.webp');
+    height: 100vh; 
+    background-image: linear-gradient(to right, rgba(58, 174, 237, 0.89), rgba(58, 123, 213, 0.8)), url('../../Assets/images/hero-bg.webp');
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #fff;
+    color: #FFFFFF;
     padding: 0 var(--container-padding);
-    overflow: hidden; /* Prevents photostrip from showing scrollbars */
+    overflow: hidden; /* This will be important for the photostrip later */
 }
 
 .hero__container {
     width: 100%;
+    max-width: 1200px;
 }
 
+/* 2. Typography */
 .hero__title {
+    font-family: var(--font-heading); /* Montserrat */
+    font-weight: 700;
     font-size: 3.5rem;
+    color: #FFFFFF;
     margin-bottom: 1.5rem;
-    animation: fade-and-slide-up 0.8s 0.2s ease-out forwards;
+    /* Animation */
     opacity: 0;
+    animation: fade-and-slide-up 0.8s 0.2s ease-out forwards;
 }
 
 .hero__subtitle {
+    font-family: var(--font-body); /* Nunito */
+    font-weight: 400;
     font-size: 1.6rem;
     line-height: 1.7;
-    margin-bottom: 2.5rem;
-    animation: fade-and-slide-up 0.8s 0.4s ease-out forwards;
+    color: #FFFFFF;
+    max-width: 65ch; /* Improves readability */
+    margin: 0 auto 2.5rem auto;
+    /* Animation */
     opacity: 0;
+    animation: fade-and-slide-up 0.8s 0.4s ease-out forwards;
 }
 
+/* 3. Buttons & Animations */
 .hero__buttons {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
-    animation: fade-and-slide-up 0.8s 0.6s ease-out forwards;
+    /* Animation */
     opacity: 0;
+    animation: fade-and-slide-up 0.8s 0.6s ease-out forwards;
 }
 
 .hero__buttons .btn {
+    font-family: var(--font-heading);
+    font-weight: 700;
     width: 100%;
+    max-width: 320px;
     padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    position: relative; 
+    overflow: hidden; 
 }
 
 .hero__buttons .btn-secondary {
-    border: 2px solid #fff;
+    border: 2px solid #FFFFFF;
     background: transparent;
-    color: #fff;
+    color: #FFFFFF;
 }
 
-.hero__photostrip {
-    display: none; /* Hidden on mobile */
+/* Chevron Shooting Animation */
+.hero__buttons .btn:hover svg {
+    animation: shoot-right 1.5s ease-out infinite;
 }
 
+/* 4. Scroll Indicator */
 .hero__scroll-indicator {
     position: absolute;
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
-    animation: shooting-arrows 2s infinite ease-out;
+    display: flex;
+    flex-direction: column;
 }
+
+.hero__photostrip-wrapper {
+        display: none;
+    }
 
 .hero__scroll-indicator svg {
     stroke: #fff;
     width: 48px;
     height: 48px;
+    opacity: 0;
+    transform: translateY(0);
+    animation: shooting-arrows 2s infinite ease-out;
 }
 
-/* --- Desktop Styles --- */
+
+/* 5. Desktop Styles */
 @media (min-width: 992px) {
-    .hero {
-        justify-content: flex-start;
-        text-align: left;
-    }
-
-    .hero__container {
-        display: flex; /* This is not needed here, but on the parent */
-    }
-
-    .hero__content {
-        max-width: 600px; /* Set a max-width for the content */
-    }
-
     .hero__title {
         font-size: 5rem;
     }
 
     .hero__buttons {
         flex-direction: row;
+        justify-content: center;
         gap: 2rem;
     }
 
@@ -98,34 +122,38 @@
         width: auto;
     }
 
-    .hero__photostrip {
-        display: flex; /* Use flexbox for the strip */
-        position: absolute;
-        bottom: 40px;
-        right: -100px;
-        transform: rotate(-25deg);
-        transform-origin: bottom left;
-        animation: fade-and-slide-up 1.2s 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+     .hero__photostrip-wrapper{
+        display: block;
+        /* Animation */
         opacity: 0;
+        animation: fade-and-slide-up 0.8s 0.6s ease-out forwards;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100vh;
     }
 
-    .hero__photostrip img {
-        width: 220px;
+    .hero__photostrip {
+        border: 2px solid white;
+        transform: translate(30%, 30%) rotate(-35deg);
+        position: absolute;
+        bottom: -10vh;
+        right: -9vh;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .photostrip__row {
+        display: flex;
+        flex: 1;
+    }
+
+    .photostrip__row img {
+        width: 22vh;
         height: auto;
-        border: 4px solid white;
-        border-radius: 8px;
-        filter: grayscale(1);
-        margin-left: -60px; /* Overlap the images */
+        border: 3px solid white;
+        filter: grayscale(2);
+        object-fit: cover;
         box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        transition: transform 0.3s ease;
-    }
-
-    .hero__photostrip img:first-child {
-        margin-left: 0;
-    }
-
-    .hero__photostrip img:hover {
-        transform: scale(1.1) rotate(0deg); /* Bring image to front on hover */
-        z-index: 10;
     }
 }

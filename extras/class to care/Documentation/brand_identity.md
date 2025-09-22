@@ -41,7 +41,7 @@ Gradients should be used sparingly and strategically to add depth and visual int
 
 | Name | Visual Preview | CSS Code |
 | :--- | :--- | :--- |
-| **Trustworthy Sky** | <span style="display: block; width: 100%; height: 30px; background: linear-gradient(to right, #3aafed, #3a7bd5);"></span> | `linear-gradient(to right, #3aafed, #3a7bd5)` |
+| **Trustworthy Sky** | <span style="display: block; width: 100%; height: 30px; background: linear-gradient(to right, #3aafed, #3a7bd5);"></span> | `linear-gradient(to right,#3aafed, #3a7bd5)` |
 | **Fresh Growth** | <span style="display: block; width: 100%; height: 30px; background: linear-gradient(to right, #8CC63F, #a8e063);"></span> | `linear-gradient(to right, #8CC63F, #a8e063)` |
 | **Vibrant Impact** | <span style="display: block; width: 100%; height: 30px; background: linear-gradient(to right, #b15d9b, #614385);"></span> | `linear-gradient(to right, #b15d9b, #614385)` |
 

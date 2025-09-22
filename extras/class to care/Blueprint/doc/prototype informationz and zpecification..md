@@ -167,8 +167,8 @@ This document contains the technical details, animation specs, and interaction n
 -   **Scroll Down Indicator:** 
     -   Position: Bottom-center of the hero section
     -   Animation: 
-        -   Multiple arrows appear in sequence
-        -   Each arrow moves downward while simultaneously fading out
+        -   Multiple chevron down appear in sequence
+        -   Each chevron down moves downward while simultaneously fading out
         -   When fully transparent, instantly resets to starting position
         -   Creates continuous "shooting arrows" effect
         -   Animation timing: 1.5s loop duration
