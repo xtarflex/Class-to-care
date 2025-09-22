@@ -16,6 +16,7 @@
   font-family: var(--font-heading);
   text-transform: uppercase;
   background-color: var(--primary-vivid-azure);
+  border: 2px solid var(--primary-vivid-azure);
   color: var(--background-base);
   position: relative; /* Required for the glare effect pseudo-element */
   overflow: hidden;   /* Keeps the glare effect within the button bounds */

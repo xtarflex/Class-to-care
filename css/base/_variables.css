@@ -16,6 +16,13 @@
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Nunito', sans-serif;
 
+  /* Fluid Font Sizes (min, preferred, max) */
+  --font-size-sm: clamp(1.4rem, 2vw, 1.6rem);      /* Fluid between 700px-800px VW */
+  --font-size-base: clamp(1.6rem, 2.5vw, 1.8rem);  /* Fluid between 640px-720px VW */
+  --font-size-md: clamp(1.8rem, 3vw, 2.4rem);      /* Fluid between 600px-800px VW */
+  --font-size-lg: clamp(2.4rem, 4vw, 3.6rem);      /* Fluid between 600px-900px VW */
+  --font-size-xl: clamp(3.5rem, 5vw, 5rem);        /* Fluid between 700px-1000px VW */
+
   /* Layout & Spacing */
   --header-height: 80px;
   --container-width: 1200px;

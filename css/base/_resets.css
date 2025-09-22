@@ -14,7 +14,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 1.6rem; /* Default font size (16px) */
+  font-size: var(--font-size-base); /* Default fluid font size */
   line-height: 1.6;
   color: var(--neutral-dark);
   background-color: var(--neutral-light);
