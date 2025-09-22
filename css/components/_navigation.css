@@ -96,7 +96,6 @@ body.menu-is-open .mobile-nav-overlay {
   color: var(--neutral-dark);
   font-size: 1.8rem;
   font-weight: 700;
-  text-decoration: none;
 }
 
 /* Accordion indicator arrow. */
@@ -154,7 +153,6 @@ body.menu-is-open .mobile-nav-overlay {
     position: relative; /* Required for the pseudo-element hover effect. */
     overflow: hidden;
     z-index: 1; /* Ensures text is above the pseudo-element */
-    text-decoration: none;
   }
   
   /* "Liquid Fill" hover effect: A pseudo-element scales up from the bottom. */

@@ -32,7 +32,6 @@
 .hero__subtitle {
     font-family: var(--font-body); /* Nunito */
     font-weight: 400;
-    font-size: 1.6rem;
     line-height: 1.7;
     color: #FFFFFF;
     max-width: 65ch; /* Improves readability */
@@ -134,7 +133,6 @@
 
     .photostrip__row img {
         width: 22vh;
-        height: auto;
         border: 3px solid white;
         filter: grayscale(2);
         object-fit: cover;
