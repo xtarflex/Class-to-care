@@ -2,8 +2,12 @@
  * @file Manages header scroll effects.
  */
 
-// --- Header Scroll Effects ---
-// Manages the header's appearance based on scroll events.
+/**
+ * Manages the header's appearance based on scroll events.
+ * Hides on scroll down and shows on scroll up for desktop.
+ * Applies a 'scrolled' style on mobile.
+ * Relies on a global `lastScrollY` variable from script.js.
+ */
 const handleHeaderScroll = () => {
     if (!siteHeader) return;
 

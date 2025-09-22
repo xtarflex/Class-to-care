@@ -2,12 +2,14 @@
  * @file Manages all navigation-related functionality.
  */
 
-// --- Navigation Handler ---
-// Manages all navigation-related functionality for both mobile and desktop.
+/**
+ * Initializes all navigation functionality for both mobile and desktop.
+ * This includes the hamburger menu, mobile accordion, and desktop dropdowns.
+ */
 const handleNavigation = () => {
 
     /**
-     * Toggles the main mobile navigation menu.
+     * Toggles the main mobile navigation menu by adding/removing the .menu-is-open class on the body.
      */
     const toggleMobileMenu = () => {
         const isMenuOpen = document.body.classList.toggle('menu-is-open');
@@ -19,12 +21,13 @@ const handleNavigation = () => {
         closeBtn.addEventListener('click', toggleMobileMenu);
     }
 
-    /**
-     * Handles the mobile navigation accordion submenus.
-     * Ensures only one submenu can be open at a time.
-     * @param {Event} e - The event object from the click event.
-     */
+    
     mobileNavAccordions.forEach(toggle => {
+        /**
+         * Handles the mobile navigation accordion submenus.
+         * Ensures only one submenu can be open at a time.
+         * @param {Event} e - The event object from the click event.
+         */
         toggle.addEventListener('click', (e) => {
             e.preventDefault();
             const parentLi = toggle.parentElement;
@@ -50,9 +53,17 @@ const handleNavigation = () => {
 
 
     /**
-     * Handles desktop submenu visibility on hover and click for accessibility.
-     * Includes delays to prevent accidental opening/closing.
+     * A centralized function to close all open desktop submenus.
+     * Useful for ensuring a clean state before opening a new one or on global clicks.
      */
+    function closeAllDesktopSubmenus() {
+        desktopNavItems.forEach(item => {
+            item.classList.remove('is-active');
+            item.querySelector('a').setAttribute('aria-expanded', 'false');
+        });
+    }
+
+    // --- Desktop-specific logic ---
     if (window.innerWidth >= 992) {
         let enterTimeout, leaveTimeout;
 
@@ -60,10 +71,6 @@ const handleNavigation = () => {
             const link = item.querySelector('a');
 
             // --- Mouse Hover Interaction ---
-            /**
-             * Handles the mouseenter event for desktop navigation items.
-             * @param {Event} e - The event object from the mouseenter event.
-             */
             item.addEventListener('mouseenter', () => {
                 clearTimeout(leaveTimeout);
                 enterTimeout = setTimeout(() => {
@@ -73,10 +80,6 @@ const handleNavigation = () => {
                 }, 100);
             });
 
-            /**
-             * Handles the mouseleave event for desktop navigation items.
-             * @param {Event} e - The event object from the mouseleave event.
-             */
             item.addEventListener('mouseleave', () => {
                 clearTimeout(enterTimeout);
                 leaveTimeout = setTimeout(() => {
@@ -86,10 +89,6 @@ const handleNavigation = () => {
             });
 
             // --- Click & Keyboard Interaction ---
-            /**
-             * Handles the click event for desktop navigation links.
-             * @param {Event} e - The event object from the click event.
-             */
             link.addEventListener('click', (e) => {
                 // Toggle submenu only if it's a non-navigating link.
                 if (link.getAttribute('href') === '#') {
@@ -106,35 +105,16 @@ const handleNavigation = () => {
         });
 
         // --- Accessibility: Global listeners to close submenus ---
-        /**
-         * Handles global click events to close desktop submenus.
-         * @param {Event} e - The event object from the click event.
-         */
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.has-submenu')) {
                 closeAllDesktopSubmenus();
             }
         });
 
-        /**
-         * Handles global keydown events to close desktop submenus (e.g., Escape key).
-         * @param {Event} e - The event object from the keydown event.
-         */
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeAllDesktopSubmenus();
             }
-        });
-    }
-
-    /**
-     * A centralized function to close all open desktop submenus.
-     * Useful for ensuring a clean state.
-     */
-    function closeAllDesktopSubmenus() {
-        desktopNavItems.forEach(item => {
-            item.classList.remove('is-active');
-            item.querySelector('a').setAttribute('aria-expanded', 'false');
         });
     }
 };

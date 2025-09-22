@@ -7,9 +7,21 @@
  * - Staggering: parent with [data-ani-stagger=""] applies incremental delays to :scope > [data-ani]
  * - Exposes window.initAnimateOnView(root?) for rescanning dynamic content
  */
-(function () {
-  'use strict';
+/**
+ * @file The core script for the Animate on View system.
+ * @summary Observes elements with [data-ani] and applies animations when they enter the viewport.
+ * - Adds .is-inview when first entering viewport.
+ * - Unobserves if data-ani-once!="false" (default true).
+ * - Supports per-element threshold and rootMargin.
+ * - Staggering: parent with [data-ani-stagger] applies incremental delays to :scope > [data-ani].
+ */
+'use strict';
 
+/**
+ * Initializes the Animate on View system. Scans a root element for [data-ani] attributes and sets up observers.
+ * @param {Document | HTMLElement} [root=document] - The root element to scan for animations. Defaults to the entire document.
+ */
+function initAnimateOnView(root = document) {
   // Defaults can be changed globally if desired
   const DEFAULTS = {
     ani: 'fade-up',
@@ -29,13 +41,23 @@
   // Remember per-element "once" preference
   const onceMap = new WeakMap();
 
+  /**
+   * Clamps a number between 0 and 1.
+   * @param {*} n - The input value to clamp.
+   * @returns {number} The clamped value.
+   */
   function clamp01(n) {
     n = Number(n);
     if (!Number.isFinite(n)) return DEFAULTS.threshold;
     return Math.min(1, Math.max(0, n));
   }
 
-  // Parse time strings like "150", "150ms", "0.2s" into milliseconds number
+  /**
+   * Parses a time string (e.g., "150ms", "0.2s") into a number of milliseconds.
+   * @param {string | number | null} input - The time string to parse.
+   * @param {number} fallback - The value to return if parsing fails.
+   * @returns {number} The time in milliseconds.
+   */
   function parseTimeMs(input, fallback) {
     if (input == null || input === '') return fallback;
     if (typeof input === 'number') return input;
@@ -53,6 +75,12 @@
     }
   }
 
+  /**
+   * Gets a cached IntersectionObserver for a given threshold and rootMargin, or creates a new one.
+   * @param {number} threshold - The visibility threshold for the observer.
+   * @param {string} rootMargin - The root margin for the observer.
+   * @returns {IntersectionObserver} The observer instance.
+   */
   function getObserver(threshold, rootMargin) {
     const key = `${threshold}|${rootMargin}`;
     let obs = observers.get(key);
@@ -88,7 +116,10 @@
     return obs;
   }
 
-  // Apply staggering: container[data-ani-stagger] -> :scope > [data-ani]
+  /**
+   * Finds all stagger containers and applies incremental delays to their direct animated children.
+   * @param {Document | HTMLElement} root - The root element to scan for stagger containers.
+   */
   function applyStaggering(root) {
     const containers = root.querySelectorAll('[data-ani-stagger]');
     containers.forEach(container => {
@@ -109,6 +140,10 @@
     });
   }
 
+  /**
+   * Sets up a single element for animation, reading its data attributes and attaching it to an observer.
+   * @param {HTMLElement} el - The element to prepare for animation.
+   */
   function setupElement(el) {
     // Skip if already initialized
     if (el.classList.contains('ani-init')) return;
@@ -151,24 +186,10 @@
     obs.observe(el);
   }
 
-  function init(root = document) {
-    // Find elements to animate
-    const elements = root.querySelectorAll('[data-ani]:not(.ani-init)');
-    elements.forEach(setupElement);
+  // Find elements to animate
+  const elements = root.querySelectorAll('[data-ani]:not(.ani-init)');
+  elements.forEach(setupElement);
 
-    // Apply/refresh staggering (idempotent)
-    applyStaggering(root);
-  }
-
-  // Public API: rescan document or a sub-tree for new [data-ani] elements
-  window.initAnimateOnView = init;
-
-  // Initialize on DOMContentLoaded
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => init(document));
-  } else {
-    init(document);
-  }
-
-  // Fallback for IntersectionObserver is handled within setupElement() by revealing immediately.
-})();
+  // Apply/refresh staggering (idempotent)
+  applyStaggering(root);
+}

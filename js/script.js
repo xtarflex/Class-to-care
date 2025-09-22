@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize all core modules.
     handleNavigation();
+    initAnimateOnView();
 
     // Attach global event listeners.
     window.addEventListener('scroll', handleHeaderScroll, { passive: true });
