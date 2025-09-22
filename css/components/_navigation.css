@@ -239,8 +239,8 @@ body.menu-is-open .mobile-nav-overlay {
 
   /* Mega Menu Specifics */
   .submenu--mega {
-    position: fixed; /* Position relative to the viewport. */
-    top: var(--header-height);
+    position: absolute; /* Position relative to the .site-header. */
+    top: 100%; /* Position it right below the header */
     left: 0;
     width: 100%;
     min-width: initial;

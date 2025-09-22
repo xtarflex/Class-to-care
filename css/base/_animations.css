@@ -2,8 +2,8 @@
 /* KEYFRAME ANIMATIONS              */
 /* =================================== */
 
-/* --- Generic Entrance --- */
-@keyframes fade-and-slide-up {
+/* /* --- Generic Entrance ---   * / will be replaced by much encompazzing and wider zcope of animationz */
+/* @keyframes fade-and-slide-up {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -12,7 +12,7 @@
         opacity: 1;
         transform: translateY(0);
     }
-}
+} */
 
 
 /* --- Scroll Down Indicator --- */

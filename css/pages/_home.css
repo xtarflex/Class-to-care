@@ -28,9 +28,6 @@
     font-size: 3.5rem;
     color: #FFFFFF;
     margin-bottom: 1.5rem;
-    /* Animation */
-    opacity: 0;
-    animation: fade-and-slide-up 0.8s 0.2s ease-out forwards;
 }
 
 .hero__subtitle {
@@ -41,9 +38,6 @@
     color: #FFFFFF;
     max-width: 65ch; /* Improves readability */
     margin: 0 auto 2.5rem auto;
-    /* Animation */
-    opacity: 0;
-    animation: fade-and-slide-up 0.8s 0.4s ease-out forwards;
 }
 
 /* 3. Buttons & Animations */
@@ -52,9 +46,6 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    /* Animation */
-    opacity: 0;
-    animation: fade-and-slide-up 0.8s 0.6s ease-out forwards;
 }
 
 .hero__buttons .btn {
@@ -124,9 +115,6 @@
 
      .hero__photostrip-wrapper{
         display: block;
-        /* Animation */
-        opacity: 0;
-        animation: fade-and-slide-up 0.8s 0.6s ease-out forwards;
         position: absolute;
         bottom: 0;
         right: 0;
