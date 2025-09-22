@@ -12,7 +12,37 @@
  
  ---
  
- ## 2. On-Page Load Animations
+ ## 2. The "Wrapper" Architecture for Animations
+ 
+ To prevent conflicts between CSS `transform` properties used for animation and those used for styling, we will follow a "wrapper-based" architecture.
+ 
+ ### **The Guideline:**
+ If an element requires a `transform` for its static design (e.g., `rotate`, `skew`, `scale`) or for a hover effect, it **MUST** be wrapped in a parent `div`. The entrance animation (`data-ani`) is then applied to the parent wrapper, while the styling `transform` is applied to the inner child element.
+ 
+ ### **The Simple Rule of Thumb:**
+ 
+ -   **Wrap It (Default):** For any styled component, card, image, or icon block, the default practice is to wrap it in a `div` and apply the `data-ani` attribute to the wrapper.
+     ```html
+     <!-- Correct: Wrapper handles animation, card handles styling -->
+     <div data-ani="zoom-in">
+         <div class="card" style="transform: rotate(2deg);">
+             Card Content
+         </div>
+     </div>
+     ```
+ 
+ -   **Exception (Simple Text):** The only exception is for simple, block-level text elements like `<h1>`, `<h2>`, and `<p>` that do not have any static transforms applied. These can have the `data-ani` attribute placed directly on them for simplicity.
+     ```html
+     <!-- Correct: Simple text elements can be animated directly -->
+     <h2 data-ani="fade-down">My Section Title</h2>
+     <p data-ani="fade-up">My paragraph of text.</p>
+     ```
+ 
+ This rule ensures a clean separation of concerns and prevents CSS `transform` properties from overriding each other, leading to a more robust and maintainable codebase.
+ 
+ ---
+ 
+ ## 3. On-Page Load Animations
  
  ### Hero Section Entrance
  
@@ -25,25 +55,33 @@
  
  ---
  
- ## 3. On-Scroll Entrance Animations
+## 4. On-Scroll Entrance Animations
  
- This standard "fade-and-slide-up" effect will be applied to sections and elements as they enter the viewport.
+A varied and purposeful set of default animations will be used for different types of content to create a sophisticated and dynamic user experience. These can be overridden on a per-element basis using `data-ani` attributes.
  
- -   **Impact Bar:**
-     -   **Numbers:** A "count-up" animation from 0 to the final value.
-     -   **Icons:** Each of the four icons has a unique, custom animation:
-         -   `Users`: Gentle Pop-in (scale and fade).
-         -   `FirstAidKit`: Supportive Pulse (fade in, then pulse the cross).
-         -   `GraduationCap`: Tassel Swing (fade in, then swing the tassel).
-         -   `CalendarCheck`: Check Mark Draw (fade in, then draw the check mark).
- -   **"Our Work" Section:** The three content cards will stagger in using the standard fade-and-slide-up effect.
- -   **Testimonials Section:** The entire slider component will fade and slide up.
- -   **"Latest News" Section:** The three article cards will stagger in using the standard fade-and-slide-up effect.
- -   **Newsletter Section:** The content will fade and slide up as a single block.
+-   **Main Section Titles (`h2`):**
+    -   **Default Animation:** `fade-down`
+    -   **Purpose:** Provides an authoritative entrance, introducing the content below.
+ 
+-   **Paragraphs & General Text (`p`, `div`):**
+    -   **Default Animation:** `fade-up`
+    -   **Purpose:** A classic, elegant effect that smoothly presents text to the reader.
+ 
+-   **Cards, Images & Visual Blocks (`div.card`, `img`):**
+    -   **Default Animation:** `zoom-in`
+    -   **Purpose:** Gives visual elements a sense of depth and "pops" them forward for the user.
+ 
+-   **List Items (`li`) inside a Staggered Container:**
+    -   **Default Animation:** `slide-right`
+    -   **Purpose:** Creates a clean, rhythmic cascade for lists of items.
+ 
+-   **Special: Impact Bar Numbers:**
+    -   **Animation:** Will use a custom JavaScript "count-up" function for a specialized effect.
+    -   **Icons:** Will use their unique, custom SVG animations as previously specified (Pop-in, Pulse, etc.).
  
  ---
  
- ## 4. Button & Interactive Element Effects
+ ## 5. Button & Interactive Element Effects
  
  ### Primary Buttons (e.g., "Donate Now", "Subscribe")
  
@@ -67,7 +105,7 @@
  
  ---
  
- ## 5. Component-Specific Animations
+ ## 6. Component-Specific Animations
  
  ### Desktop Header (Navigation)
  
