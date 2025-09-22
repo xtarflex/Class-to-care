@@ -45,14 +45,6 @@
  ## 3. On-Page Load Animations
  
  ### Hero Section Entrance
- 
- -   **Choreography:** A staggered "fade-and-slide-up" cascade effect on page load.
- -   **Sequence & Delay:**
-     1.  Main Headline (`0s delay`)
-     2.  Sub-headline (`0.2s delay`)
-     3.  CTA Buttons (`0.4s delay`)
-     4.  Photo Strip (`0.8s delay`)
- 
  ---
  
 ## 4. On-Scroll Entrance Animations
