@@ -20,6 +20,7 @@ This website serves as the digital presence for Class to Care Medical Foundation
 - **Smooth Animations**: Performance-optimized CSS animations and transitions
 - **Accessibility First**: WCAG compliant with proper ARIA labels and keyboard navigation
 - **Modern UI/UX**: Clean, professional design emphasizing trust and reliability
+- **Automated Deployment**: Integrated with GitHub Actions for seamless deployment to GitHub Pages.
 
 ### 🎨 Design System
 - **Brand Colors**:
@@ -45,11 +46,15 @@ This website serves as the digital presence for Class to Care Medical Foundation
 - **Vanilla JavaScript**: No dependencies, pure JavaScript for optimal performance
 - **Google Fonts**: Montserrat and Nunito font families
 - **SVG Icons**: Scalable vector icons for crisp display at any size
+- **GitHub Actions**: For automated CI/CD and deployment to GitHub Pages.
 
 ## 📁 Project Structure
 
 ```
 class-to-care/
+├── .github/                 # GitHub specific configurations
+│   └── workflows/           # GitHub Actions workflows
+│       └── deploy.yml       # Workflow for deploying to GitHub Pages
 ├── index.html                 # Main HTML file
 ├── css/
 │   └── style.css             # Main stylesheet with responsive design
@@ -64,6 +69,24 @@ class-to-care/
 │   └── design/             # Design mockups and assets
 └── pages/                  # Additional page templates
 ```
+
+## 🚀 Deployment
+
+This project is configured for automated deployment to GitHub Pages using GitHub Actions.
+
+### How to Deploy
+
+1.  **Enable GitHub Pages**:
+    *   Go to your repository on GitHub.
+    *   Navigate to **Settings** > **Pages**.
+    *   Under "Build and deployment," select **GitHub Actions** as the source.
+    *   Save your changes.
+2.  **Push to `main` branch**:
+    *   Any push to the `main` branch will automatically trigger the `Deploy to GitHub Pages` workflow.
+    *   The workflow will build your site and deploy it to GitHub Pages.
+    *   You can monitor the deployment status in the "Actions" tab of your repository.
+
+Once deployed, your site will be accessible at `https://<YOUR_GITHUB_USERNAME>.github.io/<YOUR_REPOSITORY_NAME>/`.
 
 ## 🎨 Brand Identity
 

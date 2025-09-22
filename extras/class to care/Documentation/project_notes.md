@@ -4,7 +4,9 @@ This is an excellent and highly practicaa robust, reusable "Animate on View" sys
 Based on your detailed requirements, here is the complete, production-ready code.
 
 ---
-### **Filename: `index.html`**```html
+### **Filename: `index.html`**
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -461,11 +463,12 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helve
    - Create keyframes: `@keyframes ani-bounce-in`
    - Map variant: `.is-inview[data-ani="bounce-in"]`
 
-### Customizing Global Defaults
-
-CSS Defaults (styles.css):
-
 ---
+## Note 2
+1. Remeber to add more photo variation to the photoztrip
+2. Optimize the photoz
+3. Re-touch the background image
+
 
 ## Todo
 

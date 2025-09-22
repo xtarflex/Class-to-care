@@ -51,7 +51,8 @@
 .will-animate[data-ani="blur-in"]   { filter: blur(10px); }
 /* Skew */
 .will-animate[data-ani="skew-in"]   { transform: skewY(6deg) translate3d(0, 10px, 0); }
-
+/* Diagonal / slide */
+.will-animate[data-ani="slide-up-diag"] { transform: translate(50px, 50px); }
 
 /* ---------------------------
    Keyframes
@@ -79,6 +80,8 @@
 @keyframes ani-blur-in   { from { opacity: 0; filter: blur(10px); } to { opacity: 1; filter: blur(0); } }
 /* Skew */
 @keyframes ani-skew-in   { from { opacity: 0; transform: skewY(6deg) translate3d(0, 10px, 0); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
+/* --- Custom Keyframe for Photostripe --- */
+@keyframes ani-slide-up-diag { from { opacity: 0; transform: translate(50px, 50px); } to { opacity: 1; transform: translate(0, 0); } }
 
 
 /* ---------------------------
@@ -99,6 +102,7 @@
 .is-inview[data-ani="flip-in-y"] { animation-name: ani-flip-in-y; }
 .is-inview[data-ani="blur-in"] { animation-name: ani-blur-in; }
 .is-inview[data-ani="skew-in"] { animation-name: ani-skew-in; }
+.is-inview[data-ani="slide-up-diag"] { animation-name: ani-slide-up-diag; }
 
 
 /* ---------------------------
@@ -113,6 +117,13 @@
     animation: none !important;
     will-change: auto !important;
   }
+}
+
+/* =================================== */
+/* ANIMATIONS THAT RUN ON PAGE LOAD   */
+/* =================================== */
+.animate-on-load {
+  animation-fill-mode: forwards; /* Ensures the element stays in its final state */
 }
 
 /* =================================== */
