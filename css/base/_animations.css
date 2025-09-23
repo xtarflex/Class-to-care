@@ -232,13 +232,13 @@
     transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
 }
 
-.impact__item.is-inview .users-icon .person-1 {
+.ani-wrapper.is-inview .users-icon .person-1 {
     opacity: 1;
     transform: scale(1);
     transition-delay: 0.3s; /* Person 1 appears first */
 }
 
-.impact__item.is-inview .users-icon .person-2 {
+.ani-wrapper.is-inview .users-icon .person-2 {
     opacity: 1;
     transform: scale(1);
     transition-delay: 0.5s; /* Person 2 appears slightly after */
@@ -251,12 +251,12 @@
     transition: opacity 0.4s 0.2s ease-out;
 }
 
-.impact__item.is-inview .first-aid-kit-icon .kit-box,
-.impact__item.is-inview .first-aid-kit-icon .kit-handle {
+.ani-wrapper.is-inview .first-aid-kit-icon .kit-box,
+.ani-wrapper.is-inview .first-aid-kit-icon .kit-handle {
     opacity: 1;
 }
 
-.impact__item.is-inview .first-aid-kit-icon .kit-cross {
+.ani-wrapper.is-inview .first-aid-kit-icon .kit-cross {
     transform-origin: center;
     animation: kf-icon-pulse 0.8s ease-in-out 0.5s 1;
 }
@@ -267,11 +267,11 @@
     transition: opacity 0.4s 0.2s ease-out;
 }
 
-.impact__item.is-inview .graduation-cap-icon .cap-body {
+.ani-wrapper.is-inview .graduation-cap-icon .cap-body {
     opacity: 1;
 }
 
-.impact__item.is-inview .graduation-cap-icon .cap-tassel {
+.ani-wrapper.is-inview .graduation-cap-icon .cap-tassel {
     transform-origin: top center;
     animation: kf-icon-swing 1.5s cubic-bezier(0.6, -0.28, 0.735, 0.045) 0.5s 1;
 }
@@ -282,7 +282,7 @@
     transition: opacity 0.4s 0.2s ease-out;
 }
 
-.impact__item.is-inview .calendar-check-icon .calendar-body {
+.ani-wrapper.is-inview .calendar-check-icon .calendar-body {
     opacity: 1;
 }
 
@@ -291,6 +291,6 @@
     stroke-dashoffset: 102;
 }
 
-.impact__item.is-inview .calendar-check-icon .checkmark {
+.ani-wrapper.is-inview .calendar-check-icon .checkmark {
     animation: kf-icon-draw 1s ease-out 0.5s forwards;
 }
