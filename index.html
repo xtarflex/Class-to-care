@@ -132,7 +132,7 @@
 
                  </div>
                  <div class="hero__photostrip-wrapper">
-                    <div class="hero__photostrip" data-ani="fade-in" data-ani-delay="1600">
+                    <div class="hero__photostrip" data-ani="blur-in" data-ani-delay="1600">
                         <div class="photostrip__row">
                             <img src="Assets/images/photostrip-image.webp" alt="A CPR training session">
                             <img src="Assets/images/photostrip-image.webp" alt="A CPR training session">
@@ -161,12 +161,82 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 8l5 5 5-5"/></svg>
              </div>
          </section>
+
+        <section id="homepage-impact-bar" class="impact">
+          <div class="container">
+              <div class="impact__grid">
+
+                  <!-- Impact Item 1: Health Workers Trained -->
+                  <div class="ani-wrapper" data-ani="fade-up">
+                      <div class="impact__item">
+                          <!-- Wrapper for the icon animation -->
+                          <div class="ani-wrapper" data-ani="fade-in">
+                              <div class="impact__icon" data-icon="users">
+                              <!-- JS will inject the Users SVG here -->
+                              </div>
+                          </div>
+                          <p class="impact__number" data-target-number="40">0</p>
+                          <h3 class="impact__label">Health Workers <strong>Trained</strong></h3>
+                          <p class="impact__description">Medical professionals equipped with latest knowledge and skills.</p>
+                      </div>
+                  </div>
+
+                  <!-- Impact Item 2: Health Centres Supported -->
+                  <div class="ani-wrapper" data-ani="fade-up" data-ani-delay="150">
+                      <div class="impact__item">
+                         <!-- Wrapper for the icon animation -->
+                         <div class="ani-wrapper" data-ani="fade-in">
+                            <div class="impact__icon" data-icon="first-aid-kit">
+                            <!-- JS will inject the FirstAidKit SVG here -->
+                            </div>
+                         </div>
+                         <p class="impact__number" data-target-number="3">0</p>
+                         <h3 class="impact__label">Health Centres <strong>Supported</strong></h3>
+                         <p class="impact__description">Rural and urban health centers with improved healthcare access.</p>
+                      </div>
+                  </div>
+
+                  <!-- Impact Item 3: Students Educated-->
+                  <div class="ani-wrapper" data-ani="fade-up" data-ani-delay="300">
+                      <div class="impact__item">
+                         <!-- Wrapper for the icon animation -->
+                         <div class="ani-wrapper" data-ani="fade-in">
+                             <div class="impact__icon" data-icon="student">
+                             <!-- JS will inject the FirstAidKit SVG here -->
+                             </div>
+                         </div>
+                         <p class="impact__number" data-target-number="100">0+</p>
+                         <h3 class="impact__label">Students <strong>Educated</strong></h3>
+                         <p class="impact__description">Inspired education equips students with knowledge for a brighter future.</p>
+                      </div>
+                  </div>
+
+                  <!-- Impact Item 4: Months of Operation -->
+                  <div class="ani-wrapper" data-ani="fade-up" data-ani-delay="450">
+                      <div class="impact__item">
+                         <!-- Wrapper for the icon animation -->
+                         <div class="ani-wrapper" data-ani="fade-in">
+                             <div class="impact__icon" data-icon="calendar-check">
+                             <!-- JS will inject the CalendarCheck SVG here -->
+                             </div>
+                         </div>
+                         <p class="impact__number" data-target-number="20">0</p>
+                         <h3 class="impact__label">Months of <strong>Operation</strong></h3>
+                         <p class="impact__description">Enhanced outreach and exponential growth in our local communities.</p>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+     </section>
      </main>
 
      <script src="js/components/animate-on-view.js" defer></script>
      <script src="js/utils/dom-selectors.js" defer></script>
      <script src="js/components/navigation.js" defer></script>
      <script src="js/components/header-effects.js" defer></script>
+     <script src="js/components/counter-animation.js" defer></script>
      <script src="js/script.js" defer></script>
  </body>
  </html>
+        
