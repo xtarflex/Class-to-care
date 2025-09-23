@@ -120,14 +120,7 @@
 }
 
 /* =================================== */
-/* ANIMATIONS THAT RUN ON PAGE LOAD   */
-/* =================================== */
-.animate-on-load {
-  animation-fill-mode: forwards; /* Ensures the element stays in its final state */
-}
-
-/* =================================== */
-/* ORIGINAL INTERACTION ANIMATIONS     */
+/* OTHER INTERACTION ANIMATIONS     */
 /* =================================== */
 
 /* --- Scroll Down Indicator --- */
