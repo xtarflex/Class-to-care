@@ -2,6 +2,9 @@
  * @file Manages header scroll effects.
  */
 
+// Get header element
+const siteHeader = document.querySelector('.site-header');
+
 /**
  * Manages the header's appearance based on scroll events.
  * Hides on scroll down and shows on scroll up for desktop.

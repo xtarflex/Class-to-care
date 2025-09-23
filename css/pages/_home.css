@@ -18,7 +18,7 @@
 
 .hero__container {
     width: 100%;
-    max-width: 1200px;
+    max-width: var(--container-width);
 }
 
 /* 2. Typography */
@@ -139,3 +139,121 @@
         box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 }
+/* =================================== */ 
+ /* 6.2 HOMEPAGE - IMPACT SECTION       */ 
+ /* =================================== */ 
+ 
+ .impact { 
+     height: 60dvh;
+     background-color: var(--neutral-light); 
+     padding: 6rem var(--container-padding); 
+     align-content: center;
+ } 
+
+ .impact .container {
+    max-width: 1600px;
+ }
+.section-title {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem auto; /* Center the block and add space below */
+}
+
+.section-title h2 {
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+}
+
+.section-title .gradient-text {
+    /* Apply your "Trustworthy Sky" gradient to the text */
+    background: var(--gradient-sky);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+ 
+ .impact__grid { 
+     display: grid; 
+     gap: 2rem; 
+     max-width: var(--container-width); 
+     margin: 0 auto; 
+     /* MOBILE DEFAULT: Single Column Stack */ 
+     grid-template-columns: 1fr; 
+     grid-auto-rows: 1fr; /* Ensure all rows have equal height */
+     text-align: center; 
+ } 
+ 
+ .impact__item { 
+     background-color: var(--background-base); /* White card background */ 
+     padding: 2.5rem 2rem; 
+     border-radius: 8px; 
+     border: 1px solid var(--border-color); 
+     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; 
+     min-height: 100%; /* Ensure all items take full height of the row */
+ } 
+ 
+ .impact__item:hover { 
+     transform: translateY(-8px); 
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+ } 
+ 
+ .impact__icon { 
+     margin-bottom: 1.5rem; 
+ } 
+ 
+ .impact__icon svg { 
+     width: clamp(40px, 6vw, 56px);
+     height: auto;
+     color: var(--primary-vivid-azure); /* All icons are blue as per final decision */ 
+ } 
+ 
+ .impact__number { 
+     font-family: var(--font-heading); /* Montserrat */ 
+     font-size: clamp(2.5rem, 6vw, 3.5rem); /* Responsive font size */ 
+     font-weight: 700; 
+     color: var(--neutral-dark); 
+     line-height: 1.1; 
+     margin: 0 0 0.5rem 0; 
+ } 
+ 
+ .impact__label { 
+     font-family: var(--font-body); /* Nunito */ 
+     font-weight: 700; 
+     color: var(--neutral-dark); 
+     margin: 0 0 1rem 0; 
+ } 
+ 
+ .impact__label strong { 
+     /* The highlighted word */ 
+     color: var(--secondary-leaf-green); 
+     font-weight: 700; /* Ensure it remains bold */ 
+ } 
+ 
+ .impact__description { 
+     font-family: var(--font-body); 
+     font-size: var(--font-size-sm); /* Smaller than label for visual hierarchy */
+     line-height: 1.6; 
+     color: var(--neutral-dark); /* A slightly lighter grey for description */ 
+     margin: 0; 
+ } 
+ 
+ /* --- RESPONSIVE BREAKPOINTS --- */ 
+ 
+ /* TABLET STYLES: 2x2 Grid */ 
+ @media (min-width: 768px) { 
+     .impact__grid { 
+         grid-template-columns: repeat(2, 1fr); 
+         gap: 1rem; 
+     } 
+ } 
+ 
+ /* DESKTOP STYLES: 4-Column Layout */ 
+ @media (min-width: 1200px) { 
+     .impact__grid { 
+         grid-template-columns: repeat(4, 1fr); 
+     } 
+ 
+     .impact { 
+         padding: 8rem var(--container-padding); 
+     } 
+ }

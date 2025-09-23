@@ -12,6 +12,11 @@
   --background-base: #FFFFFF;
   --border-color: #dee2e6; /* Updated for subtle separation */
 
+  /* Gradients */
+  --gradient-sky: linear-gradient(to right, #3aafed, #3a7bd5);
+  --gradient-leaf: linear-gradient(to right, #8CC63F, #a8e063);
+  --gradient-impact: linear-gradient(to right, #b15d9b, #614385);
+
   /* Typography */
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Nunito', sans-serif;

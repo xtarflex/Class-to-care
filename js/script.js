@@ -5,7 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* =================================== */
-    /* 2. STATE MANAGEMENT               */
+    /* 2. STATE MANAGEMENT                 */
     /* =================================== */
     // Keeps track of the application's "memory" or state.
     let lastScrollY = window.scrollY;
@@ -22,5 +22,4 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleHeaderScroll, { passive: true });
     // Note: A 'resize' event listener could be added here to re-initialize
     // navigation logic if the design changes significantly between breakpoints.
-
 });
