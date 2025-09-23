@@ -10,5 +10,5 @@
     </g>
     
     <!-- This is the check mark that we will animate -->
-    <polyline class="checkmark" points="92 152 116 176 164 128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+    <polyline id="my-checkmark" class="checkmark" points="92 152 116 176 164 128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
 </svg>

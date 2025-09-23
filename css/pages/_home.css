@@ -197,15 +197,25 @@
      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
  } 
  
- .impact__icon { 
-     margin-bottom: 1.5rem; 
- } 
- 
- .impact__icon svg { 
-     width: clamp(40px, 6vw, 56px);
-     height: auto;
-     color: var(--primary-vivid-azure); /* All icons are blue as per final decision */ 
- } 
+/* =================================== */
+/* COMPONENT: IMPACT ICONS             */
+/* =================================== */
+
+/* Container for impact icons */
+.impact__icon {
+    /* Center the SVG within this container if needed */
+    display: inline-block;
+    line-height: 1; /* Prevents extra space below the icon */
+    margin-bottom: 1.5rem;
+}
+
+/* SVG styling for impact icons */
+.impact__icon svg {
+    width: clamp(40px, 6vw, 56px); /* Responsive icon */
+    height: auto; /* Keep ratio */
+    stroke: var(--primary-vivid-azure); /* Override SVG color */
+    transform-origin: center;  /* Sets rotation/scaling point to center */
+}
  
  .impact__number { 
      font-family: var(--font-heading); /* Montserrat */ 

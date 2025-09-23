@@ -1,25 +1,26 @@
 /**
  * @file Main application script.
- * Initializes all modules and orchestrates the application.
+ * This script is intended for global functionalities that need to run on every page.
+ * Component-specific logic has been moved into self-initializing modules.
  */
+'use strict';
+
 document.addEventListener('DOMContentLoaded', () => {
+    // All component initializations have been moved to their respective files
+    // in the /js/components/ directory. Each component now handles its own
+    // lifecycle (DOM queries, event listeners, etc.).
 
-    /* =================================== */
-    /* 2. STATE MANAGEMENT                 */
-    /* =================================== */
-    // Keeps track of the application's "memory" or state.
-    let lastScrollY = window.scrollY;
+    // This file is now the place for any truly global logic that doesn't
+    // belong to a specific component but is needed across the site.
 
-    /* =================================== */
-    /* 5. INITIALIZATION & EVENT LISTENERS */
-    /* =================================== */
+    // For example, you could add logic here to detect touch devices
+    // and add a class to the body, which can be useful for CSS.
+    /*
+    const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice()) {
+        document.body.classList.add('is-touch');
+    }
+    */
 
-    // Initialize all core modules.
-    handleNavigation();
-    initAnimateOnView();
-
-    // Attach global event listeners.
-    window.addEventListener('scroll', handleHeaderScroll, { passive: true });
-    // Note: A 'resize' event listener could be added here to re-initialize
-    // navigation logic if the design changes significantly between breakpoints.
+    console.log('Main script loaded. Self-initializing component modules are now active.');
 });

@@ -193,3 +193,13 @@ function initAnimateOnView(root = document) {
   // Apply/refresh staggering (idempotent)
   applyStaggering(root);
 }
+
+// Self-initialize on DOM load for initial elements
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => initAnimateOnView());
+} else {
+    initAnimateOnView();
+}
+
+// Expose function globally for manual re-initialization on dynamic content
+window.initAnimateOnView = initAnimateOnView;

@@ -198,4 +198,99 @@
         transform: translateX(0);
     }
 }
+/*-----------------------------------
+    7. CUSTOM SVG KEYFRAME ANIMATIONS   
+ ------------------------------------*/
 
+/* --- Keyframe Definitions --- */
+@keyframes kf-icon-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@keyframes kf-icon-swing {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  75% { transform: rotate(-8deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes kf-icon-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* --- Icon Animation States --- */
+
+/* Users Icon Animation */
+.users-icon .person {
+    opacity: 0;
+    transform: scale(0.5);
+    transform-origin: center;
+    transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
+}
+
+.impact__item.is-inview .users-icon .person-1 {
+    opacity: 1;
+    transform: scale(1);
+    transition-delay: 0.3s; /* Person 1 appears first */
+}
+
+.impact__item.is-inview .users-icon .person-2 {
+    opacity: 1;
+    transform: scale(1);
+    transition-delay: 0.5s; /* Person 2 appears slightly after */
+}
+
+/* First Aid Kit Animation */
+.first-aid-kit-icon .kit-box,
+.first-aid-kit-icon .kit-handle {
+    opacity: 0;
+    transition: opacity 0.4s 0.2s ease-out;
+}
+
+.impact__item.is-inview .first-aid-kit-icon .kit-box,
+.impact__item.is-inview .first-aid-kit-icon .kit-handle {
+    opacity: 1;
+}
+
+.impact__item.is-inview .first-aid-kit-icon .kit-cross {
+    transform-origin: center;
+    animation: kf-icon-pulse 0.8s ease-in-out 0.5s 1;
+}
+
+/* Graduation Cap Animation */
+.graduation-cap-icon .cap-body {
+    opacity: 0;
+    transition: opacity 0.4s 0.2s ease-out;
+}
+
+.impact__item.is-inview .graduation-cap-icon .cap-body {
+    opacity: 1;
+}
+
+.impact__item.is-inview .graduation-cap-icon .cap-tassel {
+    transform-origin: top center;
+    animation: kf-icon-swing 1.5s cubic-bezier(0.6, -0.28, 0.735, 0.045) 0.5s 1;
+}
+
+/* Calendar Check Animation */
+.calendar-check-icon .calendar-body {
+    opacity: 0;
+    transition: opacity 0.4s 0.2s ease-out;
+}
+
+.impact__item.is-inview .calendar-check-icon .calendar-body {
+    opacity: 1;
+}
+
+.calendar-check-icon .checkmark {
+    stroke-dasharray: 102; /* Your calculated value */
+    stroke-dashoffset: 102;
+}
+
+.impact__item.is-inview .calendar-check-icon .checkmark {
+    animation: kf-icon-draw 1s ease-out 0.5s forwards;
+}
