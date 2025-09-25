@@ -147,7 +147,8 @@
      height: 60dvh;
      background-color: var(--neutral-light); 
      padding: 6rem var(--container-padding); 
-     align-content: center;
+     align-items: center;
+     text-align: center;
  } 
 
  .impact .container {
@@ -213,7 +214,7 @@
 .impact__icon svg {
     width: clamp(40px, 6vw, 56px); /* Responsive icon */
     height: auto; /* Keep ratio */
-    stroke: var(--primary-vivid-azure); /* Override SVG color */
+    color: var(--primary-vivid-azure);
     transform-origin: center;  /* Sets rotation/scaling point to center */
 }
  

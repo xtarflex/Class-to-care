@@ -205,7 +205,8 @@
 /* --- Keyframe Definitions --- */
 @keyframes kf-icon-pulse {
   0% { transform: scale(1); }
-  50% { transform: scale(1.15); }
+  25% { transform: scale(1.25); }
+  75% { transform: scale(0.75); }
   100% { transform: scale(1); }
 }
 
@@ -235,13 +236,13 @@
 .ani-wrapper.is-inview .users-icon .person-1 {
     opacity: 1;
     transform: scale(1);
-    transition-delay: 0.3s; /* Person 1 appears first */
+    transition-delay: 800ms; /* Person 1 appears first */
 }
 
 .ani-wrapper.is-inview .users-icon .person-2 {
     opacity: 1;
     transform: scale(1);
-    transition-delay: 0.5s; /* Person 2 appears slightly after */
+    transition-delay: 1000ms; /* Person 2 appears slightly after */
 }
 
 /* First Aid Kit Animation */
@@ -254,11 +255,12 @@
 .ani-wrapper.is-inview .first-aid-kit-icon .kit-box,
 .ani-wrapper.is-inview .first-aid-kit-icon .kit-handle {
     opacity: 1;
+    transition-delay: 800ms;
 }
 
 .ani-wrapper.is-inview .first-aid-kit-icon .kit-cross {
     transform-origin: center;
-    animation: kf-icon-pulse 0.8s ease-in-out 0.5s 1;
+    animation: kf-icon-pulse 0.8s ease-in-out 1000ms 1; 
 }
 
 /* Graduation Cap Animation */
@@ -269,11 +271,12 @@
 
 .ani-wrapper.is-inview .graduation-cap-icon .cap-body {
     opacity: 1;
+    transition-delay: 800ms;
 }
 
 .ani-wrapper.is-inview .graduation-cap-icon .cap-tassel {
     transform-origin: top center;
-    animation: kf-icon-swing 1.5s cubic-bezier(0.6, -0.28, 0.735, 0.045) 0.5s 1;
+    animation: kf-icon-swing 1.5s cubic-bezier(0.6, -0.28, 0.735, 0.045) 1000ms 1;
 }
 
 /* Calendar Check Animation */
@@ -284,6 +287,7 @@
 
 .ani-wrapper.is-inview .calendar-check-icon .calendar-body {
     opacity: 1;
+    transition-delay: 800ms;
 }
 
 .calendar-check-icon .checkmark {
@@ -292,5 +296,5 @@
 }
 
 .ani-wrapper.is-inview .calendar-check-icon .checkmark {
-    animation: kf-icon-draw 1s ease-out 0.5s forwards;
+    animation: kf-icon-draw 1s ease-out 1000ms forwards;
 }
