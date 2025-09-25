@@ -255,7 +255,7 @@
 .ani-wrapper.is-inview .first-aid-kit-icon .kit-box,
 .ani-wrapper.is-inview .first-aid-kit-icon .kit-handle {
     opacity: 1;
-    transition-delay: 800ms;
+    /* transition-delay: 800ms; */
 }
 
 .ani-wrapper.is-inview .first-aid-kit-icon .kit-cross {
@@ -271,7 +271,7 @@
 
 .ani-wrapper.is-inview .graduation-cap-icon .cap-body {
     opacity: 1;
-    transition-delay: 800ms;
+    /* transition-delay: 800ms; */
 }
 
 .ani-wrapper.is-inview .graduation-cap-icon .cap-tassel {
@@ -287,7 +287,7 @@
 
 .ani-wrapper.is-inview .calendar-check-icon .calendar-body {
     opacity: 1;
-    transition-delay: 800ms;
+    /* transition-delay: 800ms; */
 }
 
 .calendar-check-icon .checkmark {
