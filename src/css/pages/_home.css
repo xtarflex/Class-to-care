@@ -1,0 +1,416 @@
+/* --- 6.1 Hero Section (Mobile-First Rebuild) --- */
+
+/* 1. Base Container & Background */
+.hero {
+    position: relative;
+    height: 100vh; 
+    background-image: linear-gradient(to right, rgba(58, 174, 237, 0.89), rgba(58, 123, 213, 0.8)), url('../../Assets/images/hero-bg.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 0 var(--container-padding);
+    overflow: hidden; /* This will be important for the photostrip later */
+}
+
+.hero__container {
+    width: 100%;
+    max-width: var(--container-width);
+}
+
+/* 2. Typography */
+.hero__title {
+    font-family: var(--font-heading); /* Montserrat */
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 1.5rem;
+}
+
+.hero__subtitle {
+    font-family: var(--font-body); /* Nunito */
+    font-weight: 400;
+    line-height: 1.7;
+    color: #FFFFFF;
+    max-width: 65ch; /* Improves readability */
+    margin: 0 auto 2.5rem auto;
+}
+
+/* 3. Buttons & Animations */
+.hero__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hero__buttons .btn {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    width: 100%;
+    max-width: 320px;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    position: relative; 
+    overflow: hidden; 
+}
+
+.hero__buttons .btn-secondary {
+    border: 2px solid #FFFFFF;
+    background: transparent;
+    color: #FFFFFF;
+}
+
+/* Chevron Shooting Animation */
+.hero__buttons .btn:hover svg {
+    animation: shoot-right 1.5s ease-out infinite;
+}
+
+/* 4. Scroll Indicator */
+.hero__scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.hero__photostrip-wrapper {
+        display: none;
+    }
+
+.hero__scroll-indicator svg {
+    stroke: #fff;
+    width: 48px;
+    height: 48px;
+    opacity: 0;
+    transform: translateY(0);
+    animation: shooting-arrows 2s infinite ease-out;
+}
+
+
+/* 5. Desktop Styles */
+@media (min-width: 992px) {
+
+    .hero__buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .hero__buttons .btn {
+        width: auto;
+    }
+
+     .hero__photostrip-wrapper{
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100vh;
+    }
+
+    .hero__photostrip {
+        border: 2px solid white;
+        transform: translate(30%, 30%) rotate(-35deg);
+        position: absolute;
+        bottom: -10vh;
+        right: -9vh;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .photostrip__row {
+        display: flex;
+        flex: 1;
+    }
+
+    .photostrip__row img {
+        width: 22vh;
+        border: 3px solid white;
+        filter: grayscale(2);
+        object-fit: cover;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+}
+/* =================================== */ 
+ /* 6.2 HOMEPAGE - IMPACT SECTION       */ 
+ /* =================================== */ 
+ 
+ .impact { 
+     min-height: 60dvh;
+     background-color: var(--neutral-light); 
+     padding: 6rem var(--container-padding); 
+     align-items: center;
+     text-align: center;
+ } 
+
+ .impact .container {
+    max-width: 1600px;
+ }
+
+.section-title {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem auto; /* Center the block and add space below */
+}
+
+.section-title h2 {
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+}
+
+.section-title .gradient-text {
+    /* Apply your "Trustworthy Sky" gradient to the text */
+    background: var(--gradient-sky);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+ 
+ .impact__grid { 
+     display: grid; 
+     gap: 2rem; 
+     max-width: var(--container-width); 
+     margin: 0 auto; 
+     /* MOBILE DEFAULT: Single Column Stack */ 
+     grid-template-columns: 1fr; 
+     grid-auto-rows: 1fr; /* Ensure all rows have equal height */
+     text-align: center; 
+ } 
+ 
+ .impact__item { 
+     background-color: var(--background-base); /* White card background */ 
+     padding: 2.5rem 2rem; 
+     border-radius: 8px; 
+     border: 1px solid var(--border-color); 
+     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; 
+     min-height: 100%; /* Ensure all items take full height of the row */
+ } 
+ 
+ .impact__item:hover { 
+     transform: translateY(-8px); 
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+ } 
+ 
+/* =================================== */
+/* COMPONENT: IMPACT ICONS             */
+/* =================================== */
+
+/* Container for impact icons */
+.impact__icon {
+    /* Center the SVG within this container if needed */
+    display: inline-block;
+    line-height: 1; /* Prevents extra space below the icon */
+    margin-bottom: 1.5rem;
+}
+
+/* SVG styling for impact icons */
+.impact__icon svg {
+    width: clamp(40px, 6vw, 56px); /* Responsive icon */
+    height: auto; /* Keep ratio */
+    color: var(--primary-vivid-azure);
+    transform-origin: center;  /* Sets rotation/scaling point to center */
+}
+ 
+ .impact__number { 
+     font-family: var(--font-heading); /* Montserrat */ 
+     font-size: clamp(2.5rem, 6vw, 3.5rem); /* Responsive font size */ 
+     font-weight: 700; 
+     color: var(--neutral-dark); 
+     line-height: 1.1; 
+     margin: 0 0 0.5rem 0; 
+ } 
+ 
+ .impact__label { 
+     font-family: var(--font-body); /* Nunito */ 
+     font-weight: 700; 
+     color: var(--neutral-dark); 
+     margin: 0 0 1rem 0; 
+ } 
+ 
+ .impact__label strong { 
+     /* The highlighted word */ 
+     color: var(--secondary-leaf-green); 
+     font-weight: 700; /* Ensure it remains bold */ 
+ } 
+ 
+ .impact__description { 
+     font-family: var(--font-body); 
+     font-size: var(--font-size-sm); /* Smaller than label for visual hierarchy */
+     line-height: 1.6; 
+     color: var(--neutral-dark); /* A slightly lighter grey for description */ 
+     margin: 0; 
+ } 
+ 
+ /* --- RESPONSIVE BREAKPOINTS --- */ 
+ 
+ /* TABLET STYLES: 2x2 Grid */ 
+ @media (min-width: 768px) { 
+     .impact__grid { 
+         grid-template-columns: repeat(2, 1fr); 
+         gap: 1rem; 
+     } 
+ } 
+ 
+ /* DESKTOP STYLES: 4-Column Layout */ 
+ @media (min-width: 1200px) { 
+     .impact__grid { 
+         grid-template-columns: repeat(4, 1fr); 
+     } 
+ 
+     .impact { 
+         padding: 8rem var(--container-padding); 
+     } 
+ }
+
+ /* =================================== */
+/* 6.3 HOMEPAGE - OUR WORK SECTION     */
+/* =================================== */
+
+.our-work {
+    background-color: var(--background-base);
+    padding: 6rem var(--container-padding);
+}
+
+/* --- Section Title Block --- */
+.our-work .section-title {
+    margin-bottom: 4rem;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #eaf6ff;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.pill__icon{
+    padding-top: 5px;
+    padding-left: 7px;
+}
+
+
+.pill__icon svg {
+    width: 24px;
+    stroke: var(--primary-vivid-azure);
+}
+
+.pill span {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    color: var(--primary-vivid-azure);
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    padding-left: 1rem;
+}
+
+/* --- Grid & Cards --- */
+.our-work__grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr; /* Mobile-first */
+}
+
+.our-work__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--background-base);
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    min-height: 100%;
+}
+
+.our-work__card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.our-work__icon {
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+}
+
+.work_card_title{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.our-work__icon svg {
+    width: 48px;
+    height: 48px;
+    color: var(--neutral-dark); /* Neutral icon color */
+}
+
+.our-work__card-title {
+    font-family: var(--font-heading);
+    color: var(--neutral-dark);
+    margin: 0 0 1rem 0;
+}
+
+.our-work__card p {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: #6c757d;
+    margin: 0 0 2rem 0;
+}
+
+/* --- "Learn More" Link --- */
+.our-work__link {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--secondary-leaf-green);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.arrow-icon{
+    padding-top: 9px;
+}
+
+.arrow-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--secondary-leaf-green);
+    overflow: visible; 
+}
+
+.arrow-icon svg .arrow-line {
+    transform-origin: left center;
+    transform: scaleX(1);
+    transition: transform 0.3s ease-out;
+}
+
+.arrow-icon svg .arrow-head {
+    transition: transform 0.3s ease-out;
+}
+
+.our-work__link:hover .arrow-icon svg .arrow-line {
+    transform: scaleX(1.3);
+}
+
+.our-work__link:hover .arrow-icon svg .arrow-head {
+    transform: translateX(6px);
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+@media (min-width: 1023px) {
+    .our-work__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

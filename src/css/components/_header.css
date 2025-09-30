@@ -1,0 +1,50 @@
+.site-header {
+  background-color: var(--background-base);
+  border-bottom: 1px solid var(--border-color);
+  /* Use 'fixed' to keep the header visible during scroll. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* z-index ensures the header stays above all other page content. */
+  z-index: 1000;
+  transition: all 0.4s ease-out;
+}
+
+/* Detached/scrolled state for the header, adding a modern floating effect. */
+.site-header.is-scrolled {
+  top: 10px;
+  width: 95%;
+  left: 2.5%;
+  border-radius: 50px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  border-bottom-color: transparent; /* Hide border when detached */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+}
+
+.site-logo img {
+  max-height: 80px;
+}
+
+@media (min-width: 992px) {
+  /* Autohide header on scroll down for more screen real estate. */
+  .site-header.header--hidden {
+    transform: translateY(-100%);
+  }
+  
+  /* Disable the "detached" scrolled state on desktop. */
+  .site-header.is-scrolled {
+    top: 0;
+    width: 100%;
+    left: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom-color: var(--border-color);
+  }
+}

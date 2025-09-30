@@ -1,0 +1,22 @@
+/**
+ * Main Stylesheet
+ *
+ * This file imports all other stylesheets in the correct order.
+ *
+ * 1. Base styles (variables, resets, typography, animations)
+ * 2. Layout styles (grid, container)
+ * 3. Component styles (buttons, header, etc.)
+ * 4. Page-specific styles (homepage, etc.)
+ */
+
+@import "base/_variables.css";
+@import "base/_resets.css";
+@import "base/_typography.css";
+@import "base/_animations.css";
+
+@import "layout/_grid.css";
+
+@import "components/_buttons.css";
+@import "components/_header.css";
+@import "components/_navigation.css";
+@import "pages/_home.css";

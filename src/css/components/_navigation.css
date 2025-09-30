@@ -1,0 +1,260 @@
+/* Hide desktop navigation elements on mobile by default. */
+.main-nav,
+.desktop-donate-btn {
+  display: none;
+}
+
+.mobile-nav-triggers {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  /* z-index needed to place it above the mobile overlay's header. */
+  position: relative;
+  z-index: 1001;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: var(--neutral-dark);
+  margin: 5px 0;
+  border-radius: 2px;
+  /* A "springy" transition for a playful open/close effect. */
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Transforms the hamburger icon into an "X" when the menu is open. */
+body.menu-is-open .hamburger-btn span:nth-child(1) {
+  transform: translateY(8px) rotate(405deg);
+}
+body.menu-is-open .hamburger-btn span:nth-child(2) {
+  opacity: 0;
+}
+body.menu-is-open .hamburger-btn span:nth-child(3) {
+  transform: translateY(-8px) rotate(-405deg);
+}
+
+/* Full-screen menu overlay for mobile devices. */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-base);
+  z-index: 999;
+  /* Initially hidden off-screen. */
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Slides the mobile menu into view when the body has the .menu-is-open class. */
+body.menu-is-open .mobile-nav-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile-nav-header {
+  display: flex;
+  justify-content: flex-end; /* Aligns close button to the right */
+  align-items: center;
+  height: var(--header-height);
+  padding: 0 var(--container-padding);
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0; /* Prevents this header from shrinking */
+}
+
+.mobile-nav {
+  padding: 2rem 1.5rem;
+  /* flex-grow allows this container to fill the remaining vertical space. */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Allows scrolling if content exceeds screen height */
+}
+
+.mobile-nav li {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.mobile-nav li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0;
+  color: var(--neutral-dark);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Accordion indicator arrow. */
+.mobile-nav .accordion-toggle::after {
+  content: '›';
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #ccc;
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+.mobile-nav .has-submenu.is-open .accordion-toggle::after {
+  transform: rotate(-90deg);
+}
+
+.mobile-submenu {
+  /* This is the core of the accordion animation: transitioning max-height. */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  padding-left: 1.5rem;
+}
+
+.mobile-submenu a {
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 0.75rem 0;
+  opacity: 0.8;
+}
+
+@media (min-width: 992px) {
+  /* Hide mobile-specific elements on larger screens. */
+  .mobile-nav-triggers,
+  .mobile-nav-overlay {
+    display: none;
+  }
+
+  /* Show desktop-specific elements. */
+  .main-nav,
+  .desktop-donate-btn {
+    display: block;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .main-nav a {
+    font-weight: 700;
+    color: var(--neutral-dark);
+    padding: 1rem 0.75rem;
+    position: relative; /* Required for the pseudo-element hover effect. */
+    overflow: hidden;
+    z-index: 1; /* Ensures text is above the pseudo-element */
+  }
+  
+  /* "Liquid Fill" hover effect: A pseudo-element scales up from the bottom. */
+  .main-nav .nav-list > li > a:not(.active)::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: var(--primary-vivid-azure);
+    z-index: -1; /* Places the fill effect behind the link text */
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+
+  .main-nav .nav-list > li > a:hover {
+    color: var(--background-base);
+  }
+
+  .main-nav .nav-list > li > a:hover::before {
+    transform: scaleY(1); /* Grow to full height on hover. */
+  }
+  
+  /* Active state for the current page link. */
+  .main-nav .nav-list > li > a.active {
+    color: var(--neutral-dark);
+    border-bottom: 2px solid var(--primary-vivid-azure);
+    /* Adjust padding to account for border thickness, preventing layout shift. */
+    padding-bottom: calc(0.7rem - 2px);
+  }
+
+  .main-nav .nav-list > li > a.active:hover {
+    color: var(--primary-vivid-azure);
+  }
+
+  /* Dropdown Menu Logic */
+  .has-submenu {
+    /* 'static' is crucial for the mega-menu, allowing it to be positioned 
+       relative to the viewport (.fixed) instead of this list item. */
+    position: static;
+  }
+
+  .submenu {
+    background-color: var(--neutral-light);
+    border-radius: 4px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    min-width: 220px;
+    
+    /* Hide submenu by default and prepare for transition. */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    transition-delay: 0.2s; /* Slight delay before appearing. */
+  }
+  
+  /* Show dropdown on hover/focus of the parent. */
+  .has-submenu:hover .submenu,
+  .has-submenu.is-active .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .submenu a {
+    display: block;
+    padding: 0.8rem 1.2rem;
+    border-bottom: none !important; /* Override mobile styles if necessary. */
+  }
+
+  .main-nav .submenu a:hover {
+    color: var(--primary-vivid-azure);
+    background-color: var(--neutral-light); /* Override liquid fill */
+  }
+
+  .main-nav .submenu a:hover::before {
+    transform: none; /* Disable liquid fill effect inside dropdowns. */
+  }
+
+  /* Mega Menu Specifics */
+  .submenu--mega {
+    position: absolute; /* Position relative to the .site-header. */
+    top: 100%; /* Position it right below the header */
+    left: 0;
+    width: 100%;
+    min-width: initial;
+    border-radius: 0;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .submenu--mega .submenu-wrapper {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 2.5rem var(--container-padding);
+  }
+
+  .submenu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem 2rem;
+  }
+}
