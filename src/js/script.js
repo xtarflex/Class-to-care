@@ -5,22 +5,30 @@
  */
 'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
-    // All component initializations have been moved to their respective files
-    // in the /js/components/ directory. Each component now handles its own
-    // lifecycle (DOM queries, event listeners, etc.).
+// --- Import Initializers from Global Modules ---
+import { initNavigation } from './components/navigation.js';
+import { initSvgInjector } from './components/svg-injector.js';
+import { initAnimateOnView } from './components/animate-on-view.js';
 
-    // This file is now the place for any truly global logic that doesn't
-    // belong to a specific component but is needed across the site.
+// --- Page-Specific Initializers ---
+import { initHomePage } from './pages/home.js';
 
-    // For example, you could add logic here to detect touch devices
-    // and add a class to the body, which can be useful for CSS.
-    /*
-    const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice()) {
-        document.body.classList.add('is-touch');
+// --- Main Initialization Function ---
+function main() {
+    // Run all the initializers
+    initNavigation();
+    initSvgInjector();
+    initAnimateOnView();
+    
+    // Check if we are on the homepage and run its specific logic
+    if (document.body.id === 'page-home') {
+        initHomePage();
     }
-    */
+}
 
-    console.log('Main script loaded. Self-initializing component modules are now active.');
-});
+// --- Run Everything ---
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', main);
+} else {
+    main();
+}

@@ -81,14 +81,4 @@ function initCounterAnimation(root = document) {
     });
 }
 
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        initCounterAnimation();
-    });
-} else {
-    initCounterAnimation();
-}
-
-// Expose function globally for manual initialization
-window.initCounterAnimation = initCounterAnimation;
+export { initCounterAnimation };

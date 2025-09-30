@@ -1,6 +1,6 @@
 /**
  * @file Impact Counter Module (Version 3)
- * @description A performant, self-initializing module to animate numbers when they scroll into view.
+ * @description A performant module to animate numbers when they scroll into view.
  *
  * @feature Uses IntersectionObserver for efficient viewport detection.
  * @feature Respects `prefers-reduced-motion` for accessibility.
@@ -8,8 +8,7 @@
  * @feature High-performance `Intl.NumberFormat` with instance caching.
  * @feature Clean, modular architecture with small, testable helper functions.
  */
-(function() {
-    'use strict';
+'use strict';
 
     // --- Constants & Configuration ---
     const DEFAULT_DURATION = 1600;
@@ -263,15 +262,6 @@
         });
     }
 
-    // --- Auto-Initialization ---
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", () => scanAndObserve(document));
-    } else {
-        scanAndObserve(document);
-    }
-
-    // Expose a global function for manual re-scanning (e.g., after AJAX content load).
-    if (typeof window !== "undefined") {
-        window.C2CCounterInit = scanAndObserve;
-    }
-})();
+export function initCounters() {
+    scanAndObserve(document);
+}

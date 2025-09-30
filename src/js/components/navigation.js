@@ -139,9 +139,4 @@ const initNavigation = () => {
 
 };
 
-// Initialize when the DOM is ready.
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initNavigation);
-} else {
-    initNavigation();
-}
+export { initNavigation };

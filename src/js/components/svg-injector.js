@@ -1,6 +1,6 @@
 /**
  * @file SVG Injector Module (Version 3)
- * @description A robust, self-initializing module to fetch and inject SVG icons inline.
+ * @description A robust module to fetch and inject SVG icons inline.
  * Replaces placeholder elements having a `data-icon` attribute with the corresponding SVG file's content.
  *
  * @feature In-memory promise caching to prevent race conditions and redundant fetches.
@@ -9,8 +9,7 @@
  * @feature Configurable asset base path for project flexibility.
  * @feature Full accessibility attribute handling.
  */
-(function() {
-    'use strict';
+'use strict';
 
     // --- Configuration ---
 
@@ -207,15 +206,10 @@
         observeLateAdded();
     }
 
-    // --- Auto-Initialization ---
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", () => init());
-    } else {
-        init();
+export function initSvgInjector(options) {
+    if (options && typeof options.basePath === "string") {
+        ICONS_BASE_PATH = options.basePath;
     }
-
-    // Expose a global init function for manual re-initialization or configuration.
-    if (typeof window !== "undefined") {
-        window.C2CIconsInit = init;
-    }
-})();
+    processAll(document);
+    observeLateAdded();
+}

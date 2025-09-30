@@ -2,8 +2,7 @@
  * @file The core script for the "Animate on View" system.
  * @summary Observes elements with [data-ani] and applies animations when they enter the viewport.
  */
-(function() {
-  'use strict';
+'use strict';
 
   // --- CONFIGURATION & DEFAULTS ---
 
@@ -163,16 +162,4 @@
     applyStaggering(root);
   }
 
-  // --- INITIALIZATION ---
-
-  // Self-initialize on DOM load
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => init());
-  } else {
-    init();
-  }
-
-  // Expose function globally for manual rescans (e.g., after loading dynamic content)
-  window.initAnimateOnView = init;
-
-})();
+export { init as initAnimateOnView };

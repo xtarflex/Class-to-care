@@ -38,9 +38,4 @@ const initHeaderEffects = () => {
     window.addEventListener('scroll', handleHeaderScroll, { passive: true });
 };
 
-// Initialize when the DOM is ready.
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHeaderEffects);
-} else {
-    initHeaderEffects();
-}
+export { initHeaderEffects };
