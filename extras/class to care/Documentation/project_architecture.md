@@ -80,3 +80,20 @@ This is the main codebase for the website.
     2.  **Minify:** Remove all unnecessary characters to reduce file size.
 
 ---
+
+## 5. JavaScript Architecture
+
+The project utilizes a modern, modular JavaScript architecture to ensure performance, scalability, and maintainability.
+
+-   **Module System:** All JavaScript is written as native ES Modules (`import`/`export`).
+-   **File Structure:** The `src/js/` directory is organized by concern:
+    -   `components/`: Contains self-contained, reusable modules for specific UI components (e.g., `navigation.js`, `counter.js`).
+    -   `pages/`: Contains page-specific logic (e.g., `home.js`) that imports and initializes the components needed for that particular page.
+    -   `utils/`: For small, reusable helper functions.
+-   **Code Splitting & Loading:**
+    -   A single entry point, `script.js`, is loaded on each page using `<script type="module">`.
+    -   This main script handles the initialization of global modules.
+    -   It then uses conditional logic (based on the `<body>` ID) to dynamically `import()` and run the specific JavaScript for the current page.
+-   **Build Process:** The Vite build tool (`npm run build`) automatically handles bundling, minification, and code-splitting based on this modular structure for an optimized production output.
+
+---

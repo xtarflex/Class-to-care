@@ -3,7 +3,7 @@
 // 1. IMPORT the specific modules needed for the homepage.
 // We are importing the *initialization function* that each module now exports.
 import { initCounters } from '../components/counter.js';
-// When we build the slider, we'll add: import { initTestimonialSlider } from '../components/testimonial-slider.js';
+import { initTestimonialSlider } from '../components/testimonial-slider.js'; // 1. IMPORT
 
 /**
  * Initializes all JavaScript functionality that is specific to the homepage.
@@ -16,5 +16,5 @@ export function initHomePage() {
     initCounters();
     
     // When we build the slider, we'll add:
-    // initTestimonialSlider();
+    initTestimonialSlider(); // 2. CALL THE FUNCTION
 }

@@ -304,61 +304,115 @@
          </div>
      </section>
 
-     <!-- Our Testimonial Section -->
-    <section id="homepage-testimonial" class="testimonial">
+    <!-- TESTIMONIALS SECTION -->
+    <section id="homepage-testimonials" class="testimonials"> 
+        <div class="container"> 
+            <div class="section-title" data-ani="fade-up"> 
+                <div class="pill"> 
+                    <div class="pill__icon" data-icon="chat-text"></div> 
+                    <span>Stories From The Field</span> 
+                </div> 
+                <h2 data-ani="flip-in-x" data-ani-delay="200">What Our Partners <span class="gradient-text">Say</span></h2> 
+            </div> 
+    
+            <!-- Carousel Component --> 
+            <div class="testimonial-slider-wrapper"> 
+                <div class="testimonial-slider" data-ani="zoom-in" data-ani-delay="400"> 
+                    <div class="slider__track"> 
+                        <!-- SLIDE 1 --> 
+                        <article class="slider__slide"> 
+                            <div class="testimonial-card">
+                                <div class="card__content"> 
+                                    <h3 class="card__title">Care Our Community Can Count On</h3> 
+                                    <blockquote class="card__text">"The equipment donation from Class to Care, especially the new drug cart and standing fan, has made a tangible difference in our daily operations. It allows us to provide more efficient and comfortable care for our patients. We are deeply grateful for their partnership."</blockquote> 
+                                    <div class="card__attribution"> 
+                                        <p class="card__author">Ayomi Mafoluku PHC</p> 
+                                        <p class="card__role">Matron-in-Charge</p> 
+                                    </div> 
+                                </div> 
+                                <div class="card__image-wrapper"> 
+                                    <div class="card__image-placeholder"></div> 
+                                </div> 
+                            </div> 
+                        </article> 
+    
+                        <!-- SLIDE 2 --> 
+                        <article class="slider__slide"> 
+                            <div class="testimonial-card">
+                                <div class="card__content"> 
+                                    <h3 class="card__title">Confidence in a Crisis</h3> 
+                                    <blockquote class="card__text">"The Basic Life Support (BLS) training I received was outstanding. The practical skills and emergency response protocols we learned are essential. I now feel far more prepared and confident to act decisively and save a life when it matters most."</blockquote> 
+                                    <div class="card__attribution"> 
+                                        <p class="card__author">Nurse, Gbagada General Hospital</p> 
+                                        <p class="card__role">BLS Training Graduate</p> 
+                                    </div> 
+                                </div> 
+                                <div class="card__image-wrapper"> 
+                                    <div class="card__image-placeholder"></div> 
+                                </div> 
+                            </div> 
+                        </article> 
+    
+                        <!-- SLIDE 3 --> 
+                        <article class="slider__slide"> 
+                            <div class="testimonial-card"> 
+                                <div class="card__content"> 
+                                    <h3 class="card__title">Empowering the Next Generation</h3> 
+                                    <blockquote class="card__text">"Having the Class to Care team teach our students CPR was an incredible opportunity. They are now empowered with the knowledge to identify a cardiac arrest victim and perform high-quality CPR. This program is truly building a new generation of lifesavers."</blockquote> 
+                                    <div class="card__attribution"> 
+                                        <p class="card__author">Head Teacher, Div-Help College, Oshodi</p> 
+                                        <p class="card__role">CAPRES School Partner</p> 
+                                    </div> 
+                                </div> 
+                                <div class="card__image-wrapper"> 
+                                    <div class="card__image-placeholder"></div> 
+                                </div> 
+                            </div> 
+                        </article> 
+                    </div> 
+                </div> 
+    
+                <!-- Carousel Navigation Arrows --> 
+                <button class="slider__arrow slider__arrow--prev" aria-label="Previous testimonial"> 
+                    <div data-icon="caret-left"></div> 
+                </button> 
+                <button class="slider__arrow slider__arrow--next" aria-label="Next testimonial"> 
+                    <div data-icon="caret-right"></div> 
+                </button> 
+            </div> 
+    
+            <!-- Carousel Pagination Dots --> 
+            <div class="slider-pagination" > 
+                <button class="slider-dot is-active" aria-label="Go to slide 1"></button> 
+                <button class="slider-dot" aria-label="Go to slide 2"></button> 
+                <button class="slider-dot" aria-label="Go to slide 3"></button> 
+            </div> 
+        </div> 
+    </section> 
+
+    <!-- NEWS SECTION -->
+    <section id="homepage-news" class="news">
         <div class="container">
             <!-- Section Title Block -->
             <div class="section-title">
-                <div class="pill">
-                    <span>Stories From The Field</span>
-                </div>
-                <h2>What Our Partner <span class="gradient-text">Say</span></h2>
+                <h2 data-ani="flip-in-x">Our Latest <span class="gradient-text">News</span> </h2>
             </div>
+            
+            <!-- card grid -->
+             <div class="latest-news__grid">
+                <!-- card 1 Medical Education -->
+                 <div class="ani-wrapper" data-ani="slide-up" data-ani-delay="300">
+                    <div class="news-card__top">
+                        <div class="pill pill__news-category"><span>Medical Education</span></div>
+                    </div>
+                 </div>
 
-            <!-- Testimonial Card -->
-            <div class="our-work__grid">
-                <div class="testimonial-wrapper">
-                    <article class="our-work__card testimonial-card">
+             </div>
 
-                        <!-- Content structure matching the testimonial image -->
-                        <div class="testimonial-content-block">
-
-                            <!-- Quote Icon & Text (Left Side) -->
-                            <div class="quote-details">
-                                <span class="large-quote-mark"></span>
-                                <h3 class="quote-title">Care Our Community Can Count On</h3>
-                                <p class="quote-text">"The equipment donation from Class to Care, especially the new drug cart and standing fan, has made a tangible difference in our daily operations. It allows us to provide more efficient and comfortable care for our patients. We are deeply grateful for their partnership."</p>
-                                <hr class="separator">
-                                <div class="author-info">
-                                    <strong class="author-name">Ayomi Mafoluku PHC</strong>
-                                    <span class="author-role">Matron-in-Charge</span>
-                                </div>
-                            </div>
-
-                            <!-- Image/Placeholder (Right Side) -->
-                            <div class="partner-image-placeholder">
-                                <div class="dotted-circle"></div>
-                            </div>
-                        </div>
-
-                        <!-- Carousel Controls (Arrows and Indicators) -->
-                        <button class="arrow prev">Prev</button>
-                        <button class="arrow next">Next</button>
-                    </article>
-                </div>
-            </div>
-
-            <!-- Carousel Indicators -->
-            <div class="carousel-indicators">
-                <span class="indicator active"></span>
-                <span class="indicator"></span>
-                <span class="indicator"></span>
-            </div>
         </div>
     </section>
-
-
-     </main>
+    
+ </main>
 
      <script type="module" src="/js/script.js"></script>
  </body>

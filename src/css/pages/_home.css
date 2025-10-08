@@ -307,10 +307,11 @@
 .pill span {
     font-family: var(--font-heading);
     font-weight: 500;
+    font-size: var(--font-size-sm);
     color: var(--primary-vivid-azure);
     text-transform: capitalize;
     letter-spacing: 0.5px;
-    padding-left: 1rem;
+    padding: 0 1rem 0 0;
 }
 
 /* --- Grid & Cards --- */
@@ -414,3 +415,251 @@
         grid-template-columns: repeat(3, 1fr);
     }
 }
+ 
+ /* ========================================================================= */
+
+/* 8. Testimonials Section 
+ /* ========================================================================= */
+
+.testimonials { 
+     padding: 6rem var(--container-padding); 
+     background-color: var(--neutral-light); 
+ }
+
+.testimonials .section-title { 
+     margin-bottom: 4rem; 
+ }
+
+/* Wrapper for slider and arrows to establish positioning context */
+
+.testimonial-slider-wrapper {
+     position: relative;
+     max-width: 900px; /* Controls the max width of the card */
+     margin: 0 auto;
+ }
+
+/* Main slider container: Hides overflow to show only one slide */
+
+.testimonial-slider { 
+     position: relative; 
+     overflow: hidden; 
+ }
+
+.slider__track {
+     display: flex;
+     padding: 2rem 0;
+     transition: transform 0.5s ease-in-out;
+ }
+
+.slider__slide { 
+     width: 100%; 
+     flex-shrink: 0; 
+     transform: scale(0.9);
+     opacity: 0.7;
+     /* The transition is for the content within, which is good to keep */ 
+     transition: opacity 0.5s ease, transform 0.5s ease; 
+ }
+
+.slider__slide.is-active { 
+    opacity: 1; 
+    transform: scale(1); 
+ }
+
+/* The main testimonial card */
+
+.testimonial-card {
+     display: flex;
+     align-items: center;
+     gap: 2rem;
+     padding: 3rem;
+     background-color: #fff;
+     border: 1.5px solid var(--accent-vivid-magenta);
+     border-radius: 24px;
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+ }
+
+.card__content { 
+     flex: 1; 
+     position: relative; /* Anchor for the quote icon */ 
+ }
+
+/* Watermark Quote Icon using a CSS Mask */
+
+.card__content::before {
+    content: ''; /* Must be an empty string */
+    position: absolute;
+    top: -1.5rem;
+    left: 0rem;
+    z-index: 0;
+    transform: rotate(180deg);
+    
+    /* Set the size of the quote icon */
+    width: 140px;
+    height: 143px;
+    /* This is the color of your icon */
+    background-color: color-mix(in srgb, var(--primary-vivid-azure) 25%, transparent);
+    /* The SVG acts as a mask (stencil) */
+    -webkit-mask-image: url('../Assets/icons/quotes.svg'); /* For Safari/Chrome */
+    mask-image: url('../Assets/icons/quotes.svg'); /* Standard */
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+.card__title, 
+ .card__text, 
+ .card__attribution {
+     position: relative;
+     z-index: 1; /* Ensures text is on top of the watermark */
+ }
+
+.card__title { 
+     font-family: 'Montserrat', sans-serif; 
+     text-align: right;
+     margin-bottom: 1rem; 
+ }
+
+.card__text {
+     line-height: 1.7;
+     margin: 0;
+     color: var(--neutral-dark);
+     font-style: italic;
+     border-left: 4px solid color-mix(in srgb, var(--accent-vivid-magenta) 40%, transparent);
+     padding-left: 1rem;
+     text-align: left;
+ }
+
+.card__attribution { 
+     margin-top: 1.5rem; 
+     padding-top: 1.5rem; 
+     border-top: 1px solid #dee2e6; /* Light separator line */ 
+ }
+
+.card__author { 
+     font-weight: 700; 
+     margin: 0; 
+ }
+
+.card__role {
+     font-size: var(--font-size-sm);
+     /* color: #6c757d; */
+     margin: 0.25rem 0 0;
+ }
+
+/* Image Placeholder */
+
+.card__image-wrapper { 
+     width: 180px; 
+     height: 180px; 
+ }
+
+.card__image-placeholder { 
+     width: 100%; 
+     height: 100%; 
+     border: 2px dotted #adb5bd; 
+     border-radius: 50%; 
+ }
+
+/* Navigation Arrows */
+
+.slider__arrow {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     width: 44px;
+     height: 44px;
+     border: none;
+     cursor: pointer;
+     z-index: 10;
+     color: #000;
+     padding: 1rem;
+     border-radius: 50%;
+     box-shadow: -2px 3px 4px 1px rgba(0, 0, 0, 0.2);
+}
+
+.slider__arrow--prev { 
+     left: -60px; 
+ }
+
+.slider__arrow--next { 
+     right: -60px; 
+ }
+
+/* Pagination Dots */
+
+.slider-pagination { 
+     display: flex; 
+     justify-content: center; 
+     gap: 0.75rem; 
+     margin-top: 2.5rem; 
+ }
+
+.slider-dot { 
+     width: 12px; 
+     height: 12px; 
+     border-radius: 50%; 
+     background: transparent; 
+     border: 1px solid #adb5bd; 
+     padding: 0; 
+     cursor: pointer; 
+     transition: all 0.3s ease; 
+     transform: scale(0.9);
+ }
+
+.slider-dot.is-active { 
+     background-color: var(--primary-vivid-azure); 
+     border-color: var(--neutral-dark); 
+     transform: scale(1.1);
+ }
+
+/* ========================================================================= */
+
+/* Responsive Adjustments 
+ /* ========================================================================= */
+
+@media (max-width: 1024px) { 
+     /* Bring arrows closer on smaller desktops */ 
+     .slider__arrow--prev { left: -30px; } 
+     .slider__arrow--next { right: -30px; } 
+ }
+
+@media (max-width: 768px) { 
+     .testimonial-slider-wrapper { 
+         /* Add padding to make space for arrows inside the wrapper */
+         padding: 0 10px;
+     } 
+ 
+     .testimonial-card {
+         flex-direction: column;
+         padding: 2rem;
+     } 
+     
+     .card__content::before { 
+         width: 100px;
+         left: 1rem;
+         top: -7rem;
+     } 
+     
+     .card__title {
+         display: none;
+     } 
+ 
+     .card__attribution { 
+         border-top: none; /* Remove separator */ 
+         margin-top: 2rem; 
+         padding-top: 0; 
+     } 
+     
+     .card__image-wrapper { 
+         display: none; 
+     } 
+ 
+     .slider__arrow--prev {
+         left: -10px;
+     } 
+ 
+     .slider__arrow--next {
+         right: -10px;
+     } 
+ }
