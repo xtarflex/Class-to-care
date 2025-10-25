@@ -795,47 +795,39 @@
 }
 
 .newsletter__content {
-    /* This is the main blue card */
     max-width: 800px;
     margin: 0 auto;
-    padding: clamp(2.5rem, 6vw, 4rem); /* Fluid padding */
+    padding: clamp(2.5rem, 6vw, 4rem);
     border-radius: 24px;
     text-align: center;
-    color: var(--background-base); /* White text */
-    
-    /* The gradient background with the dotted overlay */
-    background-color: var(--primary-vivid-azure); /* Fallback color */
-    background-image: var(--gradient-sky);
+    color: var(--background-base);
     position: relative;
-    overflow: hidden; /* To contain the dotted pattern */
-}
-
-/* The dotted pattern overlay */
-.newsletter__content::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 15px 15px;
-    opacity: 0.5;
+    overflow: hidden;
+    background-color: var(--primary-vivid-azure); /* Fallback */
+    background-image: url('../Assets/images/dotted-pattern.png'), var(--gradient-sky);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 7rem;
 }
 
 /* Ensure all content is on top of the pattern */
-.newsletter__icon, .newsletter__title, .newsletter__subtitle, .newsletter__form {
+.newsletter__header, .newsletter__subtitle, .newsletter__form {
     position: relative;
     z-index: 1;
 }
 
-.newsletter__icon {
-    margin-bottom: 1rem;
+.newsletter__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
 }
-.newsletter__icon svg {
-    width: 48px;
-    height: 48px;
-    stroke: var(--background-base); /* White icon */
+
+.newsletter__icon {
+    width: clamp(48px, 6vw, 64px); /* Fluid size */
+    height: auto; /* Maintain aspect ratio */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25)); /* Add a nice shadow */
 }
 
 .newsletter__title {
@@ -847,7 +839,7 @@
 .newsletter__subtitle {
     font-family: var(--font-body);
     font-size: var(--font-size-base);
-    max-width: 45ch;
+    max-width: 50ch;
     margin: 0 auto 2.5rem auto;
     opacity: 0.9;
 }
@@ -856,7 +848,7 @@
     display: flex;
     flex-direction: column; /* Mobile-first stack */
     gap: 1rem;
-    max-width: 450px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -866,7 +858,7 @@
     border-radius: 6px;
     border: 2px solid transparent;
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: var(--font-size-sm);
     background-color: rgba(0, 0, 0, 0.2);
     color: var(--background-base);
     transition: border-color 0.3s, background-color 0.3s;
@@ -881,10 +873,8 @@
 }
 
 .newsletter__form .btn-primary {
-    /* Customizing the button from our component library */
     background-color: var(--neutral-dark);
     border-color: var(--neutral-dark);
-    font-size: 1rem;
 }
 
 
@@ -896,5 +886,161 @@
 
     .newsletter__form .btn-primary {
         flex-shrink: 0; /* Prevent the button from shrinking */
+    }
+}
+
+/* =================================== */
+/* 7. SITE FOOTER (Official Colors)    */
+/* =================================== */
+
+.site-footer {
+    /* CORRECT: Using our official Neutral Dark Grey */
+    background-color: var(--neutral-dark);
+    color: #cbd5e1;
+    padding: 4rem 0 2rem 0;
+    position: relative;
+    margin-top: -1px;
+}
+
+/* --- Wavy Divider Logic --- */
+.newsletter {
+    position: relative;
+}
+
+.wavy-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0; /* Removes any space below the SVG */
+    /* This will pull the footer up slightly to overlap the wave */
+    transform: translateY(1px); 
+}
+.wavy-divider svg {
+    width: 100%;
+    height: auto;
+}
+
+.wavy-divider svg path {
+    fill: var(--neutral-dark);
+}
+
+/* --- Footer Main Content --- */
+.footer__main {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: 1fr; /* Mobile-first */
+    padding-bottom: 4rem;
+}
+
+.footer__column--org {
+    grid-column: 1 / -1; /* Make the first column span full width on mobile */
+}
+
+.footer__logo img {
+    max-width: 170px;
+    margin-bottom: 1.5rem;
+}
+
+.footer__mission {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    max-width: 45ch;
+    margin-bottom: 2rem;
+}
+
+.footer__socials {
+    display: flex;
+    gap: 1.5rem;
+}
+.footer__socials svg {
+    width: 24px;
+    height: 24px;
+    color: #cbd5e1; 
+    transition: transform 0.3s, stroke 0.3s;
+}
+.footer__socials a:hover svg {
+    color: var(--primary-vivid-azure); 
+    transform: scale(1.2);
+}
+
+.footer__title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-base);
+    color: var(--background-base); 
+    margin: 0 0 1.5rem 0;
+}
+
+.footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.footer__list a {
+    color: #cbd5e1; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer__list a:hover {
+    color: var(--primary-vivid-azure); 
+}
+
+.footer__list--contact li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.footer__list--contact svg {
+    width: 20px;
+    height: 20px;
+    color: var(--primary-vivid-azure);
+    flex-shrink: 0;
+}
+
+/* --- Footer Bottom Bar --- */
+.footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.footer__copyright {
+    font-size: 1.1rem;
+    color: #94a3b8; /* Softer grey for legal text */
+    margin: 0;
+}
+
+.footer__legal {
+    display: flex;
+    gap: 1.5rem;
+}
+.footer__legal a {
+    font-size: 1.1rem;
+    color: #94a3b8; /* Softer grey for legal text */
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+@media (min-width: 768px) {
+    .footer__main {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 grid on tablet */
+    }
+    .footer__column--org {
+        grid-column: span 2; /* Org column still spans full width */
+    }
+    .footer__bottom {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+@media (min-width: 1024px) {
+    .footer__main {
+        grid-template-columns: 2fr 1fr 1fr 1fr; /* 4-column layout on desktop */
+    }
+    .footer__column--org {
+        grid-column: auto; /* Revert to a single column */
     }
 }
