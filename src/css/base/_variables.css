@@ -12,6 +12,12 @@
   --background-base: #FFFFFF;
   --border-color: #dee2e6; /* Updated for subtle separation */
 
+  /* Social Media Colors */
+  --facebook-color: #1877f2;
+  --twitter-color: #1da1f2;
+  --instagram-color: #c32aa3;
+  --linkedin-color: #0a66c2;
+
   /* Gradients */
   --gradient-sky: linear-gradient(to right, #3aafed, #3a7bd5);
   --gradient-leaf: linear-gradient(to right, #8CC63F, #a8e063);
