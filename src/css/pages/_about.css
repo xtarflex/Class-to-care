@@ -4,7 +4,7 @@
     position: relative;
     height: 50vh; /* Shorter than the homepage hero */
     min-height: 400px;
-    background-image: url('../Assets/images/about-hero-bg.webp'); /* Use a relevant background image */
+    background-image: url('../Assets/images/hero-bg.webp'); /* Use a relevant background image */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -20,8 +20,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 23, 42, 0.7); /* A dark blue overlay */
     z-index: 1;
+    background: linear-gradient(to right,
+        rgba(15, 23, 42, 0.9) 0%,   /* Start with a 90% opaque dark blue on the far left */
+        rgba(15, 23, 42, 0.8) 40%,  /* Transition to 80% opaque by the 40% mark (where the text is) */
+        rgba(15, 23, 42, 0.5) 70%,  /* Fade out to 50% opaque by the 70% mark */
+        rgba(15, 23, 42, 0.2) 100%  /* End with a very subtle 20% tint on the far right */
+    );
 }
 
 .page-hero__content {
@@ -43,43 +48,49 @@
     opacity: 0.9;
 }
 
-/* --- 2. Mission & Vision Section --- */
-
 .mission-vision {
-    padding: 6rem 0;
+    padding: 8rem 0;
     background-color: var(--background-base);
-    position: relative; /* Anchor for the watermark */
-    z-index: 1; /* Ensure it's above any potential sticky elements */
-    overflow: hidden; /* Hide watermark overflow */
-}
-
-/* The Watermark Icon (Desktop Only) */
-@media (min-width: 992px) {
-    .mission-vision::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 400px;
-        height: 400px;
-        background-image: url('../Assets/icons/bullseye.svg');
-        background-repeat: no-repeat;
-        background-size: contain;
-        opacity: 0.04; /* Very subtle */
-        z-index: -1; /* Behind the content */
-    }
+    overflow: hidden; 
 }
 
 .mission-vision__grid {
     display: grid;
     gap: 3rem;
-    /* Mobile-first: single column */
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Mobile-first */
 }
 
+/* --- The Card Styling with Gradient Border --- */
 .mission-vision__item {
-    padding: 2rem;
+    position: relative; /* Anchor for the watermark and border */
+    padding: 2px; /* The space for our fake border */
+    border-radius: 16px;
+    background: transparent; /* The container itself is transparent */
+    z-index: 1;
+}
+
+/* The Gradient Border Pseudo-Element */
+.mission-vision__item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--gradient-sky);
+    background-size: 200% 200%; /* Make the gradient larger for animation */
+    border-radius: inherit; /* Match the parent's border-radius */
+    z-index: -1;
+    transition: background-position 0.8s ease-out;
+}
+
+/* The Shine/Shimmer effect on hover */
+.mission-vision__item:hover::before {
+    background-position: 100% 100%;
+}
+
+/* The Inner Content Box (creates the card effect) */
+.mission-vision__content {
+    background-color: var(--background-base);
+    padding: 2.5rem;
+    border-radius: 14px; /* Slightly smaller than the parent */
     text-align: center;
 }
 
@@ -90,47 +101,58 @@
     margin-bottom: 1.5rem;
 }
 
- .mission-vision__title {
-     font-size: var(--font-size-md);
-     margin: 0 0 1rem 0;
-     color: var(--neutral-dark); /* Using the official dark text color variable */
-     font-weight: 600; /* Added semi-bold weight for better hierarchy */
-     text-align: center; /* Centered alignment for titles */
- }
- 
- .mission-vision__item p {
-     font-family: var(--font-body);
-     font-size: var(--font-size-base);
-     line-height: 1.7;
-     color: var(--neutral-dark); /* Consistent use of official color variable */
-     max-width: 45ch;
-     margin: 0 auto 1.5rem auto; /* Added bottom margin for paragraph spacing */
-     opacity: 0.85;
-     padding: 0 1rem; /* Added horizontal padding for better mobile readability */
-     transition: opacity 0.2s ease; /* Smooth hover effect */
- }
- 
- .mission-vision__item p:hover {
-     opacity: 1; /* Full opacity on hover for better readability */
- }
+.mission-vision__title {
+    font-size: var(--font-size-md);
+    margin: 0 0 1rem 0;
+    color: var(--neutral-dark);
+    font-weight: 600;
+    text-align: center;
+}
+
+.mission-vision__item p {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    color: var(--neutral-dark);
+    max-width: 45ch;
+    margin: 0 auto 1.5rem auto;
+    opacity: 0.85;
+    padding: 0 1rem;
+    transition: opacity 0.2s ease;
+}
+
+.mission-vision__item p:hover {
+    opacity: 1;
+}
 
 
-/* --- Responsive Breakpoint for 2-column layout --- */
-@media (min-width: 768px) {
-    .mission-vision {
-        padding: 8rem 0;
-    }
-
+/* --- The Peeking Watermarks (Desktop Only) --- */
+@media (min-width: 992px) {
     .mission-vision__grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 4rem;
     }
 
-    .mission-vision__item {
-        text-align: left; /* Align text left on desktop */
+    .mission-vision__item--mission::after,
+    .mission-vision__item--vision::after {
+        content: '';
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        opacity: 0.04;
+        z-index: -2; /* Behind the border and the content */
+        top: 50%;
+        transform: translateY(-50%);
     }
 
-    .mission-vision__item p {
-        margin: 0; /* Remove auto margin for left alignment */
+    .mission-vision__item--mission::after {
+        background-image: url('../Assets/icons/flag.svg');
+        left: -20%; /* Peek out to the left */
+    }
+
+    .mission-vision__item--vision::after {
+        background-image: url('../Assets/icons/binoculars.svg');
+        right: -20%; /* Peek out to the right */
     }
 }
