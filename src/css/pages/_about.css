@@ -21,7 +21,12 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-    background: linear-gradient(to right,
+
+    /* --- THE REFINED GRADIENT OVERLAY --- */
+    /* This creates a gradient that goes from a solid dark color on the left */
+    /* to a semi-transparent color on the right. */
+    background: linear-gradient(
+        to right,
         rgba(15, 23, 42, 0.9) 0%,   /* Start with a 90% opaque dark blue on the far left */
         rgba(15, 23, 42, 0.8) 40%,  /* Transition to 80% opaque by the 40% mark (where the text is) */
         rgba(15, 23, 42, 0.5) 70%,  /* Fade out to 50% opaque by the 70% mark */
@@ -37,122 +42,4 @@
 .page-hero__title {
     font-size: var(--font-size-xl);
     color: var(--background-base);
-    margin: 0 0 1rem 0;
-}
-
-.page-hero__subtitle {
-    font-family: var(--font-body);
-    font-size: var(--font-size-base);
-    max-width: 50ch;
-    margin: 0 auto;
-    opacity: 0.9;
-}
-
-.mission-vision {
-    padding: 8rem 0;
-    background-color: var(--background-base);
-    overflow: hidden; 
-}
-
-.mission-vision__grid {
-    display: grid;
-    gap: 3rem;
-    grid-template-columns: 1fr; /* Mobile-first */
-}
-
-/* --- The Card Styling with Gradient Border --- */
-.mission-vision__item {
-    position: relative; /* Anchor for the watermark and border */
-    padding: 2px; /* The space for our fake border */
-    border-radius: 16px;
-    background: transparent; /* The container itself is transparent */
-    z-index: 1;
-}
-
-/* The Gradient Border Pseudo-Element */
-.mission-vision__item::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: var(--gradient-sky);
-    background-size: 200% 200%; /* Make the gradient larger for animation */
-    border-radius: inherit; /* Match the parent's border-radius */
-    z-index: -1;
-    transition: background-position 0.8s ease-out;
-}
-
-/* The Shine/Shimmer effect on hover */
-.mission-vision__item:hover::before {
-    background-position: 100% 100%;
-}
-
-/* The Inner Content Box (creates the card effect) */
-.mission-vision__content {
-    background-color: var(--background-base);
-    padding: 2.5rem;
-    border-radius: 14px; /* Slightly smaller than the parent */
-    text-align: center;
-}
-
-.mission-vision__icon svg {
-    width: 48px;
-    height: 48px;
-    color: var(--primary-vivid-azure);
-    margin-bottom: 1.5rem;
-}
-
-.mission-vision__title {
-    font-size: var(--font-size-md);
-    margin: 0 0 1rem 0;
-    color: var(--neutral-dark);
-    font-weight: 600;
-    text-align: center;
-}
-
-.mission-vision__item p {
-    font-family: var(--font-body);
-    font-size: var(--font-size-base);
-    line-height: 1.7;
-    color: var(--neutral-dark);
-    max-width: 45ch;
-    margin: 0 auto 1.5rem auto;
-    opacity: 0.85;
-    padding: 0 1rem;
-    transition: opacity 0.2s ease;
-}
-
-.mission-vision__item p:hover {
-    opacity: 1;
-}
-
-
-/* --- The Peeking Watermarks (Desktop Only) --- */
-@media (min-width: 992px) {
-    .mission-vision__grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .mission-vision__item--mission::after,
-    .mission-vision__item--vision::after {
-        content: '';
-        position: absolute;
-        width: 280px;
-        height: 280px;
-        background-repeat: no-repeat;
-        background-size: contain;
-        opacity: 0.04;
-        z-index: -2; /* Behind the border and the content */
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .mission-vision__item--mission::after {
-        background-image: url('../Assets/icons/flag.svg');
-        left: -20%; /* Peek out to the left */
-    }
-
-    .mission-vision__item--vision::after {
-        background-image: url('../Assets/icons/binoculars.svg');
-        right: -20%; /* Peek out to the right */
-    }
 }

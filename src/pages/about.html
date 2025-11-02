@@ -146,43 +146,100 @@
             </div>
         </section>
 
-        <!-- 2. MISSION & VISION SECTION -->
-        <section class="mission-vision">
+        <!-- 2. OUR VISION SECTION -->
+        <section id="about-vision" class="vision">
+            <!-- The background video/image and V-shape are handled by CSS on this element -->
+            <div class="container vision__container">
+                <div class="vision__content">
+                    <h2 data-ani="fade-down">Our Vision</h2>
+                    <p class="vision__statement" data-ani="blur-in" data-ani-delay="200">
+                        To be the foremost promoter of access to high quality healthcare for all Nigerians.
+                    </p>
+                    <p class="vision__subtitle" data-ani="fade-up" data-ani-delay="400">
+                        We believe in a future where potential is limitless, inspiring us to build solutions that redefine what's possible for our communities.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. OUR MISSION SECTION  -->
+        <section id="about-mission" class="mission">
+            <div class="container mission__container">
+                <!-- Left Column: Image Plank -->
+                <div class="mission__image-plank" data-ani="slide-right">
+                    <img src="../Assets/images/mission-image-1.webp" alt="A healthcare worker assisting a patient">
+                    <img src="../Assets/images/mission-image-2.webp" alt="A community training session">
+                    <img src="../Assets/images/mission-image-3.webp" alt="Donated medical equipment in a clinic">
+                </div>
+
+                <!-- Right Column: Glassmorphism Card -->
+                <div class="mission__content-wrapper" data-ani="slide-left" data-ani-delay="200">
+                    <div class="mission__glass-card">
+                        <h2>Our Mission</h2>
+                        <dl class="mission__list">
+                            <dt>What We Do</dt>
+                            <dd>Improve healthcare service delivery across Nigeria.</dd>
+                            
+                            <dt>How We Do It</dt>
+                            <dd>Through continuous medical education, equipment donation, and promoting public health awareness.</dd>
+                            
+                            <dt>For Whom</dt>
+                            <dd>For healthcare practitioners, public institutions, and the communities they serve.</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. OUR CORE VALUES SECTION -->
+        <section id="about-values" class="values">
             <div class="container">
-                <div class="mission-vision__grid">
-                    
-                    <!-- Mission Column -->
-                    <div class="ani-wrapper" data-ani="slide-right">
-                        <div class="mission-vision__item mission-vision__item--mission">
-                            <div class="mission-vision__content">
-                                <div class="mission-vision__icon" data-icon="flag">
-                                    <!-- JS injects 'flag.svg' here -->
-                                </div>
-                                <h2 class="mission-vision__title">Our Mission</h2>
-                                <p>To improve healthcare service delivery through continuous medical education for healthcare practitioners and promoting support to influence healthcare practice in public service.</p>
+                <div class="section-title" data-ani="fade-up">
+                    <h2>Our Core <span class="gradient-text">Values</span></h2>
+                </div>
+
+                <div class="values__grid" data-ani-stagger="150">
+                    <!-- Value 1: Integrity -->
+                    <div class="value-card__wrapper" data-ani>
+                        <div class="value-card">
+                            <div class="value-card__face value-card__face--front">
+                                <!-- Initially empty or with a simple graphic -->
+                            </div>
+                            <div class="value-card__face value-card__face--back">
+                                <div class="value-card__icon" data-icon="handshake"></div>
+                                <h3>Integrity</h3>
+                                <p>We operate with honesty and transparency in all our dealings.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Vision Column -->
-                    <div class="ani-wrapper" data-ani="slide-left" data-ani-delay="200">
-                        <div class="mission-vision__item mission-vision__item--vision">
-                            <div class="mission-vision__content">
-                                <div class="mission-vision__icon" data-icon="binoculars">
-                                    <!-- JS injects 'binoculars.svg' here -->
-                                </div>
-                                <h2 class="mission-vision__title">Our Vision</h2>
-                                <p>To be the foremost promoter of access to high quality healthcare for all Nigerians.</p>
+                    <!-- Value 2: Compassion -->
+                    <div class="value-card__wrapper" data-ani>
+                        <div class="value-card">
+                            <div class="value-card__face value-card__face--front"></div>
+                            <div class="value-card__face value-card__face--back">
+                                <div class="value-card__icon" data-icon="heart"></div>
+                                <h3>Compassion</h3>
+                                <p>We put the communities we serve at the heart of every decision we make.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Value 3: Excellence -->
+                    <div class="value-card__wrapper" data-ani>
+                        <div class="value-card">
+                            <div class="value-card__face value-card__face--front"></div>
+                            <div class="value-card__face value-card__face--back">
+                                <div class="value-card__icon" data-icon="medal"></div>
+                                <h3>Excellence</h3>
+                                <p>We take responsibility for our results and constantly strive to improve our impact.</p>
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <!-- The watermark will be added with a CSS pseudo-element, so no HTML is needed for it -->
         </section>
-
-        <!-- The "Our History" Timeline will go here next -->
     
     <footer class="site-footer">
         <div class="container">
