@@ -8,5 +8,5 @@ export function initAboutPage() {
  initAboutPageParallax();
 
  // Initialize the flip card tap mechanism
- initFlipCards(); // 2. CALL THE NEW FUNCTION
+ initFlipCards(); 
 }

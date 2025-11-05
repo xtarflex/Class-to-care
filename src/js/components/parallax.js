@@ -17,7 +17,7 @@ let isTicking = false;
  * The main loop that runs on each animation frame to update element positions.
  */
 function updateParallax() {
- const { scrollY, innerHeight } = window;
+ const { scrollY, innerHeight } = window;1
 
  for (const item of elementsToAnimate) {
  const rect = item.el.getBoundingClientRect();
@@ -52,6 +52,9 @@ function onScroll() {
  * Initializes the parallax effect by finding elements and attaching the scroll listener.
  */
 export function initAboutPageParallax() {
+ const isMobile = window.matchMedia('(max-width: 768px)').matches;
+ if (isMobile) return;
+
  // Don't run this logic if the user prefers reduced motion
  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  if (prefersReducedMotion) return;
