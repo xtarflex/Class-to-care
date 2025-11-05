@@ -1,7 +1,6 @@
 import { initAboutPageParallax } from '../components/parallax.js';
 import { initFlipCards } from '../components/flip-cards.js';
 import { initHistoryTimeline } from '../components/timeline.js';
-import { initScatteredIcons } from '../components/scattered-icons.js';
 
 export function initAboutPage() {
  console.log("About Page JavaScript Initialized!");
@@ -14,7 +13,4 @@ export function initAboutPage() {
 
  // Initialize the history timeline
  initHistoryTimeline();
-
- // Initialize the scattered icons background effect
- initScatteredIcons();
 }
