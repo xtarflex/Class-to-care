@@ -147,9 +147,7 @@
     padding: clamp(2rem, 5vw, 3rem);
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    
-    /* The Glassmorphism Effect */
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.6); /* The Glassmorphism Effect */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
@@ -160,9 +158,9 @@
 
 .mission__list dt {
     font-family: var(--font-heading);
-    font-weight: 700;
-    color: var(--primary-vivid-azure);
-    margin-top: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary-leaf-green);
+  margin-top: 1.5rem;
 }
 
 .mission__list dd {
@@ -222,8 +220,23 @@
 
 .value-card__face--front {
     background: var(--neutral-light);
-    border: 1px solid var(--border-color);
-    /* Add a simple graphic or icon to the front if you want */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.value-card__pointer-icon {
+    width: 60px;
+    height: 60px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.value-card:hover .value-card__pointer-icon {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.1);
 }
 
 .value-card__face--back {
@@ -233,10 +246,10 @@
 }
 
 .value-card__icon svg {
-    width: 48px;
-    height: 48px;
-    stroke: var(--primary-vivid-azure);
-    margin-bottom: 1rem;
+  width: 48px;
+  height: 48px;
+  color: var(--accent-vivid-magenta);
+  margin-bottom: 1rem;
 }
 
 .value-card__face--back h3 {
@@ -335,7 +348,18 @@
 
 /* Style the dot when the item is visible */
 .timeline-item.is-visible .timeline-item__dot {
- background-color: var(--primary-vivid-azure);
+  background-color: var(--primary-vivid-azure); /* Keep the first one blue */
+}
+
+/* Target the 2nd and 4th items */
+.timeline-item:nth-child(2).is-visible .timeline-item__dot,
+.timeline-item:nth-child(4).is-visible .timeline-item__dot {
+  background-color: var(--secondary-leaf-green);
+}
+
+/* Target the 3rd item */
+.timeline-item:nth-child(3).is-visible .timeline-item__dot {
+  background-color: var(--accent-vivid-magenta);
 }
 
 .timeline-item__content {
