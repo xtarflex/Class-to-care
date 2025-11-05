@@ -276,3 +276,119 @@
         grid-template-columns: repeat(3, 1fr); /* 3 columns for Values on desktop */
     }
 }
+
+/* ========================================= */
+/* 3. ABOUT US - HISTORY TIMELINE */
+/* ========================================= */
+
+.history {
+ padding: 8rem 0;
+ background-color: var(--background-base);
+}
+
+.history .section-title {
+ margin-bottom: 5rem;
+}
+
+.history-timeline {
+ position: relative;
+}
+
+/* The main line (the grey background) */
+.history-timeline__line {
+ position: absolute;
+ left: 9px; /* Centered on the 20px dot */
+ top: 0;
+ bottom: 0;
+ width: 2px;
+ background-color: #e5e7eb;
+}
+
+/* The progress line (the blue line that animates) */
+.history-timeline__line--progress {
+ position: absolute;
+ left: 9px;
+ top: 0;
+ width: 2px;
+ background-color: var(--primary-vivid-azure);
+ height: 0; /* JS will animate this height */
+ transition: height 0.2s linear; /* Smooths the JS updates */
+}
+
+.timeline-item {
+ position: relative;
+ padding-left: 40px; /* Space for the line and dot */
+ padding-bottom: 4rem;
+}
+
+.timeline-item__dot {
+ position: absolute;
+ left: 0;
+ top: 5px;
+ width: 20px;
+ height: 20px;
+ border-radius: 50%;
+ background-color: #e5e7eb;
+ border: 3px solid var(--background-base);
+ transition: background-color 0.3s;
+}
+
+/* Style the dot when the item is visible */
+.timeline-item.is-visible .timeline-item__dot {
+ background-color: var(--primary-vivid-azure);
+}
+
+.timeline-item__content {
+ background-color: var(--neutral-light);
+ padding: 2rem;
+ border-radius: 8px;
+}
+
+.timeline-item__year {
+ font-family: var(--font-heading);
+ font-weight: 700;
+ color: var(--primary-vivid-azure);
+ margin-bottom: 0.5rem;
+}
+
+.timeline-item__content h3 {
+ font-size: var(--font-size-md);
+ margin: 0 0 1rem 0;
+}
+
+/* --- Desktop Timeline (2-sided) --- */
+@media (min-width: 768px) {
+ .history-timeline__line,
+ .history-timeline__line--progress {
+ left: 50%;
+ transform: translateX(-50%);
+ }
+
+ .timeline-item {
+ width: 50%;
+ padding-left: 0;
+ padding-right: 40px; /* Space on the right now */
+ }
+
+ .timeline-item:nth-child(even) {
+ margin-left: 50%; /* Push even items to the right */
+ padding-left: 40px;
+ padding-right: 0;
+ }
+
+ .timeline-item__dot {
+    transform: translateX(-50%);
+ }
+
+ .timeline-item:nth-child(odd) .timeline-item__dot {
+    left: 100%;
+ }
+
+ .timeline-item:nth-child(even) .timeline-item__dot {
+    left: 0;
+ }
+
+ .timeline-item__content--right {
+ text-align: right;
+ }
+}
