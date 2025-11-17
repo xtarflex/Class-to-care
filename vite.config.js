@@ -6,5 +6,4 @@ export default defineConfig({
     outDir: '../dist', // Output to a 'dist' folder in the project root
     emptyOutDir: true, // Empty the output directory on build
   },
-  publicDir: '../public', // If you have a public folder outside of src
 });

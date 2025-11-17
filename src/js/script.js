@@ -11,6 +11,7 @@ import { initSvgInjector } from './components/svg-injector.js';
 import { initAnimateOnView } from './components/animate-on-view.js';
 import { initTodoLinks } from './utils/todo-links.js'; 
 import { initCurrentYear } from './utils/current-year.js'; 
+import { initHeaderEffects } from './components/header-effects.js';
 
 // --- Page-Specific Initializers ---
 // Page-specific modules are now loaded dynamically.
@@ -19,6 +20,7 @@ import { initCurrentYear } from './utils/current-year.js';
 function main() {
     // Run all the initializers
     initNavigation();
+    initHeaderEffects();
     initSvgInjector();
     initAnimateOnView();
     initTodoLinks();      // 3. RUN TODO SCRIPT

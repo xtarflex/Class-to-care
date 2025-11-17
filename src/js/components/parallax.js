@@ -16,8 +16,8 @@ let isTicking = false;
 /**
  * The main loop that runs on each animation frame to update element positions.
  */
-function updateParallax() {
- const { scrollY, innerHeight } = window;1
+ function updateParallax() {
+  const { scrollY, innerHeight } = window;
 
  for (const item of elementsToAnimate) {
  const rect = item.el.getBoundingClientRect();
@@ -25,8 +25,8 @@ function updateParallax() {
  const elementHeight = rect.height;
 
  // Calculate when the element is in the viewport
- const ancher = scrollY + innerHeight;
- if (ancher > elementTop && scrollY < elementTop + elementHeight) {
+  const anchor = scrollY + innerHeight;
+  if (anchor > elementTop && scrollY < elementTop + elementHeight) {
  // Calculate the element's center relative to the viewport center
  const centerOffset = (rect.top + elementHeight / 2) - innerHeight / 2;
  const translateY = centerOffset * item.speed;
