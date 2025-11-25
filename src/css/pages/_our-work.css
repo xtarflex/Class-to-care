@@ -1,455 +1,358 @@
-/* =================================== */
-/* OUR WORK PAGE STYLES                */
-/* =================================== */
+/**
+ * Our Work Page Styles
+ */
 
-/* --- 1. Page Hero Overrides --- */
-/* Ensure the hero on this page looks distinct if needed */
-#page-our-work .page-hero {
-    background-image: url('../../Assets/images/our-work-hero.webp');
-    /* You'll need this image */
-    background-position: center;
+
+/* --- 0. Icon Fixes --- */
+.work-sidebar .icon-box svg *,
+.section-header .section-icon-mobile svg *,
+.project-card .card-icon svg * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
 }
 
-/* --- 2. Tabs Navigation (Existing) --- */
-.our-work-tabs {
+/* --- 1. Main Layout Grid --- */
+.work-scroll-container {
+    /* 40px top, 80px bottom */
     padding: 4rem 0 8rem 0;
     background-color: var(--background-base);
 }
 
-.tabs-nav {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 4rem;
-    flex-wrap: wrap;
+.work-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Mobile Default: Stacked */
+    gap: 3rem;
+    /* 30px gap */
+    position: relative;
 }
 
-.tab-btn {
-    background: transparent;
-    border: 2px solid var(--primary-vivid-azure);
-    color: var(--primary-vivid-azure);
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.tab-btn:hover {
-    background: rgba(58, 175, 237, 0.1);
-}
-
-.tab-btn.active {
-    background: var(--primary-vivid-azure);
-    color: var(--background-base);
-    box-shadow: 0 4px 10px rgba(58, 174, 237, 0.3);
-}
-
-/* Tab Panels Animation */
-.tab-panel {
-    display: none;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.tab-panel.active {
-    display: block;
-    animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes fadeSlideUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+/* Desktop Layout: Sidebar + Content */
+@media (min-width: 992px) {
+    .work-layout {
+        grid-template-columns: 280px 1fr;
+        /* Fixed Sidebar, Fluid Content */
+        gap: 5rem;
+        /* 50px gap */
     }
 }
 
-/* =================================== */
-/* 3. PROJECTS TAB CONTENT             */
-/* =================================== */
+/* --- 2. Sidebar Navigation (Sticky) --- */
 
-.projects-grid {
+/* Mobile: Horizontal Scroll Bar */
+@media (max-width: 991px) {
+    .work-sidebar {
+        position: sticky;
+        top: var(--header-height);
+        z-index: 90;
+        /* Glassmorphism background */
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 0;
+        /* 10px 0 */
+        /* Negative margins to stretch full width relative to container padding */
+        margin: -1rem -1.5rem 2rem -1.5rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .scroll-nav {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        /* 10px */
+        padding: 0 1.5rem 0.5rem 1.5rem;
+        scrollbar-width: none;
+    }
+
+    .scroll-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scroll-link {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.8rem 1.6rem;
+        /* 8px 16px */
+        border-radius: 50px;
+        border: 1px solid var(--border-color);
+        background-color: var(--background-base);
+        color: var(--neutral-dark);
+
+        /* Font Logic: 1.4rem = 14px */
+        font-size: 1.4rem;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        transition: all 0.3s ease;
+    }
+
+    .scroll-link .icon-box svg {
+        width: 1.8rem;
+        /* 18px */
+        height: 1.8rem;
+    }
+
+    /* Mobile Active State */
+    .scroll-link.is-active {
+        background-color: var(--primary-vivid-azure);
+        border-color: var(--primary-vivid-azure);
+        color: var(--background-base);
+    }
+
+    .scroll-link.is-active .icon-box svg {
+        stroke: var(--background-base);
+    }
+}
+
+/* Desktop: Vertical Sticky Sidebar */
+@media (min-width: 992px) {
+    .work-sidebar {
+        position: sticky;
+        /* Header Height (80px) + 30px spacing = ~110px */
+        top: calc(var(--header-height) + 3rem);
+        align-self: start;
+        height: fit-content;
+    }
+
+    .scroll-nav {
+        display: flex;
+        flex-direction: column;
+        border-left: 2px solid var(--border-color);
+    }
+
+    .scroll-link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        /* 15px */
+        padding: 1.5rem 2rem;
+        /* 15px 20px */
+        color: var(--neutral-dark);
+
+        font-family: var(--font-heading);
+        font-size: var(--font-size-base);
+        /* ~16px - 18px */
+        font-weight: 700;
+
+        text-decoration: none;
+        opacity: 0.6;
+        transition: all 0.3s ease;
+
+        /* Left Border Overlap */
+        border-left: 3px solid transparent;
+        margin-left: -2px;
+    }
+
+    .scroll-link:hover {
+        opacity: 1;
+        background-color: var(--neutral-light);
+    }
+
+    .icon-box svg {
+        width: 2.4rem;
+        /* 24px */
+        height: 2.4rem;
+        stroke: var(--neutral-dark);
+        transition: stroke 0.3s ease;
+    }
+
+    /* Desktop Active State */
+    .scroll-link.is-active {
+        opacity: 1;
+        color: var(--primary-vivid-azure);
+        background-color: #eaf6ff;
+        /* Light tint of primary color */
+        border-left-color: var(--primary-vivid-azure);
+    }
+
+    .scroll-link.is-active .icon-box svg {
+        stroke: var(--primary-vivid-azure);
+    }
+}
+
+/* --- 3. Content Sections --- */
+
+.work-section {
+    margin-bottom: 8rem;
+    /* 80px spacing between sections */
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--border-color);
+    /* Scroll Margin for correct anchor positioning */
+    scroll-margin-top: calc(var(--header-height) + 8rem);
+}
+
+@media (min-width: 992px) {
+    .work-section {
+        scroll-margin-top: calc(var(--header-height) + 4rem);
+    }
+}
+
+.work-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* Section Header */
+.section-header {
+    margin-bottom: 3rem;
+    /* 30px */
+}
+
+.section-title {
+    font-size: var(--font-size-lg);
+    /* ~30px */
+    margin-bottom: 1rem;
+    /* 10px */
+    font-family: var(--font-heading);
+    color: var(--neutral-dark);
+}
+
+.section-divider {
+    width: 6rem;
+    /* 60px */
+    height: 0.4rem;
+    /* 4px */
+    border-radius: 2px;
+}
+
+/* Mobile Icon in Header */
+.section-icon-mobile {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.section-icon-mobile svg {
+    width: 3.2rem;
+    /* 32px */
+    height: 3.2rem;
+    stroke: var(--primary-vivid-azure);
+}
+
+@media (min-width: 992px) {
+    .section-icon-mobile {
+        display: none;
+    }
+}
+
+/* Divider Colors */
+.bg-azure {
+    background-color: var(--primary-vivid-azure);
+}
+
+.bg-green {
+    background-color: var(--secondary-leaf-green);
+}
+
+.bg-magenta {
+    background-color: var(--accent-vivid-magenta);
+}
+
+
+/* --- 4. Section Intro (Story Stream) --- */
+.section-intro {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.intro-text .lead {
+    font-family: var(--font-body);
+    font-size: var(--font-size-md);
+    /* ~20px */
+    line-height: 1.6;
+    color: var(--neutral-dark);
+    margin-bottom: 1.5rem;
+}
+
+.intro-text p {
+    font-size: var(--font-size-base);
+    /* ~16px */
+}
+
+.intro-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.08);
+}
+
+@media (min-width: 768px) {
+    .section-intro {
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+    }
+
+    /* Alternating Layout Logic */
+    .section-intro--reverse {
+        grid-template-columns: 0.8fr 1.2fr;
+    }
+
+    .section-intro--reverse .intro-image {
+        order: -1;
+    }
+}
+
+/* --- 5. Project Cards Grid --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    /* 20px */
+}
+
+@media (min-width: 600px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .project-card {
-    background: var(--background-base);
+    background-color: var(--background-base);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 2.5rem;
+    /* 25px */
     display: flex;
     flex-direction: column;
+    gap: 1.5rem;
+
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-}
-
-.project-card__image {
-    position: relative;
-    aspect-ratio: 16/9;
-    overflow: hidden;
-}
-
-.project-card__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.project-card:hover .project-card__image img {
-    transform: scale(1.05);
-}
-
-.project-card__badge {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background-color: var(--secondary-leaf-green);
-    color: var(--background-base);
-    padding: 0.25rem 0.75rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.project-card__content {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.project-card__content h3 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    color: var(--neutral-dark);
-    font-size: var(--font-size-md);
-}
-
-.project-card__content p {
-    font-size: var(--font-size-sm);
-    color: #666;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-}
-
-.project-card__stats {
-    display: flex;
-    gap: 2rem;
-    padding: 1rem 0;
-    border-top: 1px solid var(--neutral-light);
-    border-bottom: 1px solid var(--neutral-light);
-    margin-bottom: 1.5rem;
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat-number {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    color: var(--primary-vivid-azure);
-    font-size: 1.2rem;
-}
-
-.stat-label {
-    font-size: 0.8rem;
-    color: #888;
-    text-transform: uppercase;
-}
-
-.project-card__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 700;
-    color: var(--primary-vivid-azure);
-    transition: gap 0.3s ease;
-}
-
-.project-card__link:hover {
-    gap: 0.8rem;
-}
-
-/* =================================== */
-/* 4. PROGRAMS TAB CONTENT             */
-/* =================================== */
-
-.programs-list {
-    display: grid;
-    gap: 2rem;
-}
-
-.program-item {
-    display: flex;
-    flex-direction: column;
-    /* Mobile first */
-    gap: 2rem;
-    background: var(--neutral-light);
-    padding: 2.5rem;
-    border-radius: 16px;
-    border: 1px solid transparent;
-    transition: border-color 0.3s ease;
-}
-
-.program-item:hover {
     border-color: var(--primary-vivid-azure);
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.08);
 }
 
-.program-item__icon {
-    flex-shrink: 0;
-    width: 64px;
-    height: 64px;
-    background: white;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-vivid-azure);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.card-icon svg {
+    width: 3.2rem;
+    /* 32px */
+    height: 3.2rem;
+    stroke: var(--secondary-leaf-green);
 }
 
-.program-item__icon svg {
-    width: 32px;
-    height: 32px;
-}
-
-.program-item__content h3 {
-    margin-top: 0;
-    color: var(--primary-vivid-azure);
-}
-
-.program-item__features {
-    list-style: none;
-    padding: 0;
-    margin-top: 1.5rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-}
-
-.program-item__features li {
-    position: relative;
-    padding-left: 1.5rem;
-    font-size: var(--font-size-sm);
-    color: var(--neutral-dark);
-}
-
-/* Custom bullet point */
-.program-item__features li::before {
-    content: '•';
-    color: var(--secondary-leaf-green);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-    font-size: 1.2rem;
-    line-height: 1.4;
-}
-
-/* =================================== */
-/* 5. IMPACT TAB CONTENT               */
-/* =================================== */
-
-.impact-stats-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-bottom: 4rem;
-}
-
-.impact-stat-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--border-color);
-}
-
-.impact-stat-card__icon {
-    margin-bottom: 1rem;
-    color: var(--secondary-leaf-green);
-}
-
-.impact-stat-card__icon svg {
-    width: 40px;
-    height: 40px;
-}
-
-.impact-stat-card__number {
+.project-card h3 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: var(--font-size-base);
+    /* ~18px */
     font-weight: 700;
+    margin: 0;
     color: var(--neutral-dark);
-    line-height: 1;
-    margin-bottom: 0.5rem;
 }
 
-.impact-stat-card__label {
-    font-size: 0.9rem;
+.project-card p {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    /* 15px - Slightly smaller than base but readable */
     color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* Impact Story Styling */
-.impact-story {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    background: var(--primary-vivid-azure);
-    color: white;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.impact-story__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    min-height: 300px;
-}
-
-.impact-story__content {
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.impact-story__content h3 {
-    color: white;
-    font-size: var(--font-size-lg);
-    margin-bottom: 1.5rem;
-}
-
-.impact-story__content p {
-    font-size: 1.1rem;
-    font-style: italic;
-    line-height: 1.8;
-    opacity: 0.9;
-    margin-bottom: 2rem;
-}
-
-.impact-story__content cite {
-    font-weight: 700;
-    font-style: normal;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-}
-
-/* =================================== */
-/* 6. GALLERY TAB CONTENT              */
-/* =================================== */
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-}
-
-.gallery-item {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    aspect-ratio: 1/1;
-    /* Square images */
-    cursor: pointer;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-
-.gallery-item__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 1.5rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover .gallery-item__overlay {
-    opacity: 1;
-}
-
-.gallery-item__overlay h4 {
-    color: white;
+    /* Hardcoded neutral grey for distinct hierarchy */
     margin: 0;
-    font-size: 1.1rem;
-}
-
-.gallery-item__overlay p {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9rem;
-    margin: 0;
-}
-
-/* =================================== */
-/* 7. RESPONSIVE BREAKPOINTS           */
-/* =================================== */
-
-@media (min-width: 768px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .impact-stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .program-item__features {
-        grid-template-columns: 1fr 1fr;
-        /* 2 columns for lists */
-    }
-}
-
-@media (min-width: 1024px) {
-    .projects-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .program-item {
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    .impact-stats-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .impact-story {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+    line-height: 1.5;
 }

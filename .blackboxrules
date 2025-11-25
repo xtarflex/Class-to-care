@@ -1,10 +1,10 @@
 const assistantConfig = {
     name: "Dynamic Multi-Domain Assistant",
     purpose: "Handle diverse tasks across domains with minimal tweaking",
-    
+
     supportedDomains: [
         "customer_support",
-        "code_generation", 
+        "code_generation",
         "content_creation",
         "data_analysis",
         "tutoring",

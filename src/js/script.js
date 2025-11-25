@@ -33,8 +33,6 @@ function main() {
         import('./pages/home.js').then(module => module.initHomePage());
     } else if (pageId === 'page-about') {
         import('./pages/about.js').then(module => module.initAboutPage());
-    } else if (pageId === 'page-our-work') {
-        import('./pages/our-work.js').then(module => module.initOurWorkPage());
     }
 }
 
