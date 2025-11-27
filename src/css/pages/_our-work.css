@@ -2,7 +2,6 @@
  * Our Work Page Styles
  */
 
-
 /* --- 0. Icon Fixes --- */
 .work-sidebar .icon-box svg *,
 .section-header .section-icon-mobile svg *,
@@ -23,20 +22,16 @@
 
 .work-layout {
     display: grid;
-    grid-template-columns: 1fr;
-    /* Mobile Default: Stacked */
-    gap: 3rem;
-    /* 30px gap */
+    grid-template-columns: 1fr; /* Mobile Default: Stacked */
+    gap: 3rem; /* 30px gap */
     position: relative;
 }
 
 /* Desktop Layout: Sidebar + Content */
 @media (min-width: 992px) {
     .work-layout {
-        grid-template-columns: 280px 1fr;
-        /* Fixed Sidebar, Fluid Content */
-        gap: 5rem;
-        /* 50px gap */
+        grid-template-columns: 280px 1fr; /* Fixed Sidebar, Fluid Content */
+        gap: 5rem; /* 50px gap */
     }
 }
 
@@ -46,53 +41,46 @@
 @media (max-width: 991px) {
     .work-sidebar {
         position: sticky;
-        top: var(--header-height);
+        top: calc(var(--header-height) + 3rem);
         z-index: 90;
         /* Glassmorphism background */
         background-color: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
-        padding: 1rem 0;
-        /* 10px 0 */
+        padding: 1rem 0; /* 10px 0 */
         /* Negative margins to stretch full width relative to container padding */
-        margin: -1rem -1.5rem 2rem -1.5rem;
+        margin: -1rem -1.5rem 2rem -1.5rem; 
         border-bottom: 1px solid var(--border-color);
     }
 
     .scroll-nav {
         display: flex;
         overflow-x: auto;
-        gap: 1rem;
-        /* 10px */
+        gap: 1rem; /* 10px */
         padding: 0 1.5rem 0.5rem 1.5rem;
-        scrollbar-width: none;
+        scrollbar-width: none; 
     }
-
-    .scroll-nav::-webkit-scrollbar {
-        display: none;
-    }
+    .scroll-nav::-webkit-scrollbar { display: none; }
 
     .scroll-link {
         flex-shrink: 0;
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        padding: 0.8rem 1.6rem;
-        /* 8px 16px */
+        padding: 0.8rem 1.6rem; /* 8px 16px */
         border-radius: 50px;
         border: 1px solid var(--border-color);
         background-color: var(--background-base);
         color: var(--neutral-dark);
-
+        
         /* Font Logic: 1.4rem = 14px */
-        font-size: 1.4rem;
+        font-size: 1.4rem; 
         font-family: var(--font-heading);
         font-weight: 700;
         transition: all 0.3s ease;
     }
 
     .scroll-link .icon-box svg {
-        width: 1.8rem;
-        /* 18px */
+        width: 1.8rem; /* 18px */
         height: 1.8rem;
     }
 
@@ -102,7 +90,6 @@
         border-color: var(--primary-vivid-azure);
         color: var(--background-base);
     }
-
     .scroll-link.is-active .icon-box svg {
         stroke: var(--background-base);
     }
@@ -128,24 +115,21 @@
         position: relative;
         display: flex;
         align-items: center;
-        gap: 1.5rem;
-        /* 15px */
-        padding: 1.5rem 2rem;
-        /* 15px 20px */
+        gap: 1.5rem; /* 15px */
+        padding: 1.5rem 2rem; /* 15px 20px */
         color: var(--neutral-dark);
-
+        
         font-family: var(--font-heading);
-        font-size: var(--font-size-base);
-        /* ~16px - 18px */
+        font-size: var(--font-size-base); /* ~16px - 18px */
         font-weight: 700;
-
+        
         text-decoration: none;
         opacity: 0.6;
         transition: all 0.3s ease;
-
+        
         /* Left Border Overlap */
         border-left: 3px solid transparent;
-        margin-left: -2px;
+        margin-left: -2px; 
     }
 
     .scroll-link:hover {
@@ -154,8 +138,7 @@
     }
 
     .icon-box svg {
-        width: 2.4rem;
-        /* 24px */
+        width: 2.4rem; /* 24px */
         height: 2.4rem;
         stroke: var(--neutral-dark);
         transition: stroke 0.3s ease;
@@ -165,8 +148,7 @@
     .scroll-link.is-active {
         opacity: 1;
         color: var(--primary-vivid-azure);
-        background-color: #eaf6ff;
-        /* Light tint of primary color */
+        background-color: #eaf6ff; /* Light tint of primary color */
         border-left-color: var(--primary-vivid-azure);
     }
 
@@ -178,12 +160,11 @@
 /* --- 3. Content Sections --- */
 
 .work-section {
-    margin-bottom: 8rem;
-    /* 80px spacing between sections */
+    margin-bottom: 8rem; /* 80px spacing between sections */
     padding-bottom: 4rem;
     border-bottom: 1px solid var(--border-color);
     /* Scroll Margin for correct anchor positioning */
-    scroll-margin-top: calc(var(--header-height) + 8rem);
+    scroll-margin-top: calc(var(--header-height) + 8rem); 
 }
 
 @media (min-width: 992px) {
@@ -199,24 +180,19 @@
 
 /* Section Header */
 .section-header {
-    margin-bottom: 3rem;
-    /* 30px */
+    margin-bottom: 3rem; /* 30px */
 }
 
 .section-title {
-    font-size: var(--font-size-lg);
-    /* ~30px */
-    margin-bottom: 1rem;
-    /* 10px */
+    font-size: var(--font-size-lg); /* ~30px */
+    margin-bottom: 1rem; /* 10px */
     font-family: var(--font-heading);
     color: var(--neutral-dark);
 }
 
 .section-divider {
-    width: 6rem;
-    /* 60px */
-    height: 0.4rem;
-    /* 4px */
+    width: 6rem; /* 60px */
+    height: 0.4rem; /* 4px */
     border-radius: 2px;
 }
 
@@ -225,32 +201,19 @@
     display: inline-block;
     margin-bottom: 0.5rem;
 }
-
 .section-icon-mobile svg {
-    width: 3.2rem;
-    /* 32px */
+    width: 3.2rem; /* 32px */
     height: 3.2rem;
     stroke: var(--primary-vivid-azure);
 }
-
 @media (min-width: 992px) {
-    .section-icon-mobile {
-        display: none;
-    }
+    .section-icon-mobile { display: none; } 
 }
 
 /* Divider Colors */
-.bg-azure {
-    background-color: var(--primary-vivid-azure);
-}
-
-.bg-green {
-    background-color: var(--secondary-leaf-green);
-}
-
-.bg-magenta {
-    background-color: var(--accent-vivid-magenta);
-}
+.bg-azure { background-color: var(--primary-vivid-azure); }
+.bg-green { background-color: var(--secondary-leaf-green); }
+.bg-magenta { background-color: var(--accent-vivid-magenta); }
 
 
 /* --- 4. Section Intro (Story Stream) --- */
@@ -263,38 +226,35 @@
 
 .intro-text .lead {
     font-family: var(--font-body);
-    font-size: var(--font-size-md);
-    /* ~20px */
+    font-size: var(--font-size-md); /* ~20px */
     line-height: 1.6;
     color: var(--neutral-dark);
     margin-bottom: 1.5rem;
 }
 
 .intro-text p {
-    font-size: var(--font-size-base);
-    /* ~16px */
+    font-size: var(--font-size-base); /* ~16px */
 }
 
 .intro-image img {
     width: 100%;
     height: auto;
     border-radius: 12px;
-    box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0.8rem 2rem rgba(0,0,0,0.08);
 }
 
 @media (min-width: 768px) {
     .section-intro {
-        grid-template-columns: 1.2fr 0.8fr;
+        grid-template-columns: 1.2fr 0.8fr; 
         align-items: center;
     }
 
     /* Alternating Layout Logic */
     .section-intro--reverse {
-        grid-template-columns: 0.8fr 1.2fr;
+        grid-template-columns: 0.8fr 1.2fr; 
     }
-
     .section-intro--reverse .intro-image {
-        order: -1;
+        order: -1; 
     }
 }
 
@@ -302,8 +262,7 @@
 .project-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
-    /* 20px */
+    gap: 2rem; /* 20px */
 }
 
 @media (min-width: 600px) {
@@ -316,32 +275,29 @@
     background-color: var(--background-base);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    padding: 2.5rem;
-    /* 25px */
+    padding: 2.5rem; /* 25px */
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-
+    
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
     border-color: var(--primary-vivid-azure);
-    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1rem 2.5rem rgba(0,0,0,0.08);
 }
 
 .card-icon svg {
-    width: 3.2rem;
-    /* 32px */
+    width: 3.2rem; /* 32px */
     height: 3.2rem;
-    stroke: var(--secondary-leaf-green);
+    stroke: var(--secondary-leaf-green); 
 }
 
 .project-card h3 {
     font-family: var(--font-heading);
-    font-size: var(--font-size-base);
-    /* ~18px */
+    font-size: var(--font-size-base); /* ~18px */
     font-weight: 700;
     margin: 0;
     color: var(--neutral-dark);
@@ -349,10 +305,8 @@
 
 .project-card p {
     font-family: var(--font-body);
-    font-size: 1.5rem;
-    /* 15px - Slightly smaller than base but readable */
-    color: #666;
-    /* Hardcoded neutral grey for distinct hierarchy */
+    font-size: 1.5rem; /* 15px - Slightly smaller than base but readable */
+    color: #666; /* Hardcoded neutral grey for distinct hierarchy */
     margin: 0;
     line-height: 1.5;
 }

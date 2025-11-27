@@ -5,8 +5,14 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
 html {
-  /* Makes rem unit calculation predictable (1rem = 10px). */
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
@@ -14,7 +20,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  font-size: var(--font-size-base); /* Default fluid font size */
+  font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--neutral-dark);
   background-color: var(--neutral-light);
