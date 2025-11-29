@@ -327,7 +327,7 @@
     
     /* Ensure text comes first on mobile for better storytelling? 
        Optional: Uncomment to swap order */
-    /* 
+/*     
     .section-intro { display: flex; flex-direction: column-reverse; } 
     */
 }
