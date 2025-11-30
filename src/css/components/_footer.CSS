@@ -1,0 +1,301 @@
+/* ========================================= */
+/* 1. Wavy Divider Logic (For Section above Footer) */
+/* ========================================= */
+.newsletter {
+    position: relative;
+}
+
+.wavy-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    /* Removes any space below the SVG */
+    /* This will pull the footer up slightly to overlap the wave */
+    transform: translateY(1px);
+}
+
+.wavy-divider svg {
+    width: 100%;
+    height: auto;
+}
+
+.wavy-divider svg path {
+    fill: var(--neutral-dark);
+}
+
+/* ========================================= */
+/* 2. Global Footer Styling */
+/* ========================================= */
+.site-footer {
+    background-color: var(--neutral-dark);
+    color: #cbd5e1;
+    padding: 4rem 0 2rem 0; /* Combined padding (4rem top, 2rem bottom) */
+    position: relative;
+    margin-top: -1px; /* Used for smooth transition after the wavy divider */
+}
+
+/* ========================================= */
+/* 3. TIER 1: Main Grid (Links, Logo, Mission) */
+/* ========================================= */
+.footer__main {
+    display: grid;
+    /* Combined gap values - using 3rem from first block for consistency */
+    gap: 3rem;
+    grid-template-columns: 1fr;
+    /* Mobile First */
+    
+    /* Combined bottom padding and border for the main section */
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* Retained from first block, removed from second block for cleaner merge */
+    margin-bottom: 4rem;
+}
+
+.footer__column--org {
+    /* Mobile default, for layout consistency */
+    grid-column: 1 / -1; 
+}
+
+/* Column Styling (Logo/Mission/Socials) */
+.footer__logo img {
+    /* Combined and used 170px as the max-width, as it's slightly larger/more recent */
+    max-width: 170px;
+    margin-bottom: 1.5rem;
+}
+
+.footer__mission {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    max-width: 45ch;
+    margin-bottom: 2rem;
+}
+
+/* Social Icons (Unique to second block - added) */
+.footer__socials {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer__socials svg {
+    width: 24px;
+    height: 24px;
+    color: var(--primary-vivid-azure); 
+    transition: transform 0.3s, color 0.3s;
+}
+
+.footer__socials [data-icon="facebook-logo"]:hover svg {
+    color: var(--facebook-color);
+    transform: scale(1.2);
+}
+
+.footer__socials [data-icon="twitter-logo"]:hover svg {
+    color: var(--twitter-color);
+    transform: scale(1.2);
+}
+
+.footer__socials [data-icon="instagram-logo"]:hover svg {
+    color: var(--instagram-color);
+    transform: scale(1.2);
+}
+
+.footer__socials [data-icon="linkedin-logo"]:hover svg {
+    color: var(--linkedin-color);
+    transform: scale(1.2);
+}
+
+/* Link Titles */
+.footer__title {
+    font-family: var(--font-heading);
+    /* Used var(--font-size-base) from second block as it's more flexible, assuming it's ~1.6rem */
+    font-size: var(--font-size-base); 
+    color: var(--background-base);
+    /* Combined margin definition */
+    margin: 0 0 1.5rem 0; 
+}
+
+/* Lists */
+.footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer__list a {
+    color: #cbd5e1;
+    text-decoration: none;
+    /* Used 1.4rem from first block as specific size, and the full transition from first block */
+    transition: color 0.3s ease; 
+    font-size: 1.4rem;
+}
+
+.footer__list a:hover {
+    color: var(--primary-vivid-azure);
+}
+
+/* Contact List Icons */
+.footer__list--contact li {
+    display: flex;
+    /* Used 0.75rem from second block for contact list spacing - more precise */
+    gap: 0.75rem; 
+    align-items: center;
+    /* Used 1.4rem from first block for text size */
+    font-size: 1.4rem; 
+}
+
+.footer__list--contact svg {
+    width: 20px;
+    height: 20px;
+    color: var(--primary-vivid-azure);
+    flex-shrink: 0;
+}
+
+/* ========================================= */
+/* 4. TIER 2: Newsletter Block (Unique from first block - added) */
+/* ========================================= */
+.footer__newsletter-block {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 4rem;
+}
+
+.footer__newsletter-content {
+    max-width: 600px;
+    width: 100%;
+}
+
+.footer__text {
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    color: #94a3b8;
+}
+
+/* Newsletter Form (Inline) */
+.footer__form-inline {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.footer__input {
+    flex-grow: 1;
+    padding: 1.2rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--background-base);
+    font-family: var(--font-body);
+}
+
+.footer__input:focus {
+    outline: none;
+    border-color: var(--primary-vivid-azure);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.footer__btn {
+    /* Extending our base .btn class */
+    background-color: var(--primary-vivid-azure);
+    color: var(--background-base);
+    border: none;
+    padding: 1.2rem 2.5rem;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.footer__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(58, 175, 237, 0.4);
+}
+
+/* ========================================= */
+/* 5. TIER 3: Bottom Bar */
+/* ========================================= */
+.footer__bottom {
+    /* Combined bottom bar styles */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Combined gap (1.5rem from first block, 1rem from second - using 1.5rem) */
+    gap: 1.5rem; 
+    text-align: center;
+}
+
+.footer__copyright {
+    /* Combined copyright styles */
+    /* Used 1.3rem from first block as it's slightly larger, and the color from second block for softer grey */
+    font-size: 1.3rem;
+    color: #94a3b8; 
+    margin: 0;
+}
+
+.footer__legal {
+    display: flex;
+    /* Combined gap (2rem from first block, 1.5rem from second - using 2rem) */
+    gap: 2rem; 
+}
+
+.footer__legal a {
+    /* Combined legal link styles */
+    /* Used 1.3rem from first block, and color from second block for consistency with copyright */
+    font-size: 1.3rem; 
+    color: #94a3b8;
+    text-decoration: none; /* Added to ensure link is styled as link, though not conflicting */
+}
+
+.footer__legal a:hover {
+    color: var(--background-base);
+}
+
+/* ========================================= */
+/* 6. Responsive Design (Footer Only) */
+/* ========================================= */
+
+/* Tablet (min-width: 600px) - Newsletter Form */
+@media (min-width: 600px) {
+    .footer__form-inline {
+        flex-direction: row;
+    }
+}
+
+/* Tablet (min-width: 768px) */
+@media (min-width: 768px) {
+    /* Main Grid */
+    .footer__main {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2x2 grid on tablet */
+    }
+
+    /* Bottom Bar */
+    .footer__bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+    
+    /* Org Column spanning full width on tablet */
+    .footer__column--org {
+        grid-column: span 2;
+    }
+}
+
+/* Desktop (min-width: 1024px) */
+@media (min-width: 1024px) {
+    /* Main Grid */
+    .footer__main {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        /* 4-column layout on desktop */
+    }
+
+    /* Org Column reverts to single column on desktop */
+    .footer__column--org {
+        grid-column: auto;
+    }
+}

@@ -1,14 +1,22 @@
-/* --- 1. Page Hero --- */
-
+/* ========================================= */
+/* 1. Page Hero */
+/* ========================================= */
 .page-hero {
     position: relative;
     height: 45vh; /* A bit shorter for internal pages */
     min-height: 350px;
     background-image: url('../Assets/images/about-hero-bg.webp'); /* Placeholder */
+    background-attachment: fixed; /* CHANGE: Enable fixed background attachment */
+    background-position: center; /* CHANGE: Focus on the center of the image */
     background-size: cover;
-    background-position: center 65%; /* Focus on the lower part of the image */
     display: flex;
     color: var(--background-base);
+}
+
+@media (max-width: 1024px) {    
+    .page-hero {
+        background-attachment: scroll;
+    }
 }
 
 .page-hero__overlay {

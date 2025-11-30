@@ -1,8 +1,65 @@
 /**
  * Our Work Page Styles
  */
+ 
+ .page-hero {
+    position: relative;
+    height: 45vh;
+    /* A bit shorter for internal pages */
+    min-height: 350px;
+    background-image: url('../Assets/images/about-hero-bg.webp'); /* Placeholder */
+    background-size: cover;
+    background-position: center;
+    /* Focus on the lower part of the image */
+    background-attachment: fixed;
+    display: flex;
+    color: var(--background-base);
+}
 
-/* --- 0. Icon Fixes --- */
+@media (max-width: 1024px) {
+    .page-hero {
+        background-attachment: scroll;
+    }
+}
+
+.page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to right,
+            rgb(15, 23, 42) 0%,
+            rgba(15, 23, 42, 0.89) 40%,
+            rgba(15, 23, 42, 0.548) 70%,
+            rgba(15, 23, 42, 0.295) 100%);
+}
+
+.page-hero .container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.page-hero__content {
+    text-align: left;
+    max-width: 50ch;
+}
+
+.page-hero__title {
+    font-size: var(--font-size-xl);
+    color: var(--background-base);
+    margin: 0 0 1rem 0;
+}
+
+.page-hero__subtitle {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+
+/* --- Icon Fixes --- */
 .work-sidebar .icon-box svg *,
 .section-header .section-icon-mobile svg *,
 .project-card .card-icon svg * {
@@ -13,98 +70,125 @@
     stroke-dashoffset: 0 !important;
 }
 
-/* --- 1. Main Layout Grid --- */
+/* --- Main Layout Grid --- */
 .work-scroll-container {
-    /* 40px top, 80px bottom */
     padding: 4rem 0 8rem 0;
     background-color: var(--background-base);
 }
 
 .work-layout {
     display: grid;
-    grid-template-columns: 1fr; /* Mobile Default: Stacked */
-    gap: 3rem; /* 30px gap */
+    grid-template-columns: 1fr;
+    /* Mobile Default: Stacked */
+    gap: 3rem;
     position: relative;
 }
 
 /* Desktop Layout: Sidebar + Content */
 @media (min-width: 992px) {
     .work-layout {
-        grid-template-columns: 280px 1fr; /* Fixed Sidebar, Fluid Content */
-        gap: 5rem; /* 50px gap */
+        grid-template-columns: 280px 1fr;
+        gap: 5rem;
     }
 }
 
-/* --- 2. Sidebar Navigation (Sticky) --- */
+/* --- Sidebar Navigation (Sticky) --- */
 
-/* Mobile: Horizontal Scroll Bar */
+/* MOBILE STYLES (Default / Max-width 991px) */
 @media (max-width: 991px) {
     .work-sidebar {
         position: sticky;
-        top: calc(var(--header-height) + 3rem);
+        top: calc(var(--header-height) + 1rem);
         z-index: 90;
-        /* Glassmorphism background */
-        background-color: rgba(255, 255, 255, 0.596);
-        backdrop-filter: blur(10px);
-        /* FIX: Ensure width doesn't blow out the screen */
-        width: calc(100% + 3rem); /* 100% + left/right negative margins */
-        margin-top: -1rem;
-        margin-bottom: 2rem;
-        margin-left: -1.5rem;
-        margin-right: -1.5rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        padding-left: 1.5rem; /* Add padding back so text isn't on edge */
-        padding-right: 1.5rem;
+        background-color: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        width: calc(100% + 3rem);
+        margin: -1rem -1.5rem 2rem -1.5rem;
+        padding: 1rem 0;
         border-bottom: 1px solid var(--border-color);
+        pointer-events: auto; 
     }
 
     .scroll-nav {
         display: flex;
         overflow-x: auto;
-        gap: 1rem; /* 10px */
+        gap: 0.8rem;
         padding: 0 1.5rem 0.5rem 1.5rem;
-        scrollbar-width: none; 
+        scrollbar-width: none;
+        justify-content: flex-start; 
     }
-    .scroll-nav::-webkit-scrollbar { display: none; }
+
+    .scroll-nav::-webkit-scrollbar {
+        display: none;
+    }
 
     .scroll-link {
         flex-shrink: 0;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.8rem 1.6rem; /* 8px 16px */
-        border-radius: 50px;
-        border: 1px solid var(--border-color);
+        gap: 0; /* Gap handled by margin on span for animation */
+        padding: 0.8rem 1.2rem;
+        border-radius: 1px;
+        border: none;
+        border-left: 2px solid var(--border-color);
         background-color: var(--background-base);
         color: var(--neutral-dark);
-        font-size: 1.4rem; 
-        font-family: var(--font-heading);
-        font-weight: 700;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .scroll-link .icon-box {
+        display: flex;
+        align-items: center;
     }
 
     .scroll-link .icon-box svg {
-        width: 1.8rem; /* 18px */
-        height: 1.8rem;
+        width: 2rem;
+        height: 2rem;
+        color: var(--neutral-dark);
+        transition: color 0.3s ease;
     }
 
-    /* Mobile Active State */
-    .scroll-link.is-active {
-        background-color: var(--primary-vivid-azure);
-        border-color: var(--primary-vivid-azure);
-        color: var(--background-base);
+    .scroll-link span {
+        max-width: 0;
+        opacity: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        
+        font-size: var(--font-size-sm);
+        font-family: var(--font-heading);
+        font-weight: 700;
+        
+        transition: max-width 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                    opacity 0.3s ease, 
+                    margin-left 0.3s ease;
+        margin-left: 0;
     }
+
+    /* --- MOBILE ACTIVE STATE --- */
+    .scroll-link.is-active {
+        background-color: #eaf6ff;
+        border-left-color: var(--primary-vivid-azure); /* Left border color change */
+        color: var(--primary-vivid-azure);
+        opacity: 1;
+        padding-right: 1.4rem; 
+    }
+
+    /* Open the Text */
+    .scroll-link.is-active span {
+        max-width: 200px; 
+        opacity: 1;
+        margin-left: 0.8rem;
+    }
+
     .scroll-link.is-active .icon-box svg {
-        stroke: var(--background-base);
+        color: var(--primary-vivid-azure);
     }
 }
 
-/* Desktop: Vertical Sticky Sidebar */
+/* DESKTOP STYLES (Min-width 992px) */
 @media (min-width: 992px) {
     .work-sidebar {
         position: sticky;
-        /* Header Height (80px) + 30px spacing = ~110px */
         top: calc(var(--header-height) + 3rem);
         align-self: start;
         height: fit-content;
@@ -120,21 +204,22 @@
         position: relative;
         display: flex;
         align-items: center;
-        gap: 1.5rem; /* 15px */
-        padding: 1.5rem 2rem; /* 15px 20px */
+        gap: 1.5rem;
+        padding: 1.5rem 2rem;
         color: var(--neutral-dark);
-        
         font-family: var(--font-heading);
-        font-size: var(--font-size-base); /* ~16px - 18px */
+        font-size: var(--font-size-base);
         font-weight: 700;
-        
         text-decoration: none;
         opacity: 0.6;
         transition: all 0.3s ease;
-        
-        /* Left Border Overlap */
         border-left: 3px solid transparent;
-        margin-left: -2px; 
+        margin-left: -2px;
+    }
+
+    /* On Desktop, text is always visible */
+    .scroll-link span {
+        display: inline;
     }
 
     .scroll-link:hover {
@@ -143,33 +228,33 @@
     }
 
     .icon-box svg {
-        width: 2.4rem; /* 24px */
+        width: 2.4rem;
         height: 2.4rem;
-        stroke: var(--neutral-dark);
-        transition: stroke 0.3s ease;
+        color: var(--neutral-dark);
+        transition: color 0.3s ease;
     }
 
     /* Desktop Active State */
     .scroll-link.is-active {
         opacity: 1;
         color: var(--primary-vivid-azure);
-        background-color: #eaf6ff; /* Light tint of primary color */
+        background-color: #eaf6ff;
         border-left-color: var(--primary-vivid-azure);
     }
 
     .scroll-link.is-active .icon-box svg {
-        stroke: var(--primary-vivid-azure);
+        color: var(--primary-vivid-azure);
     }
 }
 
-/* --- 3. Content Sections --- */
+/* --- Content Sections --- */
 
 .work-section {
-    margin-bottom: 8rem; /* 80px spacing between sections */
+    margin-bottom: 8rem;
     padding-bottom: 4rem;
     border-bottom: 1px solid var(--border-color);
-    /* Scroll Margin for correct anchor positioning */
-    scroll-margin-top: calc(var(--header-height) + 8rem); 
+    /* Scroll Margin handles the sticky header offset */
+    scroll-margin-top: calc(var(--header-height) + 8rem);
 }
 
 @media (min-width: 992px) {
@@ -185,19 +270,18 @@
 
 /* Section Header */
 .section-header {
-    margin-bottom: 3rem; /* 30px */
+    margin-bottom: 3rem;
 }
 
 .section-title {
-    font-size: var(--font-size-lg); /* ~30px */
-    margin-bottom: 1rem; /* 10px */
+    margin-bottom: 1rem;
     font-family: var(--font-heading);
     color: var(--neutral-dark);
 }
 
 .section-divider {
-    width: 6rem; /* 60px */
-    height: 0.4rem; /* 4px */
+    width: 6rem;
+    height: 0.4rem;
     border-radius: 2px;
 }
 
@@ -206,22 +290,34 @@
     display: inline-block;
     margin-bottom: 0.5rem;
 }
+
 .section-icon-mobile svg {
-    width: 3.2rem; /* 32px */
+    width: 3.2rem;
     height: 3.2rem;
-    stroke: var(--primary-vivid-azure);
+    color: var(--primary-vivid-azure);
 }
+
 @media (min-width: 992px) {
-    .section-icon-mobile { display: none; } 
+    .section-icon-mobile {
+        display: none;
+    }
 }
 
 /* Divider Colors */
-.bg-azure { background-color: var(--primary-vivid-azure); }
-.bg-green { background-color: var(--secondary-leaf-green); }
-.bg-magenta { background-color: var(--accent-vivid-magenta); }
+.bg-azure {
+    background-color: var(--primary-vivid-azure);
+}
+
+.bg-green {
+    background-color: var(--secondary-leaf-green);
+}
+
+.bg-magenta {
+    background-color: var(--accent-vivid-magenta);
+}
 
 
-/* --- 4. Section Intro (Story Stream) --- */
+/* --- Section Intro (Story Stream) --- */
 .section-intro {
     display: grid;
     grid-template-columns: 1fr;
@@ -231,35 +327,46 @@
 
 .intro-text .lead {
     font-family: var(--font-body);
-    font-size: var(--font-size-md); /* ~20px */
+    font-size: var(--font-size-md);
     line-height: 1.6;
     color: var(--neutral-dark);
     margin-bottom: 1.5rem;
 }
 
 .intro-text p {
-    font-size: var(--font-size-base); /* ~16px */
+    font-size: var(--font-size-base);
 }
 
+/* Mobile Polish: Intro Images (Banner Style) */
 .intro-image img {
     width: 100%;
     height: auto;
     border-radius: 12px;
-    box-shadow: 0 0.8rem 2rem rgba(0,0,0,0.08);
+    box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 767px) {
+    .intro-image img {
+        height: 180px;
+        /* Fixed banner height */
+        object-fit: cover;
+        margin-bottom: 1.5rem;
+    }
 }
 
 @media (min-width: 768px) {
     .section-intro {
-        grid-template-columns: 1.2fr 0.8fr; 
+        grid-template-columns: 1.2fr 0.8fr;
         align-items: center;
     }
 
     /* Alternating Layout Logic */
     .section-intro--reverse {
-        grid-template-columns: 0.8fr 1.2fr; 
+        grid-template-columns: 0.8fr 1.2fr;
     }
+
     .section-intro--reverse .intro-image {
-        order: -1; 
+        order: -1;
     }
 }
 
@@ -267,7 +374,7 @@
 .project-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem; /* 20px */
+    gap: 2rem;
 }
 
 @media (min-width: 600px) {
@@ -280,54 +387,74 @@
     background-color: var(--background-base);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    padding: 2.5rem; /* 25px */
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Mobile Polish: Cards as Lists */
+@media (max-width: 600px) {
+    .project-card {
+        flex-direction: row;
+        /* Align Side-by-Side */
+        align-items: flex-start;
+        text-align: left;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .project-card .card-icon {
+        flex-shrink: 0;
+    }
 }
 
 .project-card:hover {
     transform: translateY(-5px);
     border-color: var(--primary-vivid-azure);
-    box-shadow: 0 1rem 2.5rem rgba(0,0,0,0.08);
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.08);
 }
 
 .card-icon svg {
-    width: 3.2rem; /* 32px */
+    width: 3.2rem;
     height: 3.2rem;
-    stroke: var(--secondary-leaf-green); 
+    color: var(--secondary-leaf-green);
+}
+
+@media (max-width: 600px) {
+    .project-card .card-icon svg {
+        width: 2.8rem;
+        height: 2.8rem;
+    }
 }
 
 .project-card h3 {
     font-family: var(--font-heading);
-    font-size: var(--font-size-base); /* ~18px */
+    font-size: var(--font-size-base);
     font-weight: 700;
     margin: 0;
     color: var(--neutral-dark);
 }
 
+@media (max-width: 600px) {
+    .project-card h3 {
+        font-size: var(--font-size-base);
+        margin-bottom: 0.4rem;
+    }
+}
+
 .project-card p {
     font-family: var(--font-body);
-    font-size: 1.5rem; /* 15px - Slightly smaller than base but readable */
-    color: #666; /* Hardcoded neutral grey for distinct hierarchy */
+    font-size: var(--font-size-sm);
+    color: #666;
     margin: 0;
     line-height: 1.5;
 }
-/* Mobile Polish: Intro Images */
-@media (max-width: 767px) {
-    .intro-image img {
-        width: 100%;
-        height: 180px; /* Fixed short height */
-        object-fit: cover; /* Crop the image nicely */
-        border-radius: 8px;
-        margin-bottom: 1.5rem;
+
+@media (max-width: 600px) {
+    .project-card p {
+        font-size: var(--font-size-xs);
+        line-height: 1.4;
     }
-    
-    /* Ensure text comes first on mobile for better storytelling? 
-       Optional: Uncomment to swap order */
-/*     
-    .section-intro { display: flex; flex-direction: column-reverse; } 
-    */
 }

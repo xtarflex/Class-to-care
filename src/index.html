@@ -31,7 +31,7 @@
                     <li><a href="#" class="active">Home</a></li>
 
                     <li class="has-submenu">
-                        <a href="#TODO:page-about-us" aria-haspopup="true" aria-expanded="false">About Us ▼</a>
+                        <a href="/about" aria-haspopup="true" aria-expanded="false">About Us ▼</a>
                         <div class="submenu submenu--mega">
                             <div class="submenu-wrapper">
                                 <div class="submenu-grid">
@@ -570,28 +570,22 @@
 
     <footer class="site-footer">
         <div class="container">
+            
+            <!-- TIER 1: Main Grid (4 Columns) -->
             <div class="footer__main">
-                <!-- Column 1: Organization -->
+                <!-- Column 1: Organization & Socials -->
                 <div class="footer__column footer__column--org">
                     <a href="/" class="footer__logo">
-                        <img src="Assets/icons/c2c image logo2.png" alt="Class to Care Logo">
+                        <img src="../Assets/icons/c2c image logo2.png" alt="Class to Care Logo">
                     </a>
                     <p class="footer__mission">Improving healthcare and service delivery through continuing medical
-                        education for healthcare practitioners and promoting support to influence healthcare practice.
+                        education and promoting support to influence healthcare practice.
                     </p>
                     <div class="footer__socials">
-                        <a href="#TODO:page-facebook" aria-label="Facebook">
-                            <div data-icon="facebook-logo"></div>
-                        </a>
-                        <a href="#TODO:page-twitter" aria-label="Twitter">
-                            <div data-icon="twitter-logo"></div>
-                        </a>
-                        <a href="#TODO:page-instagram" aria-label="Instagram">
-                            <div data-icon="instagram-logo"></div>
-                        </a>
-                        <a href="#TODO:page-linkedin" aria-label="LinkedIn">
-                            <div data-icon="linkedin-logo"></div>
-                        </a>
+                        <a href="#" aria-label="Facebook"><div data-icon="facebook-logo"></div></a>
+                        <a href="#" aria-label="Twitter"><div data-icon="twitter-logo"></div></a>
+                        <a href="#" aria-label="Instagram"><div data-icon="instagram-logo"></div></a>
+                        <a href="#" aria-label="LinkedIn"><div data-icon="linkedin-logo"></div></a>
                     </div>
                 </div>
 
@@ -599,11 +593,11 @@
                 <div class="footer__column">
                     <h3 class="footer__title">Quick Links</h3>
                     <ul class="footer__list">
-                        <li><a href="#TODO:page-about">About Us</a></li>
-                        <li><a href="#TODO:page-our-work">Our Programs</a></li>
-                        <li><a href="#TODO:page-news">News & Events</a></li>
-                        <li><a href="#TODO:page-gallery">Gallery</a></li>
-                        <li><a href="#TODO:page-contact">Contact Us</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="work.html">Our Programs</a></li>
+                        <li><a href="news.html">News & Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -611,35 +605,40 @@
                 <div class="footer__column">
                     <h3 class="footer__title">Get Involved</h3>
                     <ul class="footer__list">
-                        <li><a href="#TODO:page-donate">Donate Now</a></li>
-                        <li><a href="#TODO:page-volunteer">Volunteer</a></li>
-                        <li><a href="#TODO:page-partner">Partner With Us</a></li>
-                        <li><a href="#TODO:page-fundraise">Fundraise</a></li>
+                        <li><a href="donate.html">Donate Now</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="partner.html">Partner With Us</a></li>
+                        <li><a href="fundraise.html">Fundraise</a></li>
                     </ul>
                 </div>
 
-                <!-- Column 4: Contact Info -->
+                <!-- Column 4: Contact Info (Now its own dedicated column) -->
                 <div class="footer__column">
                     <h3 class="footer__title">Contact Info</h3>
                     <ul class="footer__list footer__list--contact">
-                        <li>
-                            <div data-icon="map-pin"></div> Lagos, Nigeria
-                        </li>
-                        <li>
-                            <div data-icon="envelope"></div> info@classtocare.org
-                        </li>
-                        <li>
-                            <div data-icon="phone"></div> +234 XXX XXX XXXX
-                        </li>
+                        <li><div data-icon="map-pin"></div> Lagos, Nigeria</li>
+                        <li><div data-icon="envelope"></div> info@classtocare.org</li>
+                        <li><div data-icon="phone"></div> +234 XXX XXX XXXX</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Newsletter section removed from here as it's now a separate homepage section -->
+            <!-- TIER 2: Newsletter (Centered Block) -->
+            <div class="footer__newsletter-block">
+                <div class="footer__newsletter-content">
+                    <h3 class="footer__title">Stay Updated</h3>
+                    <p class="footer__text">Subscribe to our newsletter for the latest updates and impact stories.</p>
+                    
+                    <form class="footer__form-inline">
+                        <input type="email" class="footer__input" placeholder="Enter your email" required aria-label="Email Address">
+                        <button type="submit" class="btn btn-primary footer__btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
 
+            <!-- TIER 3: Bottom Bar -->
             <div class="footer__bottom">
-                <p class="footer__copyright">&copy; <span id="current-year"></span> Class to Care. All rights reserved.
-                </p>
+                <p class="footer__copyright">&copy; <span id="current-year"></span> Class to Care. All rights reserved.</p>
                 <div class="footer__legal">
                     <a href="#TODO:page-privacy">Privacy Policy</a>
                     <a href="#TODO:page-terms">Terms of Service</a>

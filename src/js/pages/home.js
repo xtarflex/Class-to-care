@@ -1,4 +1,3 @@
-// src/js/pages/home.js
 
 // 1. IMPORT the specific modules needed for the homepage.
 // We are importing the *initialization function* that each module now exports.

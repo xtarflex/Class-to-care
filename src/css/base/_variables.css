@@ -33,6 +33,7 @@
   --font-size-md: clamp(1.8rem, 3vw, 2.4rem);      /* Fluid between 600px-800px VW */
   --font-size-lg: clamp(2.4rem, 4vw, 3.6rem);      /* Fluid between 600px-900px VW */
   --font-size-xl: clamp(3.5rem, 5vw, 5rem);        /* Fluid between 700px-1000px VW */
+  --font-size-xs: 1.3rem;                          /* Fixed small size for meta details/mobile */
 
   /* Layout & Spacing */
   --header-height: 80px;
