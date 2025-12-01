@@ -490,7 +490,7 @@
 
 .team-card__role {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: var(--font-size-sm);
     color: var(--primary-vivid-azure); /* Role remains primary color */
     margin: 0 0 1rem 0;
     position: relative;
@@ -509,13 +509,14 @@
 .team-card__socials svg {
     width: 24px;
     height: 24px;
-    stroke: var(--background-base); /* White for social icons on dark overlay */
-    transition: stroke 0.3s;
+    color: var(--background-base); /* White for social icons on dark overlay */
+    transition: color 0.3s;
 }
 
 .team-card__socials a:hover svg {
-    stroke: var(--primary-vivid-azure);
+    color: var(--primary-vivid-azure);
 }
+
 
 /* --- Responsive Breakpoints --- */
 
