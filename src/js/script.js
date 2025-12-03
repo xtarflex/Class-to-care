@@ -35,6 +35,8 @@ function main() {
         import('./pages/about.js').then(module => module.initAboutPage());
     } else if (pageId === 'page-work') {
         import('./pages/work.js').then(module => module.initWorkPage());
+    } else if (pageId === 'page-coming-soon') {
+        import('./components/state-pages.js').then(module => module.initStatePage());
     }
 }
 

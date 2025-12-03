@@ -128,7 +128,7 @@
     text-decoration: none;
     /* Used 1.4rem from first block as specific size, and the full transition from first block */
     transition: color 0.3s ease; 
-    font-size: 1.4rem;
+    font-size: var(--font-size-sm);
 }
 
 .footer__list a:hover {

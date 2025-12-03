@@ -50,22 +50,22 @@
                     </li>
 
                     <li class="has-submenu">
-                        <a href="../pages/our-work.html" class="active" aria-haspopup="true" aria-expanded="false">Our
+                        <a href="/pages/our-work.html" class="active" aria-haspopup="true" aria-expanded="false">Our
                             Work ▼</a>
                         <div class="submenu submenu--mega">
                             <div class="submenu-wrapper">
                                 <div class="submenu-grid">
                                     <div class="submenu-column">
-                                        <a href="#TODO:page-section-project">Our Project</a>
-                                        <a href="#TODO:page-section-program">Our Program</a>
+                                        <a href="/pages/our-work.html#education">Medical Education</a>
+                                        <a href="#TODO:page-section-program"></a>
                                     </div>
                                     <div class="submenu-column">
-                                        <a href="#TODO:page-section-program">Our Program</a>
-                                        <a href="#TODO:page-section-project">Our Project</a>
+                                        <a href="/pages/our-work.html#equipment">Equipment Donation</a>
+                                        <a href="#TODO:page-section-project"></a>
                                     </div>
                                     <div class="submenu-column">
-                                        <a href="#TODO:page-section-project">Our Project</a>
-                                        <a href="#TODO:page-section-project">Our Project</a>
+                                        <a href="/pages/our-work.html#awareness">Public Awareness</a>
+                                        <a href="#TODO:page-section-project"></a>
                                     </div>
                                 </div>
                             </div>
@@ -193,7 +193,7 @@
                     <div class="work-content">
 
                         <!-- SECTION 1: Medical Education -->
-                        <article id="education" class="work-section" >
+                        <article id="education" class="work-section" data-ani="fade-in">
                             <!-- A. Header -->
                             <div class="section-header" data-ani="fade-up">
                                 <div class="section-icon-mobile" data-icon="student"></div>
@@ -203,34 +203,34 @@
 
                             <!-- B. Intro (Text Left, Image Right) -->
                             <div class="section-intro">
-                                <div class="intro-text" data-ani="slide-right">
+                                <div class="intro-text" data-ani="slide-right" data-ani-delay="200">
                                     <p class="lead">We bridge the gap in healthcare delivery by providing hands-on
                                         training, mentorship, and continuous professional development for healthcare
                                         practitioners across Nigeria.</p>
                                     <p>Our goal is to ensure every nurse and doctor is equipped with current,
                                         life-saving skills.</p>
                                 </div>
-                                <div class="intro-image" data-ani="slide-left" data-ani-delay="200">
+                                <div class="intro-image" data-ani="slide-left" data-ani-delay="400">
                                     <img src="../Assets/images/work-education.webp" alt="Medical training session" loading="lazy">
                                 </div>
                             </div>
 
                             <!-- C. Project Grid -->
-                            <div class="project-grid">
-                                <div class="project-card">
+                            <div class="project-grid" data-ani-stagger="200">
+                                <div class="project-card" data-ani="slide-up">
                                     <div class="card-icon" data-icon="laptop"></div>
                                     <h3>The OSATEA Project</h3>
                                     <p>Online Skills Advancement training for over 100 nurses on Airway Management
                                         and
                                         Oxygen Therapy.</p>
                                 </div>
-                                <div class="project-card">
+                                <div class="project-card" data-ani="slide-up">
                                     <div class="card-icon" data-icon="heartbeat"></div>
                                     <h3>BLS Workshops</h3>
                                     <p>Physical Basic Life Support (BLS) training for health workers across 3 Local
                                         Government Areas.</p>
                                 </div>
-                                <div class="project-card">
+                                <div class="project-card" data-ani="slide-up">
                                     <div class="card-icon" data-icon="heartbeat"></div>
                                     <h3>ACLS Training</h3>
                                     <p>Advanced Cardiac Life Support certification for specialized emergency
@@ -241,15 +241,15 @@
                         </article>
 
                         <!-- SECTION 2: Equipment Donation -->
-                        <article id="equipment" class="work-section" data-ani="fade-up">
-                            <div class="section-header">
+                        <article id="equipment" class="work-section" data-ani="fade-in">
+                            <div class="section-header" data-ani="fade-up">
                                 <div class="section-icon-mobile" data-icon="first-aid-kit"></div>
                                 <h2 class="section-title">Equipment Donation & Support</h2>
                                 <div class="section-divider bg-green"></div>
                             </div>
 
-                            <div class="section-intro section-intro--reverse"> <!-- Reverse layout class -->
-                                <div class="intro-text">
+                            <div class="section-intro section-intro--reverse">
+                                <div class="intro-text" data-ani="slide-left" data-ani-delay="200">
                                     <p class="lead">Quality healthcare requires functional infrastructure. We assess
                                         the
                                         needs of Primary Health Centres (PHCs) and donate critical medical
@@ -259,21 +259,21 @@
                                         and
                                         direct our support where it is needed most.</p>
                                 </div>
-                                <div class="intro-image">
+                                <div class="intro-image" data-ani="slide-right" data-ani-delay="400">
                                     <img src="../Assets/images/work-equipment.webp" alt="Donated medical equipment"
                                         loading="lazy">
                                 </div>
                             </div>
 
-                            <div class="project-grid">
-                                <div class="project-card">
+                            <div class="project-grid" data-ani-stagger="200">
+                                <div class="project-card" data-ani="zoom-in">
                                     <div class="card-icon" data-icon="thermometer"></div>
                                     <h3>Shogunle PHC Support</h3>
                                     <p>Donated digital thermometers, a modern drug cart, and office furniture to
                                         improve
                                         patient care.</p>
                                 </div>
-                                <div class="project-card">
+                                <div class="project-card" data-ani="zoom-in">
                                     <div class="card-icon" data-icon="wind"></div>
                                     <h3>Ayomi Mafoluku PHC</h3>
                                     <p>Provided essential facility upgrades including cooling systems (standing
@@ -284,14 +284,14 @@
                         </article>
 
                         <!-- SECTION 3: Public Awareness -->
-                        <article id="awareness" class="work-section" data-ani="fade-up">
-                            <div class="section-header">
+                        <article id="awareness" class="work-section" data-ani="fade-in">
+                            <div class="section-header" data-ani="fade-up">
                                 <div class="section-icon-mobile" data-icon="megaphone"></div>
                                 <h2 class="section-title">Public Health Awareness</h2>
                                 <div class="section-divider bg-magenta"></div>
                             </div>
 
-                            <div class="section-intro">
+                            <div class="section-intro" data-ani="slide-right" data-ani-delay="200">
                                 <div class="intro-text">
                                     <p class="lead">Prevention is better than cure. We actively engage communities,
                                         schools, and the general public to raise awareness about critical health
@@ -300,28 +300,28 @@
                                     <p>From schools to marketplaces, we bring life-saving knowledge directly to the
                                         people.</p>
                                 </div>
-                                <div class="intro-image">
+                                <div class="intro-image" data-ani="slide-left" data-ani-delay="400">
                                     <img src="../Assets/images/work-awareness.webp" alt="Community outreach event"
                                         loading="lazy">
                                 </div>
                             </div>
 
-                            <div class="project-grid">
-                                <div class="project-card">
+                            <div class="project-grid" data-ani-stagger="200">
+                                <div class="project-card" data-ani="slide-up">
                                     <div class="card-icon" data-icon="users-three"></div>
                                     <h3>CAPRES Project</h3>
                                     <p>CPR in Schools initiative training students at schools like Div-Help College
                                         to
                                         become the next generation of lifesavers.</p>
                                 </div>
-                                <div class="project-card">
+                                <div class="project-card" data-ani="slide-up">
                                     <div class="card-icon" data-icon="globe"></div>
                                     <h3>Disease Awareness</h3>
                                     <p>Large-scale screenings and education, such as our World Hepatitis Day
                                         outreach
                                         serving over 600 beneficiaries.</p>
                                 </div>
-                                <div class="project-card">
+                                <div class="project-card" data-ani="slide-up">
                                     <div class="card-icon" data-icon="heart"></div>
                                     <h3>"Restart a Heart" Day</h3>
                                     <p>Annual public demonstrations teaching the community the fundamentals of CPR.
@@ -377,8 +377,8 @@
                 <div class="footer__column">
                     <h3 class="footer__title">Quick Links</h3>
                     <ul class="footer__list">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="work.html">Our Programs</a></li>
+                        <li><a href="/pages/about.html">About Us</a></li>
+                        <li><a href="/pages/our-work.html">Our Programs</a></li>
                         <li><a href="news.html">News & Events</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
