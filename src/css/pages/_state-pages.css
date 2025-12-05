@@ -20,12 +20,6 @@
     margin-bottom: 3rem;
 }
 
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
-}
-
 /* Typography */
 .state-headline {
     font-family: var(--font-heading);
@@ -42,7 +36,7 @@
 
 .state-description {
     font-family: var(--font-body);
-    font-size: 1.2rem;
+    font-size: var(--font-size-sm);
     line-height: 1.6;
     color: #666;
     max-width: 60ch;

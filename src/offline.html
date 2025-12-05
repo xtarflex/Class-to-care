@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon | Class to Care</title>
+    <title>Offline | Class to Care</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body id="page-coming-soon">
+<body id="page-offline">
 
     <header class="site-header">
         <div class="container header-container">
@@ -28,7 +28,7 @@
             <nav class="main-nav" aria-label="Main Navigation">
                 <ul class="nav-list">
 
-                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="#" class="active">Home</a></li>
 
                     <li class="has-submenu">
                         <a href="/pages/about.html" aria-haspopup="true" aria-expanded="false">About Us
@@ -149,14 +149,15 @@
 
     <main class="state-page-main">
         <div class="container">
-            <img src="/assets/images/error1.png" alt="Working Robot" class="state-illustration">
+            <!-- Broken Plug Image -->
+            <img src="/assets/images/offline-plug.png" alt="No Connection" class="state-illustration">
 
-            <h1 class="state-headline">The <span id="page-name" class="state-highlight">...</span> Page</h1>
+            <h1 class="state-headline">You Are Currently <span class="state-highlight">Offline</span></h1>
 
-            <p class="state-description">We are currently building this section. The <strong
-                    id="page-name-text">feature</strong> will be available very soon as part of our full launch.</p>
+            <p class="state-description">Please check your internet connection and try again. We'll be here when you get
+                back online.</p>
 
-            <a href="/" class="btn btn-primary">Return to Homepage</a>
+            <button onclick="window.location.reload()" class="btn btn-primary">Try Again</button>
         </div>
 
         <div class="wavy-divider">

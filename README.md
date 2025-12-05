@@ -134,7 +134,7 @@ Once deployed, your site will be accessible at `https://<YOUR_GITHUB_USERNAME>.g
 ### Component Development
 - **JavaScript Components**: Located in `src/js/components/`, each initializes automatically on DOM load.
 - **CSS Modules**: Organized in `src/css/` by concern (base, components, layout, pages).
-- **Asset Management**: Static assets in `src/Assets/` are processed by Vite.
+- **Asset Management**: Static assets in `s/assets/` are processed by Vite.
 
 ## 🎨 Brand Identity
 

@@ -4,7 +4,7 @@
 .hero {
     position: relative;
     height: 100vh;
-    background-image: linear-gradient(to right, rgba(58, 174, 237, 0.89), rgba(58, 123, 213, 0.8)), url('../../Assets/images/hero-bg.webp');
+    background-image: linear-gradient(to right, rgba(58, 174, 237, 0.89), rgba(58, 123, 213, 0.8)), url('/assets/images/hero-bg.webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -452,9 +452,9 @@
     /* This is the color of your icon */
     background-color: color-mix(in srgb, var(--primary-vivid-azure) 25%, transparent);
     /* The SVG acts as a mask (stencil) */
-    -webkit-mask-image: url('../Assets/icons/quotes.svg');
+    -webkit-mask-image: url('/assets/icons/quotes.svg');
     /* For Safari/Chrome */
-    mask-image: url('../Assets/icons/quotes.svg');
+    mask-image: url('/assets/icons/quotes.svg');
     /* Standard */
     -webkit-mask-size: contain;
     mask-size: contain;
@@ -715,7 +715,7 @@
     overflow: hidden;
     background-color: var(--primary-vivid-azure);
     /* Fallback */
-    background-image: url('../Assets/images/dotted-pattern.png'), var(--gradient-sky);
+    background-image: url('/assets/images/dotted-pattern.png'), var(--gradient-sky);
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: 7rem;
