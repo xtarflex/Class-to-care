@@ -31,37 +31,36 @@ export function initHistoryTimeline() {
 
  items.forEach(item => observer.observe(item));
 
- let targetHeight = 0;
- let currentHeight = 0;
- const easing = 0.08; // Adjust this for more or less lag
+//  CONFIG:How far from the bottom [in px] zhould the line ztop
+const EDGE_BUFFER = 100;
 
- function updateTargetHeight() {
- const { top, height } = timeline.getBoundingClientRect();
- const scrollY = window.innerHeight - top;
- 
- let progressHeight = Math.max(0, scrollY);
- if (progressHeight > height) {
- progressHeight = height;
- }
- 
- targetHeight = progressHeight;
- }
+function updateProgress(){
+    const{top, height: totalTimelineHeight } = timeline.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
 
- function animateLine() {
- // Smoothly interpolate currentHeight towards targetHeight
- currentHeight += (targetHeight - currentHeight) * easing;
+    // calculate how much of the timeline is "past" the buffer point
+    // Logic:(Window Height - Buffer) - (Timeline's distance from the top)
+    const activeZone = (windowHeight - EDGE_BUFFER) -top;
 
- // To avoid tiny decimal values, we can round it or set a threshold
- if (Math.abs(targetHeight - currentHeight) < 0.5) {
- currentHeight = targetHeight;
- }
+    // clamp the value between 0 and the total height of the timeline  
+    let progressHeight = Math.max(0, Math.min(activeZone, totalTimelineHeight));
 
- line.style.height = `${currentHeight}px`;
+    // Apply immediately. No Easing loop needed because scroll is already smooth\
+    line.style.height = `${progressHeight}px`;
+}
 
- requestAnimationFrame(animateLine);
- }
+// Use requestAnimationFrame to optimize the scroll listner
+let isTicking = false;
+window.addEventListener ('scroll',()=> {
+    if (!isTicking) {
+        window.requestAnimationFrame ( ()=> {
+            updateProgress();
+            isTicking = false;
+        });
+        isTicking = true;
+    }
+}, {passive: true});
 
- window.addEventListener('scroll', updateTargetHeight);
- updateTargetHeight(); // Run once on load
- animateLine(); // Start the animation loop
+// Run ocnce on load to set initial state
+updateProgress();
 }

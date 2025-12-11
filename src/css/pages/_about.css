@@ -357,7 +357,7 @@
     background-color: var(--primary-vivid-azure);
     height: 0;
     /* JS will animate this height */
-    transition: height 0.2s linear;
+    transition: height 0.1s linear;
     /* Smooths the JS updates */
 }
 
