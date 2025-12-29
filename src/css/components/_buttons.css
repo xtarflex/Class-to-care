@@ -18,8 +18,10 @@
   background-color: var(--primary-vivid-azure);
   border: 2px solid var(--primary-vivid-azure);
   color: var(--background-base);
-  position: relative; /* Required for the glare effect pseudo-element */
-  overflow: hidden;   /* Keeps the glare effect within the button bounds */
+  position: relative;
+  /* Required for the glare effect pseudo-element */
+  overflow: hidden;
+  /* Keeps the glare effect within the button bounds */
 }
 
 /* A subtle 3D lift effect on hover for primary actions. */
@@ -61,7 +63,8 @@
   /* Inherit from the base .btn class and add modifications */
   display: block;
   width: 100%;
-  margin-top: auto; /* Pushes the button to the bottom of the flex container */
+  margin-top: auto;
+  /* Pushes the button to the bottom of the flex container */
   padding: 1.5rem;
   font-size: 1.6rem;
   background-color: var(--primary-vivid-azure);
@@ -70,9 +73,16 @@
   text-align: center;
   text-decoration: none;
   border-radius: 5px;
-  flex-shrink: 0; /* Prevents the button from shrinking */
+  flex-shrink: 0;
+  /* Prevents the button from shrinking */
 }
 
-.icon--error{
+.icon--error {
   color: var(--accent-urgent-red);
+}
+
+.btn--success {
+  background-color: var(--secondary-leaf-green) !important;
+  border-color: var(--secondary-leaf-green) !important;
+  color: white !important;
 }

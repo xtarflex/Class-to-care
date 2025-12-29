@@ -40,6 +40,38 @@ function main() {
     } else if (pageId === 'page-work') {
         import('./pages/work.js').then(module => module.initWorkPage());
     }
+
+    // Handle Newsletter Submission (Mock UI Feedback)
+    handleFormSubmissions();
+}
+
+/**
+ * Handles all form submissions on the site with mock feedback.
+ */
+function handleFormSubmissions() {
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Stop page reload
+
+            const btn = form.querySelector('button[type="submit"]');
+            if (!btn) return;
+
+            const originalText = btn.textContent;
+
+            // UI Feedback
+            btn.textContent = 'Subscribed!';
+            btn.classList.add('btn--success'); // Using a class is cleaner
+            btn.disabled = true;
+
+            // Reset after 3 seconds
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.classList.remove('btn--success');
+                btn.disabled = false;
+                form.reset();
+            }, 3000);
+        });
+    });
 }
 
 // --- Run Everything ---

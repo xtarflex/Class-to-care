@@ -887,42 +887,69 @@
 
 @media (max-width: 768px) {
     .testimonial-slider-wrapper {
-        /* Add padding to make space for arrows inside the wrapper */
         padding: 0 10px;
     }
 
     .testimonial-card {
-        flex-direction: column;
-        padding: 2rem;
+        /* 1. Stack vertical, but put image on TOP */
+        flex-direction: column-reverse;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+        text-align: center;
     }
 
-    .card__content::before {
-        width: 100px;
-        left: 1rem;
-        top: -7rem;
+    /* 2. Style the Image for Mobile */
+    .card__image-placeholder {
+        width: 100px;  /* Fixed, perfect size for mobile */
+        height: 100px;
+        border: 2px solid var(--accent-vivid-magenta); /* Add brand border */
+        margin: 0 auto; /* Force center */
+    }
+
+    /* 3. Adjust the Quote Styling */
+    .card__text {
+        border-left: none; /* Remove the side bar */
+        border-top: 3px solid color-mix(in srgb, var(--accent-vivid-magenta) 40%, transparent); /* Move accent bar to top */
+        padding-left: 0;
+        padding-top: 1rem;
+        text-align: center; /* Center the text */
     }
 
     .card__title {
-        display: none;
+        text-align: center; /* Center the headline */
+        margin-bottom: 0.5rem;
     }
 
     .card__attribution {
-        border-top: none;
-        /* Remove separator */
-        margin-top: 2rem;
-        padding-top: 0;
+        border-top: 1px solid #dee2e6;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        justify-content: center;
     }
 
-    .card__image-wrapper {
-        display: none;
+    /* 4. Fix Watermark Position */
+    .card__content::before {
+        width: 80px;
+        height: 80px;
+        left: 50%;
+        transform: translateX(-50%) rotate(180deg); /* Center the quote icon */
+        top: -2.5rem;
+        opacity: 0.1; /* Fade it out slightly more on mobile */
     }
 
+    /* 5. Adjust Arrows */
     .slider__arrow--prev {
         left: -10px;
+        width: 36px;
+        height: 36px;
+        padding: 0.6rem;
     }
 
     .slider__arrow--next {
         right: -10px;
+        width: 36px;
+        height: 36px;
+        padding: 0.6rem;
     }
 }
 

@@ -32,7 +32,8 @@ export const initStatePage = () => {
     };
 
     // 3. Get the current path (e.g., "/our-work" or "/donate")
-    const currentPath = window.location.pathname; // Returns "/donate"
+    // Robust: strip trailing slashes
+    const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
 
     // 4. Determine the Display Name
     let displayName = "Feature"; // Default fallback
