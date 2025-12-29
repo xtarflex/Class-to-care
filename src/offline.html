@@ -13,7 +13,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -24,7 +29,7 @@
         <div class="container header-container">
             <!-- Logo -->
             <a href="/" class="site-logo">
-                <img src="/assets/icons/c2c image logo2.png" alt="Class to Care Logo">
+                <img src="/assets/icons/c2c image logo2.png" alt="Class to Care Logo" width="80" height="80">
             </a>
 
             <!-- Desktop Navigation (Hidden on Mobile) -->
@@ -115,7 +120,7 @@
     </header>
 
     <!-- Full Screen Mobile Menu (Hidden by default) -->
-    <div class="mobile-nav-overlay" id="mobile-nav" role="dialog" aria-modal="true">
+    <div class="mobile-nav-overlay" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
         <div class="mobile-nav-header">
             <!-- <a href="/" class="site-logo"><img src="" alt="Class to Care Logo"></a> -->
             <button class="close-btn" aria-label="Close Menu"></button>
@@ -186,7 +191,8 @@
             <div class="footer__main">
                 <div class="footer__column footer__column--org">
                     <a href="/" class="footer__logo">
-                        <img src="/assets/icons/c2c image logo2.png" alt="Class to Care Logo">
+                        <img src="/assets/icons/c2c image logo2.png" alt="Class to Care Logo" width="120" height="120"
+                            loading="lazy">
                     </a>
                     <p class="footer__mission">Improving healthcare and service delivery through continuing medical
                         education and promoting support to influence healthcare practice.

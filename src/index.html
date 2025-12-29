@@ -13,7 +13,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -24,7 +29,7 @@
         <div class="container header-container">
             <!-- Logo -->
             <a href="/" class="site-logo">
-                <img src="/assets/icons/c2c image logo2.png" alt="Class to Care Logo">
+                <img src="/assets/icons/c2c image logo2.png" alt="Class to Care Logo" width="80" height="80">
             </a>
 
             <!-- Desktop Navigation (Hidden on Mobile) -->
@@ -115,7 +120,7 @@
     </header>
 
     <!-- Full Screen Mobile Menu (Hidden by default) -->
-    <div class="mobile-nav-overlay" id="mobile-nav" role="dialog" aria-modal="true">
+    <div class="mobile-nav-overlay" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
         <div class="mobile-nav-header">
             <!-- <a href="/" class="site-logo"><img src="" alt="Class to Care Logo"></a> -->
             <button class="close-btn" aria-label="Close Menu"></button>
@@ -179,8 +184,10 @@
                 <div class="hero__photostrip-wrapper">
                     <div class="hero__photostrip" data-ani="blur-in" data-ani-load="true" data-ani-delay="1600">
                         <div class="photostrip__row">
-                            <img src="/assets/images/photostrip-image.webp" alt="A CPR training session">
-                            <img src="/assets/images/photostrip-image.webp" alt="A CPR training session">
+                            <img src="/assets/images/photostrip-image.webp" alt="A CPR training session" width="300"
+                                height="200">
+                            <img src="/assets/images/photostrip-image.webp" alt="A CPR training session" width="300"
+                                height="200">
                             <img src="/assets/images/photostrip-image.webp" alt="A CPR training session">
                             <img src="/assets/images/photostrip-image.webp" alt="A CPR training session">
                             <img src="/assets/images/photostrip-image.webp" alt="A CPR training session">
@@ -394,7 +401,7 @@
                                         </div>
                                     </div>
                                     <img src="/assets/images/headshot1.webp" alt="Testimonial author"
-                                        class="card__image-placeholder" loading="lazy">
+                                        class="card__image-placeholder" loading="lazy" width="250" height="250">
 
                                 </div>
                             </article>
@@ -416,7 +423,7 @@
                                         </div>
                                     </div>
                                     <img src="/assets/images/headshot2.webp" alt="Testimonial author"
-                                        class="card__image-placeholder" loading="lazy">
+                                        class="card__image-placeholder" loading="lazy" width="250" height="250">
 
                                 </div>
                             </article>
@@ -438,7 +445,7 @@
                                         </div>
                                     </div>
                                     <img src="/assets/images/headshot3.webp" alt="Testimonial author"
-                                        class="card__image-placeholder" loading="lazy">
+                                        class="card__image-placeholder" loading="lazy" width="250" height="250">
 
                                 </div>
                             </article>
@@ -479,7 +486,7 @@
                             <div class="news-card__top">
                                 <div class="pill pill__news-category"><span>Medical Education</span></div>
                                 <img src="/assets/images/news-medical-education.webp"
-                                    alt="image-for-medical-education-news" loading="lazy">
+                                    alt="image-for-medical-education-news" loading="lazy" width="400" height="250">
                             </div>
                             <div class="news-card__bottom">
                                 <h3 class="news-card__title">OSATEA Project Reaches Over 100 Nurse</h3>
@@ -500,7 +507,7 @@
                             <div class="news-card__top">
                                 <div class="pill pill__news-category"><span>Community Outreach</span></div>
                                 <img src="/assets/images/news-community-outreach.webp"
-                                    alt="image-for-community-outreach-news" loading="lazy">
+                                    alt="image-for-community-outreach-news" loading="lazy" width="400" height="250">
                             </div>
                             <div class="news-card__bottom">
                                 <h3 class="news-card__title">CAPRES Project Empowers Students with CPR Skills</h3>
@@ -521,7 +528,7 @@
                             <div class="news-card__top">
                                 <div class="pill pill__news-category"><span>Health Centre Support</span></div>
                                 <img src="/assets/images/news-health-centre-support.webp"
-                                    alt="image-for-health-centre-support-news" loading="lazy">
+                                    alt="image-for-health-centre-support-news" loading="lazy" width="400" height="250">
                             </div>
                             <div class="news-card__bottom">
                                 <h3 class="news-card__title">Shogunle PHC Receives Vital Equipment Donation</h3>
@@ -547,7 +554,8 @@
             <div class="container">
                 <div class="newsletter__content" data-ani="bounce-in">
                     <div class="newsletter__header">
-                        <img src="/assets/icons/newsletter icon.png" alt="" class="newsletter__icon" loading="lazy">
+                        <img src="/assets/icons/newsletter icon.png" alt="" class="newsletter__icon" loading="lazy"
+                            width="64" height="64">
                         <h2 class="newsletter__title">Stay Updated</h2>
                     </div>
                     <p class="newsletter__subtitle">Stay informed and inspired by subscribing to our newsletter for
@@ -586,7 +594,8 @@
                 <!-- Column 1: Organization & Socials -->
                 <div class="footer__column footer__column--org">
                     <a href="/" class="footer__logo">
-                        <img src="/assets/icons/c2c image logo2.png" alt="Class to Care Logo">
+                        <img src="/assets/icons/c2c image logo2.png" alt="Class to Care Logo" width="120" height="120"
+                            loading="lazy">
                     </a>
                     <p class="footer__mission">Improving healthcare and service delivery through continuing medical
                         education and promoting support to influence healthcare practice.

@@ -90,7 +90,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+# public (Removed to allow static assets in src/public)
 
 # Storybook build outputs
 .out

@@ -540,8 +540,7 @@
     right: -60px;
 }
 
-/* Pagination Dots */
-
+/* Pagination Dots - Refined Size */
 .slider-pagination {
     display: flex;
     justify-content: center;
@@ -550,21 +549,30 @@
 }
 
 .slider-dot {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;        
     border-radius: 50%;
     background: transparent;
     border: 1px solid #adb5bd;
     padding: 0;
     cursor: pointer;
     transition: all 0.3s ease;
-    transform: scale(0.9);
+    position: relative;
+}
+
+.slider-dot::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
 }
 
 .slider-dot.is-active {
     background-color: var(--primary-vivid-azure);
-    border-color: var(--neutral-dark);
-    transform: scale(1.1);
+    border-color: var(--primary-vivid-azure);
+    transform: scale(1.2);
 }
 
 /* =================================== */
@@ -900,23 +908,30 @@
 
     /* 2. Style the Image for Mobile */
     .card__image-placeholder {
-        width: 100px;  /* Fixed, perfect size for mobile */
+        width: 100px;
+        /* Fixed, perfect size for mobile */
         height: 100px;
-        border: 2px solid var(--accent-vivid-magenta); /* Add brand border */
-        margin: 0 auto; /* Force center */
+        border: 2px solid var(--accent-vivid-magenta);
+        /* Add brand border */
+        margin: 0 auto;
+        /* Force center */
     }
 
     /* 3. Adjust the Quote Styling */
     .card__text {
-        border-left: none; /* Remove the side bar */
-        border-top: 3px solid color-mix(in srgb, var(--accent-vivid-magenta) 40%, transparent); /* Move accent bar to top */
+        border-left: none;
+        /* Remove the side bar */
+        border-top: 3px solid color-mix(in srgb, var(--accent-vivid-magenta) 40%, transparent);
+        /* Move accent bar to top */
         padding-left: 0;
         padding-top: 1rem;
-        text-align: center; /* Center the text */
+        text-align: center;
+        /* Center the text */
     }
 
     .card__title {
-        text-align: center; /* Center the headline */
+        text-align: center;
+        /* Center the headline */
         margin-bottom: 0.5rem;
     }
 
@@ -932,9 +947,11 @@
         width: 80px;
         height: 80px;
         left: 50%;
-        transform: translateX(-50%) rotate(180deg); /* Center the quote icon */
+        transform: translateX(-50%) rotate(180deg);
+        /* Center the quote icon */
         top: -2.5rem;
-        opacity: 0.1; /* Fade it out slightly more on mobile */
+        opacity: 0.1;
+        /* Fade it out slightly more on mobile */
     }
 
     /* 5. Adjust Arrows */
