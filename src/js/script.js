@@ -12,6 +12,7 @@ import { initAnimateOnView } from './components/animate-on-view.js';
 import { initTodoLinks } from './utils/todo-links.js';
 import { initCurrentYear } from './utils/current-year.js';
 import { initHeaderEffects } from './components/header-effects.js';
+import { initStatePage } from './components/state-pages.js';
 
 // --- Page-Specific Initializers ---
 // Page-specific modules are now loaded dynamically.
@@ -26,6 +27,9 @@ function main() {
     initTodoLinks();      // 3. RUN TODO SCRIPT
     initCurrentYear();    // 4. RUN YEAR SCRIPT
 
+    // Handle dynamic text for state pages (Coming Soon, etc.)
+    initStatePage();
+
     // Check which page we are on and run its specific logic
     const pageId = document.body.id;
 
@@ -35,8 +39,6 @@ function main() {
         import('./pages/about.js').then(module => module.initAboutPage());
     } else if (pageId === 'page-work') {
         import('./pages/work.js').then(module => module.initWorkPage());
-    } else if (pageId === 'page-coming-soon') {
-        import('./components/state-pages.js').then(module => module.initStatePage());
     }
 }
 
