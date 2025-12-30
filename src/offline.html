@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline | Class to Care</title>
+    <meta name="description"
+        content="Class to Care improves healthcare delivery in Nigeria through medical education, equipment donations, and public awareness. Join us in saving lives.">
+    <link rel="icon" type="image/png" href="/assets/icons/c2c image logo2.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+    </noscript>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body id="page-offline">
+
+    <header class="site-header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="/" class="site-logo">
+                <img src="/assets/icons/c2c image logo2.png" alt="Class to Care Logo" width="80" height="80">
+            </a>
+
+            <!-- Desktop Navigation (Hidden on Mobile) -->
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul class="nav-list">
+
+                    <li><a href="/">Home</a></li>
+
+                    <li class="has-submenu">
+                        <a href="/about" aria-haspopup="true" aria-expanded="false">About Us
+                            ▼</a>
+                        <div class="submenu submenu--mega">
+                            <div class="submenu-wrapper">
+                                <div class="submenu-grid">
+                                    <div class="submenu-column">
+                                        <a href="/about#about-vision">Our Vision </a>
+                                    </div>
+                                    <div class="submenu-column">
+                                        <a href="/about#about-mission">Our Mission</a>
+                                    </div>
+                                    <div class="submenu-column">
+                                        <a href="/about#about-history">Our Journey</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="/our-work" aria-haspopup="true" aria-expanded="false">Our
+                            Work ▼</a>
+                        <div class="submenu submenu--mega">
+                            <div class="submenu-wrapper">
+                                <div class="submenu-grid">
+                                    <div class="submenu-column">
+                                        <a href="/our-work#education">Medical Education</a>
+                                    </div>
+                                    <div class="submenu-column">
+                                        <a href="/our-work#equipment">Equipment Donation</a>
+                                    </div>
+                                    <div class="submenu-column">
+                                        <a href="/our-work#awareness">Public Awareness</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="/get-involved" aria-haspopup="true" aria-expanded="false">Get Involved
+                            ▼</a>
+                        <div class="submenu submenu--mega">
+                            <div class="submenu-wrapper">
+                                <div class="submenu-grid">
+                                    <div class="submenu-column">
+                                        <a href="/volunteer">Partner With Us</a>
+                                    </div>
+                                    <div class="submenu-column">
+                                        <a href="/donate"> Donate to our Cause</a>
+                                    </div>
+                                    <div class="submenu-column">
+                                        <a href="/projects">Our Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><a href="/contact">Contact</a></li>
+
+                </ul>
+            </nav>
+
+            <!-- Mobile Navigation Triggers (Hidden on Desktop) -->
+            <div class="mobile-nav-triggers">
+                <a href="/donate" class="btn-icon" aria-label="Donate"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg></a>
+                <button class="hamburger-btn" aria-label="Open Menu" aria-controls="mobile-nav"
+                    aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+
+            <!-- Desktop Donate Button (Hidden on Mobile) -->
+            <a href="/donate" class="btn btn-primary desktop-donate-btn">DONATE</a>
+        </div>
+    </header>
+
+    <!-- Full Screen Mobile Menu (Hidden by default) -->
+    <div class="mobile-nav-overlay" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+        <div class="mobile-nav-header">
+            <!-- <a href="/" class="site-logo"><img src="" alt="Class to Care Logo"></a> -->
+            <button class="close-btn" aria-label="Close Menu"></button>
+        </div>
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li class="has-submenu"><a href="/about" class="accordion-toggle" aria-expanded="false">About
+                        Us</a>
+                    <div class="mobile-submenu">
+                        <a href="/about#about-mission">Our Mission</a>
+                        <a href="/about#about-vision">Our Vision</a>
+                        <a href="/about#about-history">Our Journey</a>
+                    </div>
+                </li>
+                <li class="has-submenu"><a href="/our-work" class="accordion-toggle" aria-expanded="false">Our
+                        Work</a>
+                    <div class="mobile-submenu">
+                        <a href="/our-work#education">Medical Education</a>
+                        <a href="/our-work#equipment">Equipment Donation</a>
+                        <a href="/our-work#awareness">Public Awareness</a>
+                    </div>
+                </li>
+                <li class="has-submenu"><a href="/get-involved" class="accordion-toggle" aria-expanded="false">Get
+                        Involved</a>
+                    <div class="mobile-submenu">
+                        <a href="/volunteer">Volunteer</a>
+                        <a href="/partner">Partner with Us</a>
+                    </div>
+                </li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <a href="/donate" class="btn btn-primary mobile-donate-btn">DONATE</a>
+        </nav>
+    </div>
+
+    <main class="state-page-main">
+        <div class="container">
+            <!-- Broken Plug Image -->
+            <img src="/assets/images/offline-plug.png" alt="No Connection" class="state-illustration">
+
+            <h1 class="state-headline">You Are Currently <span class="state-highlight">Offline</span></h1>
+
+            <p class="state-description">Please check your internet connection and try again. We'll be here when you get
+                back online.</p>
+
+            <button onclick="window.location.reload()" class="btn btn-primary">Try Again</button>
+        </div>
+
+        <div class="wavy-divider">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 106.67" preserveAspectRatio="none">
+                <path fill="#343a40" fill-opacity="1"
+                    d="M0,64L48,65.77C96,67.67,192,71,288,76.43C384,81.67,480,89,576,83.57C672,78.33,768,60.33,864,60.43C960,60.33,1056,78.33,1152,78.23C1248,78.33,1344,60.33,1392,51.57L1440,42.67L1440,106.67L1392,106.67C1344,106.67,1248,106.67,1152,106.67C1056,106.67,960,106.67,864,106.67C768,106.67,672,106.67,576,106.67C480,106.67,384,106.67,288,106.67C192,106.67,96,106.67,48,106.67L0,106.67Z">
+                </path>
+                <path fill="#343a40" fill-opacity="0.8"
+                    d="M0,74.67L48,71.1C96,67.67,192,60.33,288,62.23C384,64,480,74.67,576,80C672,85.33,768,85.33,864,80C960,74.67,1056,64,1152,60.43C1248,57,1344,60.33,1392,62.23L1440,64L1440,106.67L1392,106.67C1344,106.67,1248,106.67,1152,106.67C1056,106.67,960,106.67,864,106.67C768,106.67,672,106.67,576,106.67C480,106.67,384,106.67,288,106.67C192,106.67,96,106.67,48,106.67L0,106.67Z">
+                </path>
+                <path fill="#343a40" fill-opacity="0.6"
+                    d="M0,85.33L48,81.77C96,78.33,192,71,288,69.33C384,67.67,480,71,576,71.1C672,71,768,67.67,864,69.33C960,71,1056,78.33,1152,81.77C1248,85.33,1344,85.33,1392,85.33L1440,85.33L1440,106.67L1392,106.67C1344,106.67,1248,106.67,1152,106.67C1056,106.67,960,106.67,864,106.67C768,106.67,672,106.67,576,106.67C480,106.67,384,106.67,288,106.67C192,106.67,96,106.67,48,106.67L0,106.67Z">
+                </path>
+            </svg>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer__main">
+                <div class="footer__column footer__column--org">
+                    <a href="/" class="footer__logo">
+                        <img src="/assets/icons/c2c image logo2.png" alt="Class to Care Logo" width="120" height="120"
+                            loading="lazy">
+                    </a>
+                    <p class="footer__mission">Improving healthcare and service delivery through continuing medical
+                        education and promoting support to influence healthcare practice.
+                    </p>
+                    <div class="footer__socials">
+                        <a href="https://facebook.com/classtocare" aria-label="Facebook">
+                            <div data-icon="facebook-logo"></div>
+                        </a>
+                        <a href="https://twitter.com/classtocare" aria-label="Twitter">
+                            <div data-icon="twitter-logo"></div>
+                        </a>
+                        <a href="https://instagram.com/classtocare" aria-label="Instagram">
+                            <div data-icon="instagram-logo"></div>
+                        </a>
+                        <a href="https://linkedin.com/company/classtocare" aria-label="LinkedIn">
+                            <div data-icon="linkedin-logo"></div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Quick Links</h3>
+                    <ul class="footer__list">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/programs">Our Programs</a></li>
+                        <li><a href="/news">News & Events</a></li>
+                        <li><a href="/gallery">Gallery</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Get Involved</h3>
+                    <ul class="footer__list">
+                        <li><a href="/donate">Donate Now</a></li>
+                        <li><a href="/volunteer">Volunteer</a></li>
+                        <li><a href="/partner">Partner With Us</a></li>
+                        <li><a href="/fundraise">Fundraise</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Contact Info</h3>
+                    <ul class="footer__list footer__list--contact">
+                        <li>
+                            <div data-icon="map-pin"></div> Lagos, Nigeria
+                        </li>
+                        <li>
+                            <div data-icon="envelope"></div> info@classtocare.org
+                        </li>
+                        <li>
+                            <div data-icon="phone"></div> +234 913 981 1195
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__newsletter-block">
+                <div class="footer__newsletter-content">
+                    <h3 class="footer__title">Stay Updated</h3>
+                    <p class="footer__text">Subscribe to our newsletter for the latest updates and impact stories.</p>
+
+                    <form class="footer__form-inline">
+                        <input type="email" class="footer__input" placeholder="Enter your email" required
+                            aria-label="Email Address">
+                        <button type="submit" class="btn btn-primary footer__btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; <span id="current-year"></span> Class to Care. All rights reserved.
+                </p>
+                <div class="footer__legal">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="/js/script.js"></script>
+</body>
+
+</html>

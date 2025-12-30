@@ -1,0 +1,577 @@
+/* ========================================= */
+/* 1. Page Hero */
+/* ========================================= */
+.page-hero {
+    position: relative;
+    height: 45vh;
+    /* A bit shorter for internal pages */
+    min-height: 350px;
+    background-image: url('/assets/images/about-hero-bg.webp');
+    /* Placeholder */
+    background-attachment: fixed;
+    /* CHANGE: Enable fixed background attachment */
+    background-position: center;
+    /* CHANGE: Focus on the center of the image */
+    background-size: cover;
+    display: flex;
+    color: var(--background-base);
+}
+
+@media (max-width: 1024px) {
+    .page-hero {
+        background-attachment: scroll;
+    }
+}
+
+.page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to right,
+            rgb(15, 23, 42) 0%,
+            rgba(15, 23, 42, 0.89) 40%,
+            rgba(15, 23, 42, 0.548) 70%,
+            rgba(15, 23, 42, 0.295) 100%);
+}
+
+.page-hero .container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.page-hero__content {
+    text-align: left;
+    max-width: 50ch;
+}
+
+.page-hero__title {
+    font-size: var(--font-size-xl);
+    color: var(--background-base);
+    margin: 0 0 1rem 0;
+}
+
+.page-hero__subtitle {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* --- 2. Vision Section --- */
+
+.vision {
+    position: relative;
+    padding: 8rem 0;
+    color: var(--background-base);
+    overflow: hidden;
+    /* This creates the V-shape. We'll remove it on mobile. */
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+}
+
+/* Video background for desktop only */
+.vision::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: url('/assets/images/vision-bg-fallback.webp') center/cover no-repeat;
+    /* Fallback image */
+}
+
+/* Note: You will need to add a real video to your assets */
+/* For example: <video autoplay loop muted playsinline><source src="..."></video> */
+.vision video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2;
+}
+
+.vision::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--gradient-sky);
+    opacity: 0.8;
+}
+
+.vision__content {
+    max-width: 60ch;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.vision__statement {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 1.5rem 0;
+}
+
+.vision__subtitle {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    opacity: 0.9;
+}
+
+/* --- 3. Mission Section --- */
+
+.mission {
+    padding: 8rem 0;
+    background-color: var(--neutral-light);
+}
+
+.mission__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Mobile-first */
+    gap: 3rem;
+    align-items: center;
+}
+
+.mission__image-plank {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.mission__image-plank img {
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Parallax effect on the images */
+.mission__image-plank img:nth-child(1) {
+    transform: translateY(-20px);
+}
+
+.mission__image-plank img:nth-child(2) {
+    transform: translateY(20px);
+}
+
+.mission__image-plank img:nth-child(3) {
+    transform: translateY(-10px);
+}
+
+
+.mission__glass-card {
+    padding: clamp(2rem, 5vw, 3rem);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.6);
+    /* The Glassmorphism Effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.mission__list {
+    margin-top: 2rem;
+}
+
+.mission__list dt {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--secondary-leaf-green);
+    margin-top: 1.5rem;
+}
+
+.mission__list dd {
+    margin-left: 0;
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+}
+
+/* --- 4. Core Values Section --- */
+
+.values {
+    padding: 8rem 0;
+    background-color: var(--background-base);
+}
+
+.values .section-title {
+    margin-bottom: 4rem;
+}
+
+.values__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Mobile-first */
+    gap: 2rem;
+}
+
+.value-card__wrapper {
+    perspective: 1000px;
+    /* Enable 3D space for the flip */
+}
+
+.value-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Flip on hover (for desktop) OR when the .is-flipped class is present (for tap) */
+.value-card__wrapper:hover .value-card,
+.value-card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.value-card__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /* Hide the back of the face */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 16px;
+}
+
+.value-card__face--front {
+    background: var(--neutral-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.value-card__pointer-icon {
+    width: 60px;
+    height: 60px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.value-card:hover .value-card__pointer-icon {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.1);
+}
+
+.value-card__face--back {
+    background: var(--neutral-dark);
+    color: var(--background-base);
+    transform: rotateY(180deg);
+}
+
+.value-card__icon svg {
+    width: 48px;
+    height: 48px;
+    color: var(--accent-vivid-magenta);
+    margin-bottom: 1rem;
+}
+
+.value-card__face--back h3 {
+    color: var(--background-base);
+    font-size: var(--font-size-md);
+}
+
+.value-card__face--back p {
+    font-size: var(--font-size-sm);
+    color: #cbd5e1;
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 767px) {
+
+    /* On mobile, disable the V-shape for the Vision section */
+    .vision {
+        clip-path: none;
+    }
+
+    /* Disable video on mobile, rely on fallback image */
+    .vision video {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .values__grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2x2 grid for Values on tablet */
+    }
+}
+
+@media (min-width: 992px) {
+    .mission__container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns for Mission on desktop */
+    }
+
+    .values__grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns for Values on desktop */
+    }
+}
+
+/* ========================================= */
+/* 3. ABOUT US - HISTORY TIMELINE */
+/* ========================================= */
+
+.history {
+    padding: 8rem 0;
+    background-color: var(--background-base);
+}
+
+.history .section-title {
+    margin-bottom: 5rem;
+}
+
+.history-timeline {
+    position: relative;
+}
+
+/* The main line (the grey background) */
+.history-timeline__line {
+    position: absolute;
+    left: 9px;
+    /* Centered on the 20px dot */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #e5e7eb;
+}
+
+/* The progress line (the blue line that animates) */
+.history-timeline__line--progress {
+    position: absolute;
+    left: 9px;
+    top: 0;
+    width: 2px;
+    background-color: var(--primary-vivid-azure);
+    height: 0;
+    /* JS will animate this height */
+    transition: height 0.1s linear;
+    /* Smooths the JS updates */
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    /* Space for the line and dot */
+    padding-bottom: 4rem;
+}
+
+.timeline-item__dot {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #e5e7eb;
+    border: 3px solid var(--background-base);
+    transition: background-color 0.3s;
+}
+
+/* Style the dot when the item is visible */
+.timeline-item.is-visible .timeline-item__dot {
+    background-color: var(--primary-vivid-azure);
+    /* Keep the first one blue */
+}
+
+/* Target the 2nd and 4th items */
+.timeline-item:nth-child(2).is-visible .timeline-item__dot,
+.timeline-item:nth-child(4).is-visible .timeline-item__dot {
+    background-color: var(--secondary-leaf-green);
+}
+
+/* Target the 3rd item */
+.timeline-item:nth-child(3).is-visible .timeline-item__dot {
+    background-color: var(--accent-vivid-magenta);
+}
+
+.timeline-item__content {
+    background-color: var(--neutral-light);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.timeline-item__year {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--primary-vivid-azure);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item__content h3 {
+    font-size: var(--font-size-md);
+    margin: 0 0 1rem 0;
+}
+
+/* --- Desktop Timeline (2-sided) --- */
+@media (min-width: 768px) {
+
+    .history-timeline__line,
+    .history-timeline__line--progress {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        width: 50%;
+        padding-left: 0;
+        padding-right: 40px;
+        /* Space on the right now */
+    }
+
+    .timeline-item:nth-child(even) {
+        margin-left: 50%;
+        /* Push even items to the right */
+        padding-left: 40px;
+        padding-right: 0;
+    }
+
+    .timeline-item__dot {
+        transform: translateX(-50%);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-item__dot {
+        left: 100%;
+    }
+
+    .timeline-item:nth-child(even) .timeline-item__dot {
+        left: 0;
+    }
+
+    .timeline-item__content--right {
+        text-align: right;
+    }
+}
+
+/* =============================================================== */
+/* 4. ABOUT US - MEET THE TEAM           */
+/* =============================================================== */
+
+.team {
+    padding: 8rem 0;
+    background-color: var(--neutral-light);
+}
+
+.team .section-title {
+    margin-bottom: 4rem;
+}
+
+.team__grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+    /* Mobile-first */
+}
+
+.team-card {
+    background-color: var(--background-base);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    /* Needed for absolute positioning of content */
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.team-card__image-wrapper {
+    aspect-ratio: 4 / 3;
+    /* Taller image, takes up more space */
+    position: relative;
+    /* For absolute positioning of overlay content */
+}
+
+.team-card__image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-card__content {
+    position: absolute;
+    /* Overlay content */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    /* Gradient overlay for text readability */
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--background-base);
+    /* Text color for overlay */
+    padding-bottom: 0.5rem;
+    /* Adjust padding to bring socials closer */
+}
+
+.team-card__name {
+    font-size: var(--font-size-md);
+    margin: 0 0 0.25rem 0;
+    color: var(--background-base);
+    /* Ensure name is white */
+    position: relative;
+    z-index: 2;
+    /* Ensure it's above the gradient */
+}
+
+.team-card__role {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--primary-vivid-azure);
+    /* Role remains primary color */
+    margin: 0 0 1rem 0;
+    position: relative;
+    z-index: 2;
+}
+
+.team-card__socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    /* Space between role and socials */
+    position: relative;
+    z-index: 2;
+}
+
+.team-card__socials svg {
+    width: 24px;
+    height: 24px;
+    color: var(--background-base);
+    /* White for social icons on dark overlay */
+    transition: color 0.3s;
+}
+
+.team-card__socials a:hover svg {
+    color: var(--primary-vivid-azure);
+}
+
+
+/* --- Responsive Breakpoints --- */
+
+@media (min-width: 768px) {
+    .team__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .team__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

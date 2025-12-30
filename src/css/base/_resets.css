@@ -1,0 +1,33 @@
+/* --- Basic Resets & Body Styles --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  position: relative;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--neutral-dark);
+  background-color: var(--neutral-light);
+}
+
+/* --- Global Utility Classes --- */
+
+/* Prevents scrolling on the body when a modal or overlay is active. */
+body.menu-is-open {
+  overflow: hidden;
+}

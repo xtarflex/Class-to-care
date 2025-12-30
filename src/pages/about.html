@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class to Care</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body id="page-about">
+
+    <header class="site-header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="/" class="site-logo">
+                <img src="/assets/icons/c2c image logo2.png" alt="Class to Care Logo">
+            </a>
+
+            <!-- Desktop Navigation (Hidden on Mobile) -->
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul class="nav-list">
+
+                    <li><a href="/">Home</a></li>
+
+                    <li class="has-submenu">
+                        <a href="/about" class="active" aria-haspopup="true" aria-expanded="false">About Us
+                            ▼</a>
+                        <div class="submenu submenu--mega">
+                            <div class="submenu-wrapper">
+                                <div class="submenu-grid">
+                                    <div class="submenu-column">
+                                        <a href="/about#about-vision">Our Vision </a>
+                                    </div>
+                                    <div class="submenu-column">
+                                        <a href="/about#about-mission">Our Mission</a>
+                                    </div>
+                                    <div class="submenu-column">
+                                        <a href="/about#about-history">Our Journey</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="/our-work" aria-haspopup="true" aria-expanded="false">Our
+                            Work ▼</a>
+                        <div class="submenu submenu--mega">
+                            <div class="submenu-wrapper">
+                                <div class="submenu-grid">
+                                    <div class="submenu-column">
+                                        <a href="/our-work#education">Medical Education</a>
+                                    </div>
+                                    <div class="submenu-column">
+                                        <a href="/our-work#equipment">Equipment Donation</a>
+                                    </div>
+                                    <div class="submenu-column">
+                                        <a href="/our-work#awareness">Public Awareness</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="/get-involved" aria-haspopup="true" aria-expanded="false">Get Involved
+                            ▼</a>
+                        <div class="submenu submenu--mega">
+                            <div class="submenu-wrapper">
+                                <div class="submenu-grid">
+                                    <div class="submenu-column">
+                                        <a href="/volunteer">Partner With Us</a>
+                                    </div>
+                                    <div class="submenu-column">
+                                        <a href="/donate"> Donate to our Cause</a>
+                                    </div>
+                                    <div class="submenu-column">
+                                        <a href="/project">Our Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><a href="/contact">Contact</a></li>
+
+                </ul>
+            </nav>
+
+            <!-- Mobile Navigation Triggers (Hidden on Desktop) -->
+            <div class="mobile-nav-triggers">
+                <a href="/donate" class="btn-icon" aria-label="Donate"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg></a>
+                <button class="hamburger-btn" aria-label="Open Menu" aria-controls="mobile-nav"
+                    aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+
+            <!-- Desktop Donate Button (Hidden on Mobile) -->
+            <a href="/donate" class="btn btn-primary desktop-donate-btn">DONATE</a>
+        </div>
+    </header>
+
+    <!-- Full Screen Mobile Menu (Hidden by default) -->
+    <div class="mobile-nav-overlay" id="mobile-nav" role="dialog" aria-modal="true">
+        <div class="mobile-nav-header">
+            <!-- <a href="/" class="site-logo"><img src="" alt="Class to Care Logo"></a> -->
+            <button class="close-btn" aria-label="Close Menu"></button>
+        </div>
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li class="has-submenu"><a href="/about" class="accordion-toggle active" aria-expanded="false">About
+                        Us</a>
+                    <div class="mobile-submenu">
+                        <a href="/about#about-mission">Our Mission</a>
+                        <a href="/about#about-vision">Our Vision</a>
+                        <a href="/about#about-history">Our Journey</a>
+                    </div>
+                </li>
+                <li class="has-submenu"><a href="/our-work" class="accordion-toggle"
+                        aria-expanded="false">Our
+                        Work</a>
+                    <div class="mobile-submenu">
+                        <a href="/our-work#education">Medical Education</a>
+                        <a href="/our-work#equipment">Equipment Donation</a>
+                        <a href="/our-work#awareness">Public Awareness</a>
+                    </div>
+                </li>
+                <li class="has-submenu"><a href="/get-involved" class="accordion-toggle"
+                        aria-expanded="false">Get Involved</a>
+                    <div class="mobile-submenu">
+                        <a href="/volunteer">Volunteer</a>
+                        <a href="/partner">Partner with Us</a>
+                    </div>
+                </li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <a href="/donate" class="btn btn-primary mobile-donate-btn">DONATE</a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- 1. ABOUT US - PAGE HERO -->
+        <section class="page-hero">
+            <div class="page-hero__overlay"></div>
+            <div class="container">
+                <div class="page-hero__content" data-ani="fade-up">
+                    <h1 class="page-hero__title">About Class to Care</h1>
+                    <p class="page-hero__subtitle">Learn about our journey, our values, and the people driving our
+                        mission to improve healthcare across Nigeria.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. OUR VISION SECTION -->
+        <section id="about-vision" class="vision">
+            <video autoplay loop muted playsinline>
+                <source src="/assets/video/vision-video.mp4" type="video/mp4">
+            </video>
+
+            <!-- The background video/image and V-shape are handled by CSS on this element -->
+            <div class="container vision__container">
+                <div class="vision__content">
+                    <h2 data-ani="fade-down">Our Vision</h2>
+                    <p class="vision__statement" data-ani="blur-in" data-ani-delay="200">
+                        To be the foremost promoter of access to high quality healthcare for all Nigerians.
+                    </p>
+                    <p class="vision__subtitle" data-ani="fade-up" data-ani-delay="400">
+                        We believe in a future where potential is limitless, inspiring us to build solutions that
+                        redefine what's possible for our communities.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. OUR MISSION SECTION  -->
+        <section id="about-mission" class="mission">
+            <div class="container mission__container">
+                <!-- Left Column: Image Plank -->
+                <div class="mission__image-plank" data-ani="slide-right">
+                    <img src="/assets/images/mission-image-1.webp" alt="A healthcare worker assisting a patient"
+                        loading="lazy">
+                    <img src="/assets/images/mission-image-2.webp" alt="A community training session" loading="lazy">
+                    <img src="/assets/images/mission-image-3.webp" alt="Donated medical equipment in a clinic"
+                        loading="lazy">
+                </div>
+
+                <!-- Right Column: Glassmorphism Card -->
+                <div class="mission__content-wrapper" data-ani="slide-left" data-ani-delay="200">
+                    <div class="mission__glass-card">
+                        <h2>Our Mission</h2>
+                        <dl class="mission__list">
+                            <dt>What We Do</dt>
+                            <dd>Improve healthcare service delivery across Nigeria.</dd>
+
+                            <dt>How We Do It</dt>
+                            <dd>Through continuous medical education, equipment donation, and promoting public
+                                health
+                                awareness.</dd>
+
+                            <dt>For Whom</dt>
+                            <dd>For healthcare practitioners, public institutions, and the communities they serve.
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. OUR CORE VALUES SECTION -->
+        <section id="about-values" class="values">
+            <div class="container">
+                <div class="section-title" data-ani="fade-up">
+                    <h2>Our Core <span class="gradient-text">Values</span></h2>
+                </div>
+
+                <div class="values__grid" data-ani-stagger="150">
+                    <!-- Value 1: Integrity -->
+                    <div class="value-card__wrapper" data-ani>
+                        <div class="value-card">
+                            <div class="value-card__face value-card__face--front">
+                                <img src="/assets/icons/hand-pointing.svg" alt="Click to reveal value details"
+                                    class="value-card__pointer-icon" aria-hidden="true">
+                            </div>
+                            <div class="value-card__face value-card__face--back">
+                                <div class="value-card__icon" data-icon="handshake"></div>
+                                <h3>Integrity</h3>
+                                <p>We operate with honesty and transparency in all our dealings.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Value 2: Compassion -->
+                    <div class="value-card__wrapper" data-ani>
+                        <div class="value-card">
+                            <div class="value-card__face value-card__face--front">
+                                <img src="/assets/icons/hand-pointing.svg" alt="Click to reveal value details"
+                                    class="value-card__pointer-icon" aria-hidden="true">
+                            </div>
+                            <div class="value-card__face value-card__face--back">
+                                <div class="value-card__icon" data-icon="heart"></div>
+                                <h3>Compassion</h3>
+                                <p>We put the communities we serve at the heart of every decision we make.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Value 3: Excellence -->
+                    <div class="value-card__wrapper" data-ani>
+                        <div class="value-card">
+                            <div class="value-card__face value-card__face--front">
+                                <img src="/assets/icons/hand-pointing.svg" alt="Click to reveal value details"
+                                    class="value-card__pointer-icon" aria-hidden="true">
+                            </div>
+                            <div class="value-card__face value-card__face--back">
+                                <div class="value-card__icon" data-icon="medal"></div>
+                                <h3>Excellence</h3>
+                                <p>We take responsibility for our results and constantly strive to improve our
+                                    impact.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- 3. OUR HISTORY TIMELINE -->
+        <!-- ============================================ -->
+        <section id="about-history" class="history">
+            <div class="container">
+                <div class="section-title" data-ani="fade-up">
+                    <h2>Our <span class="gradient-text">Journey</span></h2>
+                    <p>Tracing our milestones from a simple idea to an impactful organization.</p>
+                </div>
+
+                <div class="history-timeline">
+                    <div class="history-timeline__line"></div>
+                    <div class="history-timeline__line--progress"></div>
+                    <!-- This is the line that JS will animate -->
+
+                    <div class="history-timeline__items">
+                        <!-- Milestone 1 -->
+                        <div class="timeline-item" data-ani="fade-up">
+                            <div class="timeline-item__dot"></div>
+                            <div class="timeline-item__content timeline-item__content--right">
+                                <div class="timeline-item__year">2018</div>
+                                <h3>First Training Program</h3>
+                                <p>Held our first Basic Life Support (BLS) training, equipping 8 health workers from
+                                    3
+                                    local government areas with critical skills.</p>
+                            </div>
+                        </div>
+
+                        <!-- Milestone 2 -->
+                        <div class="timeline-item" data-ani="fade-up">
+                            <div class="timeline-item__dot"></div>
+                            <div class="timeline-item__content timeline-item__content--left">
+                                <div class="timeline-item__year">2019</div>
+                                <h3>First Equipment Donation</h3>
+                                <p>Donated a standing fan and a drug cart to the Ayomi Mafoluku Primary Health
+                                    Centre,
+                                    our first step in direct facility support.</p>
+                            </div>
+                        </div>
+
+                        <!-- Milestone 3 -->
+                        <div class="timeline-item" data-ani="fade-up">
+                            <div class="timeline-item__dot"></div>
+                            <div class="timeline-item__content timeline-item__content--right">
+                                <div class="timeline-item__year">2022</div>
+                                <h3>CAPRES in Schools</h3>
+                                <p>Launched the Cardio Pulmonary Resuscitation in Schools (CAPRES) project, starting
+                                    with Div-Help schools in Oshodi, Lagos.</p>
+                            </div>
+                        </div>
+
+                        <!-- Milestone 4 -->
+                        <div class="timeline-item" data-ani="fade-up">
+                            <div class="timeline-item__dot"></div>
+                            <div class="timeline-item__content timeline-item__content--left">
+                                <div class="timeline-item__year">2023</div>
+                                <h3>OSATEA Online Training</h3>
+                                <p>Expanded our reach digitally with the OSATEA project, training over 100 nurses
+                                    from
+                                    the Naija Nurse Forum online.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. MEET THE TEAM SECTION  -->
+        <section id="about-team" class="team">
+            <div class="container">
+                <div class="section-title" data-ani="fade-up">
+                    <h2>Meet Our <span class="gradient-text">Team</span></h2>
+                    <p>The passionate individuals dedicated to driving our mission forward.</p>
+                </div>
+
+                <div class="team__grid" data-ani-stagger="150">
+                    <div class="ani-wrapper" data-ani="zoom-in">
+                        <div class="team-card">
+                            <div class="team-card__image-wrapper">
+                                <img src="/assets/images/team-placeholder-1.webp" alt="Headshot of Founder">
+                            </div>
+                            <div class="team-card__content">
+                                <h3 class="team-card__name">Dr. Adebayo Adeyemi</h3>
+                                <p class="team-card__role">Founder & Chief Medical Officer</p>
+                                <div class="team-card__socials">
+                                    <a href="#" aria-label="LinkedIn Profile">
+                                        <div data-icon="linkedin-logo"></div>
+                                    </a>
+                                    <a href="#" aria-label="Twitter Profile">
+                                        <div data-icon="twitter-logo"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ani-wrapper" data-ani="zoom-in">
+                        <div class="team-card">
+                            <div class="team-card__image-wrapper">
+                                <img src="/assets/images/team-placeholder-2.webp" alt="Headshot of Project Coordinator">
+                            </div>
+                            <div class="team-card__content">
+                                <h3 class="team-card__name">Mr. Sunday Adedeji</h3>
+                                <p class="team-card__role">Project Coordinator</p>
+                                <div class="team-card__socials">
+                                    <a href="#" aria-label="LinkedIn Profile">
+                                        <div data-icon="linkedin-logo"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ani-wrapper" data-ani="zoom-in">
+                        <div class="team-card">
+                            <div class="team-card__image-wrapper">
+                                <img src="/assets/images/team-placeholder-3.webp" alt="Headshot of Lead Educator">
+                            </div>
+                            <div class="team-card__content">
+                                <h3 class="team-card__name">Ngozi Okoro</h3>
+                                <p class="team-card__role">Lead Educator & Community Outreach</p>
+                                <div class="team-card__socials">
+                                    <a href="#" aria-label="LinkedIn Profile">
+                                        <div data-icon="linkedin-logo"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wavy Divider Above Footer -->
+        <section class="newsletter">
+            <div class="wavy-divider">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 106.67" preserveAspectRatio="none">
+                    <path fill="#343a40" fill-opacity="1"
+                        d="M0,64L48,65.77C96,67.67,192,71,288,76.43C384,81.67,480,89,576,83.57C672,78.33,768,60.33,864,60.43C960,60.33,1056,78.33,1152,78.23C1248,78.33,1344,60.33,1392,51.57L1440,42.67L1440,106.67L1392,106.67C1344,106.67,1248,106.67,1152,106.67C1056,106.67,960,106.67,864,106.67C768,106.67,672,106.67,576,106.67C480,106.67,384,106.67,288,106.67C192,106.67,96,106.67,48,106.67L0,106.67Z">
+                    </path>
+                    <path fill="#343a40" fill-opacity="0.8"
+                        d="M0,74.67L48,71.1C96,67.67,192,60.33,288,62.23C384,64,480,74.67,576,80C672,85.33,768,85.33,864,80C960,74.67,1056,64,1152,60.43C1248,57,1344,60.33,1392,62.23L1440,64L1440,106.67L1392,106.67C1344,106.67,1248,106.67,1152,106.67C1056,106.67,960,106.67,864,106.67C768,106.67,672,106.67,576,106.67C480,106.67,384,106.67,288,106.67C192,106.67,96,106.67,48,106.67L0,106.67Z">
+                    </path>
+                    <path fill="#343a40" fill-opacity="0.6"
+                        d="M0,85.33L48,81.77C96,78.33,192,71,288,69.33C384,67.67,480,71,576,71.1C672,71,768,67.67,864,69.33C960,71,1056,78.33,1152,81.77C1248,85.33,1344,85.33,1392,85.33L1440,85.33L1440,106.67L1392,106.67C1344,106.67,1248,106.67,1152,106.67C1056,106.67,960,106.67,864,106.67C768,106.67,672,106.67,576,106.67C480,106.67,384,106.67,288,106.67C192,106.67,96,106.67,48,106.67L0,106.67Z">
+                    </path>
+                </svg>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <!-- TIER 1: Main Grid -->
+            <div class="footer__main">
+                <!-- Column 1: Org Info & Socials -->
+                <div class="footer__column footer__column--org">
+                    <a href="/" class="footer__logo"><img src="/assets/icons/c2c image logo2.png" alt="Class to Care Logo"></a>
+                    <p class="footer__mission">Improving healthcare and service delivery through continuing medical education and promoting support to influence healthcare practice.</p>
+                    <div class="footer__socials">
+                        <a href="https://www.facebook.com/classtocare" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><div data-icon="facebook-logo"></div></a>
+                        <a href="https://www.twitter.com/classtocare" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><div data-icon="twitter-logo"></div></a>
+                        <a href="https://www.instagram.com/classtocare" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><div data-icon="instagram-logo"></div></a>
+                        <a href="https://www.linkedin.com/company/classtocare" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><div data-icon="linkedin-logo"></div></a>
+                    </div>
+                </div>
+                <!-- Column 2: Quick Links -->
+                <div class="footer__column">
+                    <h3 class="footer__title">Quick Links</h3>
+                    <ul class="footer__list">
+                        <li><a href="/pages/about.html">About Us</a></li>
+                        <li><a href="/programs">Our Programs</a></li>
+                        <li><a href="/news">News & Events</a></li>
+                        <li><a href="/gallery">Gallery</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3: Get Involved -->
+                <div class="footer__column">
+                    <h3 class="footer__title">Get Involved</h3>
+                    <ul class="footer__list">
+                        <li><a href="/donates">Donate Now</a></li>
+                        <li><a href="/volunteer">Volunteer</a></li>
+                        <li><a href="/partner">Partner With Us</a></li>
+                        <li><a href="/fundraise">Fundraise</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4: Contact Info -->
+                <div class="footer__column">
+                    <h3 class="footer__title">Contact Info</h3>
+                    <ul class="footer__list footer__list--contact">
+                        <li><div data-icon="map-pin"></div> Lagos, Nigeria</li>
+                        <li><div data-icon="envelope"></div> info@classtocare.org</li>
+                        <li><div data-icon="phone"></div> +234 913 981 1195</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- TIER 2: Newsletter (Centered Block) -->
+            <div class="footer__newsletter-block">
+                <div class="footer__newsletter-content">
+                    <h3 class="footer__title">Stay Updated</h3>
+                    <p class="footer__text">Subscribe to our newsletter for the latest updates and impact stories.</p>
+
+                    <form class="footer__form-inline">
+                        <input type="email" class="footer__input" placeholder="Enter your email" required
+                            aria-label="Email Address">
+                        <button type="submit" class="btn btn-primary footer__btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- TIER 3: Bottom Bar -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; <span id="current-year"></span> Class to Care. All rights reserved.</p>
+                <div class="footer__legal">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/js/script.js"></script>
+</body>
+
+</html>
