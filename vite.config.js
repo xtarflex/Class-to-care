@@ -1,9 +1,10 @@
-import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import { netlifyPlugin } from '@netlify/vite-plugin';
 
 export default defineConfig({
   root: 'src', // Your source files are here
-  publicDir: 'public', 
+  publicDir: 'public',
+  plugins: [netlifyPlugin()],
   build: {
     outDir: '../dist', // Output goes here
     emptyOutDir: true, // Cleans the dist folder before building
@@ -15,7 +16,7 @@ export default defineConfig({
         // 2. The Inner Pages (in the /pages/ folder)
         about: resolve(__dirname, 'src/pages/about.html'),
         work: resolve(__dirname, 'src/pages/our-work.html'),
-        // add get-involved here later when you build it
+        getInvolved: resolve(__dirname, 'src/pages/get-involved.html'),
 
         // 3. The State Pages (in the root of src/)
         comingSoon: resolve(__dirname, 'src/coming-soon.html'),
