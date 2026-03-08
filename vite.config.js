@@ -1,5 +1,6 @@
+import { defineConfig } from 'vite';
 import { resolve } from 'path';
-import { netlifyPlugin } from '@netlify/vite-plugin';
+import netlifyPlugin from '@netlify/vite-plugin';
 
 export default defineConfig({
   root: 'src', // Your source files are here
