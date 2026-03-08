@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@netlify/vite-plugin": "^2.10.8",
     "vite": "^5.0.8"
   }
 }
