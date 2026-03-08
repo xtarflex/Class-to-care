@@ -1,7 +1,9 @@
 # Main Pages
-/         /index.html          200
-/about    /pages/about.html    200
-/our-work /pages/our-work.html 200
+/                /index.html              200
+/about           /pages/about.html        200
+/about/          /pages/about.html        200
+/our-work        /pages/our-work.html     200
+/our-work/       /pages/our-work.html     200
 
 # Get Involved
 /get-involved       /pages/get-involved.html            200
@@ -12,14 +14,14 @@
 /fundraise          /coming-soon.html?page=Fundraise    200
 
 # Info & Footer Links (Coming Soon)
-/programs           /coming-soon.html?page=Programs     200
-/news               /coming-soon.html?page=News         200
-/gallery            /coming-soon.html?page=Gallery      200
-/contact            /coming-soon.html?page=Contact      200
-/privacy            /coming-soon.html?page=Privacy      200
-/terms              /coming-soon.html?page=Terms        200
+/programs        /coming-soon.html?page=Programs 200
+/news            /coming-soon.html?page=News 200
+/gallery         /coming-soon.html?page=Gallery 200
+/contact         /coming-soon.html?page=Contact 200
+/privacy         /coming-soon.html?page=Privacy 200
+/terms           /coming-soon.html?page=Terms 200
 
 # Special Cases
-/coming-soon /coming-soon.html 200
-/offline     /offline.html     200
-/404         /404.html         404
+/coming-soon     /coming-soon.html        200
+/offline         /offline.html            200
+/404             /404.html                404
