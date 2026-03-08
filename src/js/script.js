@@ -13,6 +13,7 @@ import { initTodoLinks } from './utils/todo-links.js';
 import { initCurrentYear } from './utils/current-year.js';
 import { initHeaderEffects } from './components/header-effects.js';
 import { initStatePage } from './components/state-pages.js';
+import { initAccordion } from './components/accordion.js';
 
 // --- Page-Specific Initializers ---
 // Page-specific modules are now loaded dynamically.
@@ -39,6 +40,8 @@ function main() {
         import('./pages/about.js').then(module => module.initAboutPage());
     } else if (pageId === 'page-work') {
         import('./pages/work.js').then(module => module.initWorkPage());
+    } else if (pageId === 'page-get-involved') {
+        initAccordion();
     }
 
     // Handle Newsletter Submission (Mock UI Feedback)
