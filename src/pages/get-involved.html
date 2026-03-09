@@ -166,6 +166,67 @@
             </div>
         </section>
 
+        <!-- THE STORY REVEAL (The Sticky Blob Section) -->
+        <section class="story-reveal">
+            <div class="container story-layout">
+
+                <!-- LEFT: Sticky Blob Container -->
+                <div class="story-sidebar">
+                    <div class="blob-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="liquid-blob">
+                            <path class="blob-layer-1" fill="var(--accent-vivid-magenta)" opacity="0.2"
+                                d="M43.3,-68.7C54.4,-60.1,60.7,-45.4,61.7,-31.6C62.7,-17.8,58.5,-5,56.9,8.5C55.4,21.9,56.7,36.1,51.2,47C45.8,57.9,33.7,65.7,21.1,67.4C8.5,69,-4.6,64.6,-17.5,60.4C-30.3,56.2,-43,52.2,-55.3,44.4C-67.6,36.6,-79.6,24.9,-80.4,12.2C-81.2,-0.4,-70.9,-14.1,-60.8,-24.3C-50.7,-34.5,-40.8,-41.3,-30.7,-50.4C-20.6,-59.4,-10.3,-70.7,2.9,-75.2C16,-79.7,32.1,-77.3,43.3,-68.7Z"
+                                transform="translate(100 100)" />
+
+                            <path class="blob-layer-2" fill="var(--secondary-leaf-green)" opacity="0.3"
+                                d="M43.3,-68.7C54.4,-60.1,60.7,-45.4,61.7,-31.6C62.7,-17.8,58.5,-5,56.9,8.5C55.4,21.9,56.7,36.1,51.2,47C45.8,57.9,33.7,65.7,21.1,67.4C8.5,69,-4.6,64.6,-17.5,60.4C-30.3,56.2,-43,52.2,-55.3,44.4C-67.6,36.6,-79.6,24.9,-80.4,12.2C-81.2,-0.4,-70.9,-14.1,-60.8,-24.3C-50.7,-34.5,-40.8,-41.3,-30.7,-50.4C-20.6,-59.4,-10.3,-70.7,2.9,-75.2C16,-79.7,32.1,-77.3,43.3,-68.7Z"
+                                transform="translate(100 100)" />
+
+                            <path class="blob-layer-3" fill="var(--primary-vivid-azure)" opacity="0.4"
+                                d="M43.3,-68.7C54.4,-60.1,60.7,-45.4,61.7,-31.6C62.7,-17.8,58.5,-5,56.9,8.5C55.4,21.9,56.7,36.1,51.2,47C45.8,57.9,33.7,65.7,21.1,67.4C8.5,69,-4.6,64.6,-17.5,60.4C-30.3,56.2,-43,52.2,-55.3,44.4C-67.6,36.6,-79.6,24.9,-80.4,12.2C-81.2,-0.4,-70.9,-14.1,-60.8,-24.3C-50.7,-34.5,-40.8,-41.3,-30.7,-50.4C-20.6,-59.4,-10.3,-70.7,2.9,-75.2C16,-79.7,32.1,-77.3,43.3,-68.7Z"
+                                transform="translate(100 100)" />
+                        </svg>
+
+                        <div class="blob-text-overlay">
+                            <span id="dynamic-blob-text">The Reality</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Scrolling Content -->
+                <div class="story-content">
+
+                    <div class="story-step" id="story-step-1">
+                        <!-- Using data-ani to slide in from right -->
+                        <div class="ani-wrapper" data-ani="slide-right">
+                            <img src="/assets/images/mission-image-1.webp" alt="Healthcare reality in Nigeria"
+                                class="story-image story-image--landscape">
+                        </div>
+                    </div>
+
+                    <div class="story-step" id="story-step-2">
+                        <!-- ID added for JS scroll tracking -->
+                        <h2 id="scroll-headline" class="story-headline">
+                            Great Healthcare Shouldn't Be a <span class="highlight-privilege">Privilege</span>.
+                        </h2>
+
+                        <!-- Staggered paragraph reveals -->
+                        <p data-ani="fade-up">Across Nigeria, passionate healthcare workers are fighting to save lives
+                            every day. Yet, they often lack the critical equipment, continuous training, and resources
+                            they desperately need.</p>
+
+                        <p data-ani="fade-up" data-ani-delay="200">
+                            <mark class="draw-highlight"><strong class="highlight-strong">We cannot do it
+                                    alone.</strong></mark> That is where you come in. Your
+                            support transforms under-resourced clinics into centers of healing and turns ordinary
+                            citizens into confident lifesavers.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
         <!-- 2. WAYS TO HELP (Action Grid) -->
         <section class="ways-to-help">
             <div class="container">

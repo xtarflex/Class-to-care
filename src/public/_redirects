@@ -3,10 +3,9 @@
 /about           /pages/about.html        200
 /about/          /pages/about.html        200
 /our-work        /pages/our-work.html     200
-/our-work/       /pages/our-work.html     200
+/get-involved       /pages/get-involved.html            200
 
 # Get Involved
-/get-involved       /pages/get-involved.html            200
 /volunteer          /coming-soon.html?page=Volunteer    200
 /partner            /coming-soon.html?page=Partner      200
 /donate             /coming-soon.html?page=Donation     200
